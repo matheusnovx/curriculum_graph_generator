@@ -4,7 +4,7 @@ import graphviz
 
 GRAPH_ATRIBBUTES = """
     // direction of graph layout is left to right
-    rankdir=TD;
+    rankdir=LR;
     
     // edges route around nodes with polygonal chains
     splines=ortho;
@@ -62,6 +62,7 @@ class CurriculumGraphGenerator:
             cluster.attr(color="#00000000")
             self.create_columns()
             self.create_headers()
+            self.create_connections()
 
         return self.graph
 
@@ -84,7 +85,7 @@ class CurriculumGraphGenerator:
         Create headers for each fase in the graph.
         """
         with self.graph.subgraph() as header_rank:
-            header_rank.attr(rank="same")  # Força todos os headers na mesma linha
+            header_rank.attr(rank="same")
             for fase in sorted(self.disciplinas_por_fase.keys(), key=lambda x: int(x)):
                 nome = f"Fase {fase}" if fase != "999" else "Fase 8+"
                 self.graph.node(f"header_{fase}", nome,
@@ -104,12 +105,24 @@ class CurriculumGraphGenerator:
                 self.graph.edge(prev_node, code, style="invis")  # Alinha verticalmente
                 prev_node = code
 
-            # Agrupamento visual opcional
             with self.graph.subgraph(name=f"cluster_{fase}") as cluster:
                 cluster.attr(color="transparent")
                 cluster.node(header_id)
                 for code in disciplinas:
                     cluster.node(code)
+
+    def create_connections(self):
+        """
+        Create connections (edges) between subjects based on prerequisites.
+        """
+        for codigo, disciplina in self.disciplinas_obrigatorias.items():
+            prereq = disciplina.get("prerequisito", "")
+            prereq_list = prereq.split(" e ") if prereq else []
+
+            for prereq_codigo in prereq_list:
+                # Evita adicionar conexões para códigos ausentes no grafo
+                if prereq_codigo in self.disciplinas_obrigatorias:
+                    self.graph.edge(prereq_codigo, codigo, color="black")
 
 
 path = Path("/home/novais/curriculum-graph-gen/curriculos/ciencias_da_computação/curriculo_208_20242.json")
@@ -120,4 +133,4 @@ with open(path, "r") as file:
     generator.json_parser(curriculum_data)
     grafo = generator.create_graph()
     grafo.render(cleanup=True, format="svg", view=False)
-print(grafo)
+    print(grafo)

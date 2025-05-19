@@ -125,7 +125,7 @@ class CurriculumGraphGenerator:
                     self.graph.edge(prereq_codigo, codigo, color="black")
 
 
-path = Path("/home/novais/curriculum-graph-gen/curriculos/ciencias_da_computação/curriculo_208_20242.json")
+path = Path("../curriculos/arquitetura_e_urbanismo/curriculo_207_20242.json")
 
 with open(path, "r") as file:
     curriculum_data = json.load(file)

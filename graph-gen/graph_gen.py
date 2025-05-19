@@ -4,7 +4,7 @@ import graphviz
 
 GRAPH_ATRIBBUTES = """
     // direction of graph layout is left to right
-    rankdir=LR;
+    rankdir=TB;
     
     // edges route around nodes with polygonal chains
     splines=ortho;
@@ -55,7 +55,7 @@ class CurriculumGraphGenerator:
         """
         Create a graph from the curriculum data.
         """
-        self.graph = graphviz.Digraph("curriculo")
+        self.graph = graphviz.Digraph("curriculo", strict=True)
         self.graph.body.append(GRAPH_ATRIBBUTES)
 
         with self.graph.subgraph(name="cluster_everything") as cluster:
@@ -101,7 +101,7 @@ class CurriculumGraphGenerator:
 
             for code, info in disciplinas.items():
                 nome = info.get("nome", "")
-                self.graph.node(code, label=nome, shape="box", style="filled", fillcolor="lightblue")
+                self.graph.node(code, label=code, shape="box", style="filled", fillcolor="lightblue")
                 self.graph.edge(prev_node, code, style="invis")  # Alinha verticalmente
                 prev_node = code
 
@@ -112,25 +112,21 @@ class CurriculumGraphGenerator:
                     cluster.node(code)
 
     def create_connections(self):
-        """
-        Create connections (edges) between subjects based on prerequisites.
-        """
         for codigo, disciplina in self.disciplinas_obrigatorias.items():
             prereq = disciplina.get("prerequisito", "")
             prereq_list = prereq.split(" e ") if prereq else []
-
             for prereq_codigo in prereq_list:
-                # Evita adicionar conexões para códigos ausentes no grafo
-                if prereq_codigo in self.disciplinas_obrigatorias:
+                if (prereq_codigo, codigo) == ('MTM3100', 'MTM3110'):
+                    self.graph.edge(prereq_codigo, codigo, color="black", constraint="false")
+                else:
                     self.graph.edge(prereq_codigo, codigo, color="black")
 
-
-path = Path("../curriculos/arquitetura_e_urbanismo/curriculo_207_20242.json")
+path = Path("../curriculos/ciencias_da_computação/curriculo_208_20242.json")
 
 with open(path, "r") as file:
     curriculum_data = json.load(file)
     generator = CurriculumGraphGenerator()
     generator.json_parser(curriculum_data)
     grafo = generator.create_graph()
-    grafo.render(cleanup=True, format="svg", view=False)
+    grafo.render(filename = "curriculo", cleanup=True, format="svg", view=False)
     print(grafo)

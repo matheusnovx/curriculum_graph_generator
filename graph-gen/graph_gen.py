@@ -4,7 +4,7 @@ import graphviz
 
 GRAPH_ATRIBBUTES = """
     // direction of graph layout is left to right
-    rankdir=TB;
+    rankdir=LR;
     
     // edges route around nodes with polygonal chains
     splines=ortho;

@@ -60,9 +60,9 @@ class CurriculumGraphGenerator:
 
         with self.graph.subgraph(name="cluster_everything") as cluster:
             cluster.attr(color="#00000000")
-            self.create_columns()
-            self.create_headers()
-            self.create_connections()
+            self.create_headers(cluster)
+            self.create_columns(cluster)
+            self.create_connections(cluster)
 
         return self.graph
 
@@ -80,18 +80,19 @@ class CurriculumGraphGenerator:
 
         self.disciplinas_por_fase = fases
 
-    def create_headers(self):
+    def create_headers(self, cluster):
         """
         Create headers for each fase in the graph.
         """
-        with self.graph.subgraph() as cluster:
-            cluster.attr(color="transparent")
-            for fase in sorted(self.disciplinas_por_fase.keys(), key=lambda x: int(x)):
-                nome = f"Fase {fase}" if fase != "999" else "Fase 8+"
-                self.graph.node(f"header_{fase}", nome,
-                                shape="box", style="filled", fillcolor="lightgrey")
+        for fase in sorted(self.disciplinas_por_fase.keys(), key=lambda x: int(x)):
+            header_id = f"header_{fase}"
+            cluster.node(header_id, label=f"Fase {fase}", shape="rect", style="filled", fillcolor="lightgrey", fontsize="20")
+            cluster.attr(labeljust="l", labelloc="t", label=f"Fase {fase}", color="transparent")
 
-    def create_columns(self):
+            # Add invisible edges to the header
+            cluster.edge(header_id, header_id, style="invis")
+
+    def create_columns(self, cluster):
         """
         Create columns for each fase in the graph.
         """
@@ -101,6 +102,7 @@ class CurriculumGraphGenerator:
 
             for code, info in disciplinas.items():
                 nome = info.get("nome", "")
+                # TODO: Deveria ser o nome da disciplina, mas assim fica mais legivel por enquanto
                 self.graph.node(code, label=code, shape="box", style="filled", fillcolor="lightblue")
                 self.graph.edge(prev_node, code, style="invis")
                 prev_node = code
@@ -111,21 +113,25 @@ class CurriculumGraphGenerator:
                 for code in disciplinas:
                     cluster.node(code)
 
-    def create_connections(self):
+    def create_connections(self, cluster):
         """
         Create connections between subjects based on prerequisites.
         """
-        for codigo, disciplina in self.disciplinas_obrigatorias.items():
-            prereq = disciplina.get("prerequisito", "")
-            prereq_list = prereq.split(" e ") if prereq else []
-            for prereq_codigo in prereq_list:
-                if (prereq_codigo, codigo) == ('MTM3100', 'MTM3110'):
-                    self.graph.edge(prereq_codigo, codigo, color="black", constraint="false")
-                else:
-                    self.graph.edge(prereq_codigo, codigo, color="black")
+        with self.graph.subgraph(name="cluster_prerequisites") as cluster:
+            cluster.attr(color="transparent")
+            cluster.attr(label="Prerequisites", fontsize="20")
+
+            # Create edges for each subject and its prerequisites
+            for codigo, disciplina in self.disciplinas_obrigatorias.items():
+                prereq = disciplina.get("prerequisito", "")
+                prereq_list = prereq.split(" e ") if prereq else []
+                for prereq_codigo in prereq_list:
+                    if (prereq_codigo, codigo) == ('MTM3100', 'MTM3110'):
+                        self.graph.edge(prereq_codigo, codigo, color="black", constraint="false")
+                    else:
+                        self.graph.edge(prereq_codigo, codigo, color="black")
 
 path = Path("/Users/novais/curriculum_graph_generator/curriculos/ciencias_da_computação/curriculo_208_20242.json")
-print(path.resolve())
 
 with open(path, "r") as file:
     curriculum_data = json.load(file)

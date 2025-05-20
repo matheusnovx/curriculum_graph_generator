@@ -84,8 +84,8 @@ class CurriculumGraphGenerator:
         """
         Create headers for each fase in the graph.
         """
-        with self.graph.subgraph() as header_rank:
-            header_rank.attr(rank="same")
+        with self.graph.subgraph() as cluster:
+            cluster.attr(color="transparent")
             for fase in sorted(self.disciplinas_por_fase.keys(), key=lambda x: int(x)):
                 nome = f"Fase {fase}" if fase != "999" else "Fase 8+"
                 self.graph.node(f"header_{fase}", nome,
@@ -102,7 +102,7 @@ class CurriculumGraphGenerator:
             for code, info in disciplinas.items():
                 nome = info.get("nome", "")
                 self.graph.node(code, label=code, shape="box", style="filled", fillcolor="lightblue")
-                self.graph.edge(prev_node, code, style="invis")  # Alinha verticalmente
+                self.graph.edge(prev_node, code, style="invis")
                 prev_node = code
 
             with self.graph.subgraph(name=f"cluster_{fase}") as cluster:
@@ -112,6 +112,9 @@ class CurriculumGraphGenerator:
                     cluster.node(code)
 
     def create_connections(self):
+        """
+        Create connections between subjects based on prerequisites.
+        """
         for codigo, disciplina in self.disciplinas_obrigatorias.items():
             prereq = disciplina.get("prerequisito", "")
             prereq_list = prereq.split(" e ") if prereq else []
@@ -121,7 +124,8 @@ class CurriculumGraphGenerator:
                 else:
                     self.graph.edge(prereq_codigo, codigo, color="black")
 
-path = Path("../curriculos/ciencias_da_computação/curriculo_208_20242.json")
+path = Path("/Users/novais/curriculum_graph_generator/curriculos/ciencias_da_computação/curriculo_208_20242.json")
+print(path.resolve())
 
 with open(path, "r") as file:
     curriculum_data = json.load(file)

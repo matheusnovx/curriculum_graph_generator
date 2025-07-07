@@ -175,14 +175,12 @@ class GraphGenerator:
                 else:
                     all_first_nodes.append(None)
 
-        # Conecta invisivelmente o header ao primeiro nó de cada coluna
-        # Usa lhead e ltail para apontar para os clusters, o que pode ajudar
         for i, (header, first_node) in enumerate(zip(header_nodes, all_first_nodes)):
             if first_node:
                 phase_key = self.fase_keys_sorted[i]
                 cluster_id = phase_key.replace('+', '_plus')
-                # Aresta invisível com peso, apontando para o cluster (lhead)
-                # E para o nó (first_node) - isso pode ser redundante, mas testa
+
+                print(f"Conectando header '{header}' ao primeiro nó '{first_node}' do cluster '{cluster_id}'")
                 graph.edge(header, first_node, style="invis", weight="1000", lhead=f"cluster_{cluster_id}")
 
 
@@ -204,29 +202,15 @@ class GraphGenerator:
 
                     color = self.node_colors.get(prereq_code, "1")
                     
-                    # Usa ltail e lhead para tentar guiar as arestas entre clusters
-                    # Pega a fase do prereq e do subject para achar os clusters
-                    prereq_phase_key = None
-                    subject_phase_key = None
-
-                    for key, s_list in self.curriculum_data.items():
-                        if any(s['codigo'] == prereq_code for s in s_list):
-                            prereq_phase_key = key.replace('+', '_plus')
-                        if any(s['codigo'] == subject['codigo'] for s in s_list):
-                            subject_phase_key = key.replace('+', '_plus')
-                        if prereq_phase_key and subject_phase_key:
-                            break
-
+                    # Conecta diretamente os nós sem usar ltail/lhead
                     attrs = {'color': color}
-                    if prereq_phase_key:
-                        attrs['ltail'] = f"cluster_{prereq_phase_key}"
-                    if subject_phase_key:
-                        attrs['lhead'] = f"cluster_{subject_phase_key}"
 
                     if (prereq_code.upper(), subject["codigo"].upper()) == ('MTM3100', 'MTM3110'):
                         attrs['constraint'] = "false"
+                        print(f"Conectando {prereq_code} a {subject['codigo']} com constraint=false")
                         graph.edge(prereq_code, subject["codigo"], **attrs)
                     else:
+                        print(f"Conectando {prereq_code} a {subject['codigo']} com constraint=false")
                         graph.edge(prereq_code, subject["codigo"], **attrs)
 
 
@@ -245,11 +229,10 @@ class GraphGenerator:
 
         return graph
 
-# Use the parent directory to get the correct path
+
 project_root = Path(__file__).parent.parent
 path = project_root / "curriculos/ciencias_da_computação/curriculo_208_20242.json"
 
-# Ensure the output directory exists
 output_dir = project_root / "graph-gen/grafos_gerados"
 output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -262,7 +245,7 @@ with open(path, "r", encoding='utf-8') as file:
     output_filename = output_dir / "grafo_curriculo"
     # Tenta usar o motor 'dot' (padrão) ou 'neato'/'fdp' se quiser experimentar
     grafo.engine = 'dot' 
-    grafo.render(filename=output_filename, cleanup=True, format="svg", view=False)
+    grafo.render(filename=output_filename, cleanup=True, format="png", view=False)
 
     with open(f"{output_filename}.dot", "w", encoding='utf-8') as dot_file:
         dot_file.write(grafo.source)

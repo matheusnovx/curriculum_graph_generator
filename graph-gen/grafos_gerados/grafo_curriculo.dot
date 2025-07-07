@@ -1,0 +1,300 @@
+strict digraph grafo_materias_layout_ajustado {
+
+    // Direção do layout do grafo é da esquerda para a direita
+    rankdir=LR;
+
+    // As arestas contornam os nós com cadeias poligonais
+    splines=ortho;
+
+    // Define o fundo transparente
+    bgcolor="#00000000";
+
+    // Define o estilo global para os nós
+    node [
+        width=1.4 height=.5 shape=box style=filled
+        fontname=Arial colorscheme=set36
+    ];
+
+    // Define o estilo global para as arestas
+    edge [style=bold colorscheme=set36 arrowsize=.5 arrowhead=tee];
+	compound=true
+	subgraph cluster_header {
+		color="#00000000"
+		rank=min
+		"Fase 1" [label="Fase 1" fontname="Arial-Bold" fontsize=16 shape=plaintext]
+		"Fase 2" [label="Fase 2" fontname="Arial-Bold" fontsize=16 shape=plaintext]
+		"Fase 3" [label="Fase 3" fontname="Arial-Bold" fontsize=16 shape=plaintext]
+		"Fase 4" [label="Fase 4" fontname="Arial-Bold" fontsize=16 shape=plaintext]
+		"Fase 5" [label="Fase 5" fontname="Arial-Bold" fontsize=16 shape=plaintext]
+		"Fase 6" [label="Fase 6" fontname="Arial-Bold" fontsize=16 shape=plaintext]
+		"Fase 7" [label="Fase 7" fontname="Arial-Bold" fontsize=16 shape=plaintext]
+		"Fase 8" [label="Fase 8" fontname="Arial-Bold" fontsize=16 shape=plaintext]
+		"Fase 999" [label="Fase 999" fontname="Arial-Bold" fontsize=16 shape=plaintext]
+		"Fase 1" -> "Fase 2" [style=invis]
+		"Fase 2" -> "Fase 3" [style=invis]
+		"Fase 3" -> "Fase 4" [style=invis]
+		"Fase 4" -> "Fase 5" [style=invis]
+		"Fase 5" -> "Fase 6" [style=invis]
+		"Fase 6" -> "Fase 7" [style=invis]
+		"Fase 7" -> "Fase 8" [style=invis]
+		"Fase 8" -> "Fase 999" [style=invis]
+	}
+	subgraph cluster_1 {
+		color="#00000000"
+		EEL5105 [label="EEL5105
+
+Circuitos e
+Técnicas
+Digitais" color=1 tooltip="Circuitos e Técnicas Digitais"]
+		INE5401 [label="INE5401
+
+Introdução à
+Computação" color=1 tooltip="Introdução à Computação"]
+		INE5402 [label="INE5402
+
+Programação
+Orientada a
+Objetos I" color=1 tooltip="Programação Orientada a Objetos I"]
+		INE5403 [label="INE5403
+
+Fundamentos de
+Matemática
+Discreta para
+Computação" color=1 tooltip="Fundamentos de Matemática Discreta para Computação"]
+		MTM3110 [label="MTM3110
+
+Cálculo 1" color=1 tooltip="Cálculo 1"]
+	}
+	subgraph cluster_2 {
+		color="#00000000"
+		INE5404 [label="INE5404
+
+Programação
+Orientada a
+Objetos II" color=2 tooltip="Programação Orientada a Objetos II"]
+		INE5406 [label="INE5406
+
+Sistemas
+Digitais" color=2 tooltip="Sistemas Digitais"]
+		INE5407 [label="INE5407
+
+Ciência,
+Tecnologia e
+Sociedade" color=2 tooltip="Ciência, Tecnologia e Sociedade"]
+		MTM3120 [label="MTM3120
+
+Cálculo 2" color=2 tooltip="Cálculo 2"]
+		MTM3121 [label="MTM3121
+
+Álgebra Linear" color=2 tooltip="Álgebra Linear"]
+	}
+	subgraph cluster_3 {
+		color="#00000000"
+		INE5202 [label="INE5202
+
+Cálculo
+Numérico em
+Computadores" color=3 tooltip="Cálculo Numérico em Computadores"]
+		INE5408 [label="INE5408
+
+Estruturas de
+Dados" color=3 tooltip="Estruturas de Dados"]
+		INE5410 [label="INE5410
+
+Programação
+Concorrente" color=3 tooltip="Programação Concorrente"]
+		INE5411 [label="INE5411
+
+Organização de
+Computadores I" color=3 tooltip="Organização de Computadores I"]
+		MTM3131 [label="MTM3131
+
+Equações
+Diferenciais
+Ordinárias" color=3 tooltip="Equações Diferenciais Ordinárias"]
+	}
+	subgraph cluster_4 {
+		color="#00000000"
+		INE5412 [label="INE5412
+
+Sistemas
+Operacionais I" color=4 tooltip="Sistemas Operacionais I"]
+		INE5413 [label="INE5413
+
+Grafos" color=4 tooltip=Grafos]
+		INE5414 [label="INE5414
+
+Redes de
+Computadores I" color=4 tooltip="Redes de Computadores I"]
+		INE5415 [label="INE5415
+
+Teoria da
+Computação" color=4 tooltip="Teoria da Computação"]
+		INE5416 [label="INE5416
+
+Paradigmas de
+Programação" color=4 tooltip="Paradigmas de Programação"]
+		INE5417 [label="INE5417
+
+Engenharia de
+Software I" color=4 tooltip="Engenharia de Software I"]
+	}
+	subgraph cluster_5 {
+		color="#00000000"
+		INE5405 [label="INE5405
+
+Probabilidade e
+Estatística" color=5 tooltip="Probabilidade e Estatística"]
+		INE5418 [label="INE5418
+
+Computação
+Distribuída" color=5 tooltip="Computação Distribuída"]
+		INE5419 [label="INE5419
+
+Engenharia de
+Software II" color=5 tooltip="Engenharia de Software II"]
+		INE5420 [label="INE5420
+
+Computação
+Gráfica" color=5 tooltip="Computação Gráfica"]
+		INE5421 [label="INE5421
+
+Linguagens
+Formais e
+Compiladores" color=5 tooltip="Linguagens Formais e Compiladores"]
+		INE5422 [label="INE5422
+
+Redes de
+Computadores II" color=5 tooltip="Redes de Computadores II"]
+	}
+	subgraph cluster_6 {
+		color="#00000000"
+		INE5423 [label="INE5423
+
+Banco de Dados
+I" color=6 tooltip="Banco de Dados I"]
+		INE5424 [label="INE5424
+
+Sistemas
+Operacionais II" color=6 tooltip="Sistemas Operacionais II"]
+		INE5425 [label="INE5425
+
+Modelagem e
+Simulação" color=6 tooltip="Modelagem e Simulação"]
+		INE5426 [label="INE5426
+
+Construção de
+Compiladores" color=6 tooltip="Construção de Compiladores"]
+		INE5427 [label="INE5427
+
+Planejamento e
+Gestão de
+Projetos" color=6 tooltip="Planejamento e Gestão de Projetos"]
+		INE5430 [label="INE5430
+
+Inteligência
+Artificial" color=6 tooltip="Inteligência Artificial"]
+		INE5453 [label="INE5453
+
+Introdução ao
+Trabalho de
+Conclusão de
+Curso" color=6 tooltip="Introdução ao Trabalho de Conclusão de Curso"]
+	}
+	subgraph cluster_7 {
+		color="#00000000"
+		INE5428 [label="INE5428
+
+Informática e
+Sociedade" color=1 tooltip="Informática e Sociedade"]
+		INE5429 [label="INE5429
+
+Segurança em
+Computação" color=1 tooltip="Segurança em Computação"]
+		INE5431 [label="INE5431
+
+Sistemas
+Multimídia" color=1 tooltip="Sistemas Multimídia"]
+		INE5432 [label="INE5432
+
+Banco de Dados
+II" color=1 tooltip="Banco de Dados II"]
+		INE5433 [label="INE5433
+
+Trabalho de
+Conclusão de
+Curso I (TCC)" color=1 tooltip="Trabalho de Conclusão de Curso I (TCC)"]
+	}
+	subgraph cluster_8 {
+		color="#00000000"
+		INE5434 [label="INE5434
+
+Trabalho de
+Conclusão de
+Curso II (TCC)" color=2 tooltip="Trabalho de Conclusão de Curso II (TCC)"]
+	}
+	subgraph cluster_999 {
+		color="#00000000"
+		INE7011 [label="INE7011
+
+Atividades
+Complementares
+1" color=3 tooltip="Atividades Complementares 1"]
+	}
+	"Fase 1" -> EEL5105 [lhead=cluster_1 style=invis weight=1000]
+	"Fase 2" -> INE5404 [lhead=cluster_2 style=invis weight=1000]
+	"Fase 3" -> INE5202 [lhead=cluster_3 style=invis weight=1000]
+	"Fase 4" -> INE5412 [lhead=cluster_4 style=invis weight=1000]
+	"Fase 5" -> INE5405 [lhead=cluster_5 style=invis weight=1000]
+	"Fase 6" -> INE5423 [lhead=cluster_6 style=invis weight=1000]
+	"Fase 7" -> INE5428 [lhead=cluster_7 style=invis weight=1000]
+	"Fase 8" -> INE5434 [lhead=cluster_8 style=invis weight=1000]
+	"Fase 999" -> INE7011 [lhead=cluster_999 style=invis weight=1000]
+	INE5402 -> INE5404 [color=1 lhead=cluster_2 ltail=cluster_1]
+	EEL5105 -> INE5406 [color=1 lhead=cluster_2 ltail=cluster_1]
+	MTM3110 -> MTM3120 [color=1 lhead=cluster_2 ltail=cluster_1]
+	INE5402 -> INE5202 [color=1 lhead=cluster_3 ltail=cluster_1]
+	MTM3120 -> INE5202 [color=2 lhead=cluster_3 ltail=cluster_2]
+	MTM3121 -> INE5202 [color=2 lhead=cluster_3 ltail=cluster_2]
+	INE5404 -> INE5408 [color=2 lhead=cluster_3 ltail=cluster_2]
+	INE5404 -> INE5410 [color=2 lhead=cluster_3 ltail=cluster_2]
+	INE5406 -> INE5411 [color=2 lhead=cluster_3 ltail=cluster_2]
+	MTM3120 -> MTM3131 [color=2 lhead=cluster_3 ltail=cluster_2]
+	MTM3121 -> MTM3131 [color=2 lhead=cluster_3 ltail=cluster_2]
+	INE5410 -> INE5412 [color=3 lhead=cluster_4 ltail=cluster_3]
+	INE5411 -> INE5412 [color=3 lhead=cluster_4 ltail=cluster_3]
+	INE5403 -> INE5413 [color=1 lhead=cluster_4 ltail=cluster_1]
+	INE5408 -> INE5413 [color=3 lhead=cluster_4 ltail=cluster_3]
+	INE5404 -> INE5414 [color=2 lhead=cluster_4 ltail=cluster_2]
+	INE5403 -> INE5415 [color=1 lhead=cluster_4 ltail=cluster_1]
+	INE5408 -> INE5415 [color=3 lhead=cluster_4 ltail=cluster_3]
+	INE5408 -> INE5416 [color=3 lhead=cluster_4 ltail=cluster_3]
+	INE5408 -> INE5417 [color=3 lhead=cluster_4 ltail=cluster_3]
+	MTM3110 -> INE5405 [color=1 lhead=cluster_5 ltail=cluster_1]
+	INE5412 -> INE5418 [color=4 lhead=cluster_5 ltail=cluster_4]
+	INE5414 -> INE5418 [color=4 lhead=cluster_5 ltail=cluster_4]
+	INE5417 -> INE5419 [color=4 lhead=cluster_5 ltail=cluster_4]
+	INE5408 -> INE5420 [color=3 lhead=cluster_5 ltail=cluster_3]
+	MTM3120 -> INE5420 [color=2 lhead=cluster_5 ltail=cluster_2]
+	MTM3121 -> INE5420 [color=2 lhead=cluster_5 ltail=cluster_2]
+	INE5415 -> INE5421 [color=4 lhead=cluster_5 ltail=cluster_4]
+	INE5414 -> INE5422 [color=4 lhead=cluster_5 ltail=cluster_4]
+	INE5408 -> INE5423 [color=3 lhead=cluster_6 ltail=cluster_3]
+	INE5412 -> INE5424 [color=4 lhead=cluster_6 ltail=cluster_4]
+	INE5202 -> INE5425 [color=3 lhead=cluster_6 ltail=cluster_3]
+	INE5405 -> INE5425 [color=5 lhead=cluster_6 ltail=cluster_5]
+	INE5421 -> INE5426 [color=5 lhead=cluster_6 ltail=cluster_5]
+	INE5417 -> INE5427 [color=4 lhead=cluster_6 ltail=cluster_4]
+	INE5405 -> INE5430 [color=5 lhead=cluster_6 ltail=cluster_5]
+	INE5413 -> INE5430 [color=4 lhead=cluster_6 ltail=cluster_4]
+	INE5416 -> INE5430 [color=4 lhead=cluster_6 ltail=cluster_4]
+	INE5417 -> INE5453 [color=4 lhead=cluster_6 ltail=cluster_4]
+	INE5407 -> INE5428 [color=2 lhead=cluster_7 ltail=cluster_2]
+	INE5403 -> INE5429 [color=1 lhead=cluster_7 ltail=cluster_1]
+	INE5414 -> INE5429 [color=4 lhead=cluster_7 ltail=cluster_4]
+	INE5414 -> INE5431 [color=4 lhead=cluster_7 ltail=cluster_4]
+	INE5423 -> INE5432 [color=6 lhead=cluster_7 ltail=cluster_6]
+	INE5427 -> INE5433 [color=6 lhead=cluster_7 ltail=cluster_6]
+	INE5453 -> INE5433 [color=6 lhead=cluster_7 ltail=cluster_6]
+	INE5433 -> INE5434 [color=1 lhead=cluster_8 ltail=cluster_7]
+}

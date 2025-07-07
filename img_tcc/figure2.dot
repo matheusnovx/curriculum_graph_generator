@@ -1,0 +1,83 @@
+strict digraph "curriculum-graph-compsci-ufsc" {
+  // direction of graph layout is left to right
+  rankdir=LR;
+
+  // edges route around nodes with polygonal chains
+  splines=ortho;
+
+  // set transparent background
+  bgcolor="#00000000";
+
+  // set global style for nodes
+  node [
+    width=2 height=0.75 shape=box style=filled fixedsize=true
+    fontname=Arial colorscheme=pastel19
+  ];
+
+  // set global style for edges
+  edge [style=bold colorscheme=pastel19 arrowsize=.5 arrowhead=tee];
+
+  // hack to remove extra space between header and other clusters
+  subgraph cluster_everything {
+    // remove all cluster borders
+    color="#00000000";
+
+    // colorscheme and labels are subjective
+    // there is no automatic text wrapping, so new lines are inserted manually
+    subgraph cluster_1 {
+      eel5105 [color=2 label="Circuitos"];
+      ine5401 [color=1 label="Introdução"];
+      ine5402 [color=2 label="POO I"];
+      ine5403 [color=2 label="Mat. Discreta"];
+      mtm3110 [color=2 label="Cálculo 1"];
+    }
+
+    subgraph cluster_2 {
+      ine5404 [color=2 label="POO II"];
+      ine5406 [color=2 label="Sist. Digitais"];
+      ine5407 [color=2 label="CTS"];
+      mtm3120 [color=2 label="Cálculo 2"];
+      mtm3121 [color=2 label="Álgebra Linear"];
+    }
+
+    subgraph cluster_3 {
+      ine5202 [color=2 label="Calc. Num."];
+      ine5408 [color=2 label="Estrutura de dados"];
+      ine5410 [color=2 label="Prog. Conc."];
+      ine5411 [color=2 label="Org. Comp."];
+      mtm3131 [color=2 label="Eq. Dif. Ord."];
+    }
+
+    subgraph cluster_4 {
+      ine5413 [color=3 label="Grafos"];
+      ine5414 [color=8 label="Redes I"];
+      ine5412 [color=5 label="Sis. Operacionais I"];
+      ine5415 [color=6 label="Teoria da Computação"];
+      ine5416 [color=1 label="Paradigmas"];
+      ine5417 [color=7 label="Eng. de Software I"];
+    }
+  }
+
+  // the heart of the graph: edge descriptions
+  // they are not grouped to make editing and parsing easier
+  eel5105 -> ine5406 [color=2];
+  mtm3110 -> mtm3120 [color=2];
+  ine5402 -> ine5404 [color=2];
+  ine5404 -> ine5408 [color=2];
+  ine5404 -> ine5410 [color=2];
+  ine5406 -> ine5411 [color=2];
+  mtm3120 -> mtm3131 [color=2];
+  mtm3121 -> mtm3131 [color=2];
+  ine5402 -> ine5202 [color=2];
+  mtm3120 -> ine5202 [color=2];
+  mtm3121 -> ine5202 [color=2];
+  ine5410 -> ine5412 [color=2];
+  ine5411 -> ine5412 [color=2];
+  ine5403 -> ine5413 [color=2];
+  ine5408 -> ine5413 [color=2];
+  ine5404 -> ine5414 [color=2];
+  ine5403 -> ine5415 [color=2];
+  ine5408 -> ine5415 [color=2]; 
+  ine5408 -> ine5416 [color=2];
+  ine5408 -> ine5417 [color=2];
+}

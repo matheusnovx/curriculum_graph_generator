@@ -9,10 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "bold-ui": "^1.0.0-beta.65",
+    "@types/dagre": "^0.7.53",
+    "dagre": "^0.8.5",
+    "neo4j-driver": "^5.28.1",
     "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "reactflow": "^11.11.4",
+    "styles": "^0.2.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

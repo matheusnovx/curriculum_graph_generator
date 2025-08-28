@@ -62,3 +62,32 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Gradle
+.gradle/
+build/
+!src/**/build/
+**/build/
+**/out/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDEs
+*.iml
+*.ipr
+*.iws
+
+# Logs
+*.log
+
+# Outros arquivos temporários
+*.class
+*.jar
+*.war
+*.ear
+
+# Arquivos de cache
+*.swp
+*.swo
+
+# Teste
+test-output/

@@ -12,9 +12,16 @@ class CurriculumRepository(private val driver: Driver) {
         // Ou tudo é salvo, ou nada é.
         driver.session().use { session ->
             session.writeTransaction { tx ->
-                // 1. Cria o nó do currículo
-                val curriculumQuery = "MERGE (cur:Curriculum {id: \$curriculumId})"
-                tx.run(curriculumQuery, parameters("curriculumId", graph.curriculumId))
+                // 1. Cria o nó do currículo usando a CHAVE COMPOSTA
+                val curriculumQuery = """
+                    MERGE (cur:Curriculum {id: ${'$'}curriculumId, courseCode: ${'$'}courseCode})
+                    ON CREATE SET cur.courseName = ${'$'}courseName
+                """
+                tx.run(curriculumQuery, parameters(
+                    "curriculumId", graph.curriculumId,
+                    "courseCode", graph.courseCode,
+                    "courseName", graph.courseName
+                ))
 
                 // 2. Itera para criar todos os nós de curso e ligá-los ao currículo
                 val courseQuery = """

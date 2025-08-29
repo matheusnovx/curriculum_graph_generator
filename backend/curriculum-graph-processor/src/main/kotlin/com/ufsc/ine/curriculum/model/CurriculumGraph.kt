@@ -1,12 +1,12 @@
 package com.ufsc.ine.curriculum.model
 
+import javax.management.relation.Relation
+
 // A classe principal que representa o grafo completo de um currículo.
 data class CurriculumGraph(
-    // Esta é a linha que provavelmente está faltando ou com um nome diferente.
     val curriculumId: String,
-
-    // Acesso rápido aos nós pelo ID (código da disciplina)
+    val courseCode: Int,
+    val courseName: String,
     val nodes: Map<String, CourseNode>,
-
-    val relationships: List<Relationship>
+    val relationships: List<Relationship>,
 )

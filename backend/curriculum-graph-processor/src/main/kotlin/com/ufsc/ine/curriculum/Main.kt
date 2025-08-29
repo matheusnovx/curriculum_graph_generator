@@ -44,7 +44,7 @@ fun main() {
             } catch (e: Exception) {
                 println("❌ Erro ao processar o arquivo ${jsonFile.name}: ${e.message}")
                 // Opcional: descomente para ver o stack trace completo do erro
-                // e.printStackTrace()
+                 e.printStackTrace()
             }
         }
 

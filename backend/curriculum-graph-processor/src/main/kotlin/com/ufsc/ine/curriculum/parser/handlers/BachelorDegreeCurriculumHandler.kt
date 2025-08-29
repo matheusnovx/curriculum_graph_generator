@@ -21,10 +21,19 @@ class BachelorDegreeCurriculumHandler : BaseCurriculumHandler() {
 
         val curriculosObject = root["curriculos"]!!.jsonObject
 
-        return curriculosObject.map { (curriculumId, curriculumJsonElement) ->
+        return curriculosObject.mapNotNull { (curriculumId, curriculumJsonElement) ->
             val curriculumJson = curriculumJsonElement.jsonObject
-            val ucsJson = curriculumJson["ucs"]!!.jsonObject
-            // todo: Curriculo 19911 de comp n tem UC
+
+            val ucsElement = curriculumJson["ucs"]
+            if (ucsElement == null || ucsElement !is JsonObject) {
+                // Skip this curriculum if "ucs" is missing or not a JsonObject
+                return@mapNotNull null
+            }
+
+            val ucsJson = ucsElement.jsonObject
+            if (ucsJson.isEmpty()) {
+                return@mapNotNull null
+            }
 
             val nodes = ucsJson.mapValues { (_, ucJson) ->
                 parseCourseNodeFromUcJson(ucJson.jsonObject)

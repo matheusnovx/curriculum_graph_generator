@@ -1,0 +1,4071 @@
+{
+  "codigo": 324,
+  "nome": "BIBLIOTECONOMIA (noturno)",
+  "sigla_centro": "CED",
+  "sigla_departamento": "CIN",
+  "trimestral": false,
+  "periodo_corrente": 20242,
+  "codigos_curriculos": {
+    "19911": 19911,
+    "20051": 20051,
+    "20161": 20161
+  },
+  "situacao": 0,
+  "situacao_descricao": "regular",
+  "num_vagas_total": 240,
+  "num_vagas_primeiro_semestre": 30,
+  "num_vagas_segundo_semestre": 30,
+  "presencial": true,
+  "curriculos": {
+    "19911": {
+      "id": "196",
+      "codigo": 19911,
+      "codigo_curso": 324,
+      "carga_horaria_ufsc": 2886,
+      "carga_horaria_mec": 2400,
+      "aulas_semana_min": 12,
+      "aulas_semana_esperado": 16,
+      "aulas_semana_max": 20,
+      "num_periodos_min": 8,
+      "num_periodos_esperado": 9,
+      "num_periodos_max": 14,
+      "descricao": "Referente ao curriculo 19911 (EXTINTO)",
+      "ucs": {
+        "CIN5335": {
+          "codigo": "CIN5335",
+          "nome": "Informa\u00e7\u00e3o Aplicada a Biblioteconomia",
+          "ementa": "Conceito de informa\u00e7\u00e3o. O ciclo da informa\u00e7\u00e3o cultural, cient\u00edfica e tecnol\u00f3gica. Suportes f\u00edsicos da informa\u00e7\u00e3o. Biblioteca e outros canais de informa\u00e7\u00e3o. Fundamentos te\u00f3ricos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 1,
+          "equivalencia": "BDC1335 ou BDC5335 ou CIN5001",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "JOR5300": {
+          "codigo": "JOR5300",
+          "nome": "Comunica\u00e7\u00e3o",
+          "ementa": "Progressos sociais e processos de comunica\u00e7\u00e3o. Comunica\u00e7\u00e3o, abordagem te\u00f3rica das condi\u00e7\u00f5es de produ\u00e7\u00e3o, circula\u00e7\u00e3o e consumo de mensagem. As pol\u00edticas que determinam e condicionam o processo da informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 1,
+          "equivalencia": "COM1114 ou COM5300",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "LLE5105": {
+          "codigo": "LLE5105",
+          "nome": "Ingl\u00eas Instrumental I-B",
+          "ementa": "Introdu\u00e7\u00e3o ao desenvolvimento das estrat\u00e9gias de leitura e estudo de estruturas b\u00e1sicas da l\u00edngua inglesa, tendo como objetivo a compreens\u00e3o de textos preferencialmente aut\u00eanticos, gerais e espec\u00edficos da \u00e1rea.",
+          "carga_horaria": 72,
+          "fase_sugestao": 1,
+          "equivalencia": "LLE1112",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "LLV5603": {
+          "codigo": "LLV5603",
+          "nome": "Produ\u00e7\u00e3o Textual Acad\u00eamica I",
+          "ementa": "Estudo e produ\u00e7\u00e3o de textos t\u00e9cnico-cient\u00edficos relevantes para o desempenho das \natividades acad\u00eamicas, tais como: resumo, resenha, artigo e semin\u00e1rio.",
+          "carga_horaria": 60,
+          "fase_sugestao": 1,
+          "equivalencia": "LLV5175",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "MTM5140": {
+          "codigo": "MTM5140",
+          "nome": "Matem\u00e1tica B\u00e1sica",
+          "ementa": "Sistema de equa\u00e7\u00f5es. Logar\u00edtmo. Conjuntos e subconjuntos. Opera\u00e7\u00f5es com conjuntos. Conjunto de n\u00fameros. Fun\u00e7\u00e3o. Produto cartesiano. No\u00e7\u00f5es de \u00e1lgebra das proposi\u00e7\u00f5es. Quantificadores e racioc\u00ednio l\u00f3gico.",
+          "carga_horaria": 54,
+          "fase_sugestao": 1,
+          "equivalencia": "MTM1140 e MTM7003",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CAD5105": {
+          "codigo": "CAD5105",
+          "nome": "Teoria Administrativa",
+          "ementa": "Origem da administra\u00e7\u00e3o como ci\u00eancia. As fun\u00e7\u00f5es administrativas: planejamento, organiza\u00e7\u00e3o, coordena\u00e7\u00e3o, comando e controle.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "CAD5104 e CAD5106",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5423": {
+          "codigo": "CIN5423",
+          "nome": "Normaliza\u00e7\u00e3o da Documenta\u00e7\u00e3o",
+          "ementa": "As normas sobre documenta\u00e7\u00e3o da ABNT: refer\u00eancia bibliogr\u00e1fica, resumo, sum\u00e1rio, \u00edndice, apresenta\u00e7\u00e3o de publica\u00e7\u00f5es peri\u00f3dicas, numera\u00e7\u00e3o progressiva das se\u00e7\u00f5es de um documento, legenda bibliogr\u00e1fica, apresenta\u00e7\u00e3o de livros e folhetos, ordem alfab\u00e9tica, abrevia\u00e7\u00e3o de t\u00edtulos e peri\u00f3dicos,terminologia de documentos t\u00e9cnico-cient\u00edfico. Outras normas da ISO.",
+          "carga_horaria": 54,
+          "fase_sugestao": 2,
+          "equivalencia": "BDC1423 ou BDC5423 ou CIN5002",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "LLE5106": {
+          "codigo": "LLE5106",
+          "nome": "Ingl\u00eas Instrumental II-B",
+          "ementa": "Desenvolvimento da pr\u00e1tica de leitura em L\u00edngua inglesa atrav\u00e9s da aplica\u00e7\u00e3o de estrat\u00e9gias de leitura e do estudo de estruturas de n\u00edvel mais complexo, tendo como objetivo a compreens\u00e3o de textos preferencialmente aut\u00eanticos, gerais e espec\u00edficos da \u00e1rea.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "LLE1144 ou LLE5002",
+          "prerequisito": "LLE5105",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "LLV5165": {
+          "codigo": "LLV5165",
+          "nome": "Literaturas em L\u00edngua Portuguesa",
+          "ementa": "Introdu\u00e7\u00e3o ao estudo liter\u00e1rio. Origens e desenvolvimento das Literaturas de L\u00edngua Portuguesa atrav\u00e9s dos autores mais representativos dos movimentos liter\u00e1rios em Portugal (Medievalismo ao P\u00f3s-Modernismo), Brasil (Barraco ao P\u00f3s-Modernismo), pa\u00edses africanos - Guin\u00e9-Bissau, Cabo Verde, Argola, Mo\u00e7ambique, S\u00e3o Tom\u00e9 e Princ\u00edpe (das origens \u00e0 atualidade)",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "LLV5248 ou LLV5260 ou LLV7301 ou LLV7302 ou LLV7303",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "SPO5141": {
+          "codigo": "SPO5141",
+          "nome": "Aspectos Sociais, Pol\u00edticos, Econ\u00f4micos do Brasil Contempor\u00e2neo",
+          "ementa": "horas\/aula)Situa\u00e7\u00e3o S\u00f3cio-Pol\u00edtico econ\u00f4mica do pa\u00eds. Teorias Pol\u00edticas, econ\u00f4micas e sociais contempor\u00e2neas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "CSO1141 ou CSO5141 ou SPO5116 ou SPO5212",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5103": {
+          "codigo": "CIN5103",
+          "nome": "Metodologia Cient\u00edfica para Biblioteconomia",
+          "ementa": "Fundamentos da Ci\u00eancia: divis\u00e3o, m\u00e9todos, leis e teorias. M\u00e9todos Cient\u00edficos.Problemas e hip\u00f3teses. Vari\u00e1veis independentes e dependentes. Projetos de Pesquisa.",
+          "carga_horaria": 36,
+          "fase_sugestao": 3,
+          "equivalencia": "BDC5103 ou CIN5002 ou FIL1115 ou FIL5112",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5331": {
+          "codigo": "CIN5331",
+          "nome": "Produ\u00e7\u00e3o dos Registros do Conhecimento",
+          "ementa": "Evolu\u00e7\u00e3o dos registros do conhecimento humano e novas tecnologias utilizadas como suporte da informa\u00e7\u00e3o. Hist\u00f3ria dos livros e das Bibliotecas.",
+          "carga_horaria": 54,
+          "fase_sugestao": 3,
+          "equivalencia": "BDC1331 ou BDC5331 ou CIN5003",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5424": {
+          "codigo": "CIN5424",
+          "nome": "Arquivistica",
+          "ementa": "Elementos te\u00f3ricos de arquiv\u00edstica. Organiza\u00e7\u00e3o e administra\u00e7\u00e3o de arquivos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 3,
+          "equivalencia": "BDC1424 ou BDC5424 ou CIN5425",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "FIL5131": {
+          "codigo": "FIL5131",
+          "nome": "L\u00f3gica",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 3,
+          "equivalencia": "FIL5130 ou FIL5631",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "HST5114": {
+          "codigo": "HST5114",
+          "nome": "Hist\u00f3ria da Cultura",
+          "ementa": "Evolu\u00e7\u00e3o cultural da humanidade: aspectos filos\u00f3ficos, cient\u00edficos, art\u00edsticos e liter\u00e1rios.",
+          "carga_horaria": 72,
+          "fase_sugestao": 3,
+          "equivalencia": "FIL1210 ou FIL5210 e HST5899",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZT0001": {
+          "codigo": "ZZT0001",
+          "nome": "Optativa I",
+          "ementa": "",
+          "carga_horaria": 54,
+          "fase_sugestao": 3,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": [],
+          "tipo_uc": "Anota\u00e7\u00e3o"
+        },
+        "CIN5115": {
+          "codigo": "CIN5115",
+          "nome": "Cataloga\u00e7\u00e3o Descritiva",
+          "ementa": "Evolu\u00e7\u00e3o e teorias da cataloga\u00e7\u00e3o. Cataloga\u00e7\u00e3o descritiva.",
+          "carga_horaria": 72,
+          "fase_sugestao": 4,
+          "equivalencia": "BDC5115 ou CIN5006",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5212": {
+          "codigo": "CIN5212",
+          "nome": "Classifica\u00e7\u00e3o Decimal de Dewey",
+          "ementa": "Estudo te\u00f3rico-pr\u00e1tico da CDD",
+          "carga_horaria": 72,
+          "fase_sugestao": 4,
+          "equivalencia": "BDC5212 ou CIN5013",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5332": {
+          "codigo": "CIN5332",
+          "nome": "Editora\u00e7\u00e3o",
+          "ementa": "Origem e caracter\u00edsticas da empresa editoral. Etapas da editora\u00e7\u00e3o de materiais convencionais. Recursos humanos e organiza\u00e7\u00e3o da Editora. Editoras existentes no mercado nacional e mundial. Quantifica\u00e7\u00e3o da produ\u00e7\u00e3o editorial. Comercializa\u00e7\u00e3o e compradores do produto editorial.",
+          "carga_horaria": 36,
+          "fase_sugestao": 4,
+          "equivalencia": "BDC5332 ou CIN5034",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5430": {
+          "codigo": "CIN5430",
+          "nome": "Controle dos Registros do Conhecimento I",
+          "ementa": "Organiza\u00e7\u00e3o do controle Bibliogr\u00e1fico Nacional e Internacional. Tipos de Fontes de Informa\u00e7\u00e3o. Coopera\u00e7\u00e3o Bibliotecaria.",
+          "carga_horaria": 54,
+          "fase_sugestao": 4,
+          "equivalencia": "BDC5405 ou BDC5430 ou CIN5004",
+          "prerequisito": "CIN5423",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZT0002": {
+          "codigo": "ZZT0002",
+          "nome": "Optativa II",
+          "ementa": "",
+          "carga_horaria": 54,
+          "fase_sugestao": 4,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": [],
+          "tipo_uc": "Anota\u00e7\u00e3o"
+        },
+        "ZZT0003": {
+          "codigo": "ZZT0003",
+          "nome": "Optativa III",
+          "ementa": "",
+          "carga_horaria": 60,
+          "fase_sugestao": 4,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": [],
+          "tipo_uc": "Anota\u00e7\u00e3o"
+        },
+        "CIN5116": {
+          "codigo": "CIN5116",
+          "nome": "Cataloga\u00e7\u00e3o (Entradas e Cabe\u00e7alhos)",
+          "ementa": "Estudo te\u00f3rico-pr\u00e1tico de entradas e cabe\u00e7alhos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 5,
+          "equivalencia": "BDC5116 ou CIN5010",
+          "prerequisito": "CIN5115",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5213": {
+          "codigo": "CIN5213",
+          "nome": "Classifica\u00e7\u00e3o Decimal Universal",
+          "ementa": "Estudo te\u00f3rico-pr\u00e1tico da Classifica\u00e7\u00e3o Decimal Universal.",
+          "carga_horaria": 72,
+          "fase_sugestao": 5,
+          "equivalencia": "BDC5213 ou CIN5013",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5320": {
+          "codigo": "CIN5320",
+          "nome": "Organiza\u00e7\u00e3o e M\u00e9todos Aplicados a Biblioteconomia",
+          "ementa": "Evolu\u00e7\u00e3o e posi\u00e7\u00e3o do \u00f3rg\u00e3o de O&M na estrutura organizacional. Meios de levantamento de dados. An\u00e1lise da distribui\u00e7\u00e3o do trabalho, do processo de funcionamento e de formul\u00e1rios. A estrutura organizacional, an\u00e1lise e elabora\u00e7\u00e3o de manuais. Estudo da distribui\u00e7\u00e3o do espa\u00e7o f\u00edsico, tempos e movimentos. Problemas de implanta\u00e7\u00e3o do sistema de O&M.",
+          "carga_horaria": 54,
+          "fase_sugestao": 5,
+          "equivalencia": "BDC5320 ou CAD1129 ou CAD5213",
+          "prerequisito": "CAD5105",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5431": {
+          "codigo": "CIN5431",
+          "nome": "Controle dos Registros do Conhecimento II",
+          "ementa": "Obras Gerais de Refer\u00eancia.",
+          "carga_horaria": 54,
+          "fase_sugestao": 5,
+          "equivalencia": "BDC5405 ou BDC5431 ou CIN5004",
+          "prerequisito": "CIN5430",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "INE5111": {
+          "codigo": "INE5111",
+          "nome": "Estat\u00edstica Aplicada I",
+          "ementa": "Estat\u00edstica descritiva. Elabora\u00e7\u00e3o de instrumentos de pesquisa. No\u00e7\u00f5es de probabilidade. Uso das principais distribui\u00e7\u00f5es de probabilidade. T\u00f3picos de infer\u00eancia de estat\u00edstica.",
+          "carga_horaria": 72,
+          "fase_sugestao": 5,
+          "equivalencia": "CEC1226 ou CEC5111 e INE5109 e INE5112",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5111": {
+          "codigo": "CIN5111",
+          "nome": "Cataloga\u00e7\u00e3o de Multimeios",
+          "ementa": "Caracteriza\u00e7\u00e3o, sele\u00e7\u00e3o, descri\u00e7\u00e3o, armazenagem dos multimeios.",
+          "carga_horaria": 54,
+          "fase_sugestao": 6,
+          "equivalencia": "BDC1111 ou BDC5111 ou CIN5010",
+          "prerequisito": "CIN5116",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5210": {
+          "codigo": "CIN5210",
+          "nome": "Indexa\u00e7\u00e3o",
+          "ementa": "Teorias de Indexa\u00e7\u00e3o. Linguagem de Indexa\u00e7\u00e3o.",
+          "carga_horaria": 54,
+          "fase_sugestao": 6,
+          "equivalencia": "BDC1210 ou BDC5210 ou CIN5014",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5328": {
+          "codigo": "CIN5328",
+          "nome": "Planejamento dos Servi\u00e7os Bibliotec\u00e1rios",
+          "ementa": "Planejamento de bibliotecas e servi\u00e7os de informa\u00e7\u00e3o: defini\u00e7\u00e3o e fases do processo de planejamento; n\u00edveis e abordagens de planejamento; estrutura dos projetos, programas e planos. Planejamento bibliotec\u00e1rio nas \u00e1reas e planos. Planejamento bibliotec\u00e1rio nas \u00e1reas de Marketing, recursos humanos e finan\u00e7as.",
+          "carga_horaria": 72,
+          "fase_sugestao": 6,
+          "equivalencia": "BDC5328 ou CIN5016",
+          "prerequisito": "CAD5105",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5432": {
+          "codigo": "CIN5432",
+          "nome": "Controle dos Registros do Conhecimento III",
+          "ementa": "Obras de Refer\u00eancia especializadas em Ci\u00eancias Puras e Aplicadas. Fontes impressas e automatizadas.",
+          "carga_horaria": 54,
+          "fase_sugestao": 6,
+          "equivalencia": "BDC5404 ou BDC5432 ou CIN5008",
+          "prerequisito": "CIN5431",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5440": {
+          "codigo": "CIN5440",
+          "nome": "Metodologia da Pesquisa em Biblioteconomia",
+          "ementa": "M\u00e9todos e T\u00e9cnicas de Pesquisa e Tipos de Pesquisas Aplic\u00e1veis \u00e0 Biblioteconomia.",
+          "carga_horaria": 54,
+          "fase_sugestao": 6,
+          "equivalencia": "BDC5440 ou CIN5015",
+          "prerequisito": "CIN5103 e INE5111",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZT0004": {
+          "codigo": "ZZT0004",
+          "nome": "Optativa IV",
+          "ementa": "",
+          "carga_horaria": 60,
+          "fase_sugestao": 6,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": [],
+          "tipo_uc": "Anota\u00e7\u00e3o"
+        },
+        "CIN5121": {
+          "codigo": "CIN5121",
+          "nome": "Peri\u00f3dicos e Seriados",
+          "ementa": "Tratamento e organiza\u00e7\u00e3o de publica\u00e7\u00f5es peri\u00f3dicos e Seriados.",
+          "carga_horaria": 36,
+          "fase_sugestao": 7,
+          "equivalencia": "BDC5121 ou CIN5034",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5205": {
+          "codigo": "CIN5205",
+          "nome": "Recupera\u00e7\u00e3o da Informa\u00e7\u00e3o",
+          "ementa": "Princ\u00edpios de hardware e software. Estudo de um gerenciador da bases de dados. Aplica\u00e7\u00e3o de computadores no armazenamento, recupera\u00e7\u00e3o e dissemina\u00e7\u00e3o da informa\u00e7\u00e3o. Sistemas automatizados de recupera\u00e7\u00e3o e dissemina\u00e7\u00e3o seletiva de informa\u00e7\u00f5es. Cataloga\u00e7\u00e3o leg\u00edvel por computador. Sistemas experimentais e bases de dados bibliogr\u00e1ficas significativas.",
+          "carga_horaria": 90,
+          "fase_sugestao": 7,
+          "equivalencia": "(BDC5205 ou CEC5205 ou INE5205) ou (CEC1140 e CEC1145 ou CIN5012)",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5338": {
+          "codigo": "CIN5338",
+          "nome": "Organiza\u00e7\u00e3o de Bibliotecas",
+          "ementa": "O processo de estrutura\u00e7\u00e3o\/reestrutura\u00e7\u00e3o de bibliotecas. Servi\u00e7os de informa\u00e7\u00e3o; Fluxos e processos de trabalho em bibliotecas; Comunica\u00e7\u00f5es Normativas; Relat\u00f3rios e Leyout de Bibliotecas; Servi\u00e7os de Informa\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 7,
+          "equivalencia": "BDC5338 ou CIN5019",
+          "prerequisito": "CAD5105",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5417": {
+          "codigo": "CIN5417",
+          "nome": "Usu\u00e1rio da Informa\u00e7\u00e3o",
+          "ementa": "Caracteriza\u00e7\u00e3o e tipos do usu\u00e1rio da informa\u00e7\u00e3o. M\u00e9todos e t\u00e9cnicas para caracteriza\u00e7\u00e3o do usu\u00e1rio. Diagn\u00f3stico de comunidade.",
+          "carga_horaria": 72,
+          "fase_sugestao": 7,
+          "equivalencia": "BDC5417 ou CIN5020",
+          "prerequisito": "CIN5440",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5433": {
+          "codigo": "CIN5433",
+          "nome": "Controle dos Registros do Conhecimento IV",
+          "ementa": "Obras de Refer\u00eancia em Ci\u00eancias Humanas e Sociais. Fontes impressas e automatizadas",
+          "carga_horaria": 54,
+          "fase_sugestao": 7,
+          "equivalencia": "BDC5404 ou BDC5433 ou CIN5008",
+          "prerequisito": "CIN5431",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5329": {
+          "codigo": "CIN5329",
+          "nome": "Automa\u00e7\u00e3o de Bibliotecas",
+          "ementa": "Fundamentos e instrumentos de an\u00e1lise de sistema. Implica\u00e7\u00f5es da automa\u00e7\u00e3o em bibliotecas. Experi\u00eancia brasileira em automa\u00e7\u00e3o de bibliotecas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 8,
+          "equivalencia": "BDC1329 ou BDC5329 ou CIN5018",
+          "prerequisito": "CIN5205 e CIN5338",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5340": {
+          "codigo": "CIN5340",
+          "nome": "Forma\u00e7\u00e3o e Desenvolvimento de Cole\u00e7\u00f5es",
+          "ementa": "Sele\u00e7\u00e3o, Pol\u00edtica de Sele\u00e7\u00e3o, Aquisi\u00e7\u00e3o, Formas e Desenvolvimento de Cole\u00e7\u00f5es. Avalia\u00e7\u00e3o e Descarte.",
+          "carga_horaria": 72,
+          "fase_sugestao": 8,
+          "equivalencia": "BDC1340 ou BDC5340 ou CIN5024",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5426": {
+          "codigo": "CIN5426",
+          "nome": "Dissemina\u00e7\u00e3o da Informa\u00e7\u00e3o",
+          "ementa": "Organismos de Dissemina\u00e7\u00e3o da Informa\u00e7\u00e3o. O processo de dissemina\u00e7\u00e3o: servi\u00e7os e produtos. Reprografia.",
+          "carga_horaria": 54,
+          "fase_sugestao": 8,
+          "equivalencia": "BDC5426 ou CIN5022",
+          "prerequisito": "CIN5431 e CIN5432 e CIN5433",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5510": {
+          "codigo": "CIN5510",
+          "nome": "Biblioteconomia Aplicada I",
+          "ementa": "Levantamento Bibliogr\u00e1fico, elabora\u00e7\u00e3o de resumos e compila\u00e7\u00e3o de bibliografias.",
+          "carga_horaria": 54,
+          "fase_sugestao": 8,
+          "equivalencia": "BDC5510",
+          "prerequisito": "CIN5432 e CIN5433",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5511": {
+          "codigo": "CIN5511",
+          "nome": "Biblioteconomia Aplicada II",
+          "ementa": "Pr\u00e1tica de cataloga\u00e7\u00e3o, Classifica\u00e7\u00e0o e Indexa\u00e7\u00e3o. Cataloga\u00e7\u00e3o leg\u00edvel para computador: (formato IBICT).",
+          "carga_horaria": 72,
+          "fase_sugestao": 8,
+          "equivalencia": "BDC5511 ou CIN5021",
+          "prerequisito": "CIN5111 e CIN5210",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5506": {
+          "codigo": "CIN5506",
+          "nome": "Est\u00e1gio Supervisionado em Biblioteconomia",
+          "ementa": "Administra\u00e7\u00e3o de bibliotecas e\/ou centros de informa\u00e7\u00e3o. Atividades bibliotecon\u00f4micas (meios) sele\u00e7\u00e3o, aquisi\u00e7\u00e3o, registro, cataloga\u00e7\u00e3o, classifica\u00e7\u00e3o e indexa\u00e7\u00e3o; (fins) refer\u00eancia e circula\u00e7\u00e3o.",
+          "carga_horaria": 270,
+          "fase_sugestao": 9,
+          "equivalencia": "BDC1506 ou BDC5506 ou CIN5050",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 1620,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5512": {
+          "codigo": "CIN5512",
+          "nome": "Biblioteconomia Aplicada III",
+          "ementa": "Pr\u00e1tica de dissemina\u00e7\u00e3o da informa\u00e7\u00e3o. Utilizando recursos manuais e automatizados.",
+          "carga_horaria": 54,
+          "fase_sugestao": 9,
+          "equivalencia": "BDC5512",
+          "prerequisito": "CIN5417 e CIN5426",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZT0005": {
+          "codigo": "ZZT0005",
+          "nome": "Optativa V",
+          "ementa": "",
+          "carga_horaria": 60,
+          "fase_sugestao": 9,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": [],
+          "tipo_uc": "Anota\u00e7\u00e3o"
+        },
+        "CIN5220": {
+          "codigo": "CIN5220",
+          "nome": "Sistemas Especiais de Classifica\u00e7\u00f5es",
+          "ementa": "Sistemas Especiais de classifica\u00e7\u00f5es bibliogr\u00e1ficas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5220",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5301": {
+          "codigo": "CIN5301",
+          "nome": "Custos Aplicados a Biblioteconomia",
+          "ementa": "Aspectos econ\u00f4micos e financeiros presentes em uma Unidade de Informa\u00e7\u00e3o",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5301",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5305": {
+          "codigo": "CIN5305",
+          "nome": "Marketing Aplicado a Biblioteconomia",
+          "ementa": "Evolu\u00e7\u00e3o dos princ\u00edpios de markekting e sua aplica\u00e7\u00e3o em bibliotecas. An\u00e1lise e segmenta\u00e7\u00e3o de mercado, compostos de marketing, planejamento e plano de marketing em biblioteconomia.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5305",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5309": {
+          "codigo": "CIN5309",
+          "nome": "Paleografia",
+          "ementa": "A escrita como ve\u00edculo de comunica\u00e7\u00e3o: origem e evolu\u00e7\u00e3o. T\u00e9cnicas de leitura de manuscritos.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC1309 ou BDC5309",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5310": {
+          "codigo": "CIN5310",
+          "nome": "Bibliotecas Universit\u00e1rias",
+          "ementa": "A caracteriza\u00e7\u00e3o de bibliotecas universit\u00e1rias e o desempenho de sua fun\u00e7\u00e3o junto \u00e0 comunidade.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC1310 ou BDC5310",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5312": {
+          "codigo": "CIN5312",
+          "nome": "Bibliotecas Escolares",
+          "ementa": "A caracteriza\u00e7\u00e3o das bibliotecas escolares e o desempenho de sua fun\u00e7\u00e3o junto \u00e0 comunidade.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC1312 ou BDC5312",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5316": {
+          "codigo": "CIN5316",
+          "nome": "Bibliotecas P\u00fablicas",
+          "ementa": "A caracteriza\u00e7\u00e3o das bibliotecas p\u00fablicas e o desempenho de sua fun\u00e7\u00e3o junto \u00e0 comunidade.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC1316 ou BDC5316",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5317": {
+          "codigo": "CIN5317",
+          "nome": "Bibliotecas Infantis",
+          "ementa": "Caracteriza\u00e7\u00e3o das bibiliotecas infantis e o desempenho de sua fun\u00e7\u00e3o junto \u00e0 comunidade.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC1317 ou BDC5317",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5318": {
+          "codigo": "CIN5318",
+          "nome": "Bibliotecas Especializadas",
+          "ementa": "Caracteriza\u00e7\u00e3o das bibliotecas especializadas e o desempenho de sua fun\u00e7\u00e3o junto \u00e0 comunidade.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC1318 ou BDC5318",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5319": {
+          "codigo": "CIN5319",
+          "nome": "Biblioterapia",
+          "ementa": "Conceitos e objetivos da biblioterapia. Fundamentos filos\u00f3ficos. O m\u00e9todo biblioterap\u00eautico. Aplica\u00e7\u00f5es da biblioterapia.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5330": {
+          "codigo": "CIN5330",
+          "nome": "Direito e Deveres do Bibliotec\u00e1rio no Brasil",
+          "ementa": "Legisla\u00e7\u00e3o da profiss\u00e3o. C\u00f3digo de \u00c9tica Profissional. Entidades de Classes.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC1330 ou BDC5330",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5336": {
+          "codigo": "CIN5336",
+          "nome": "T\u00f3picos Especiais em Biblioteconomia",
+          "ementa": "Temas atuais da Biblioteconomia.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC1336 ou BDC5336",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5341": {
+          "codigo": "CIN5341",
+          "nome": "T\u00f3picos Especiais em Biblioteconomia",
+          "ementa": "Temas atuais da Biblioteconomia.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5342": {
+          "codigo": "CIN5342",
+          "nome": "T\u00f3picos Especiais em Biblioteconomia B",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5351": {
+          "codigo": "CIN5351",
+          "nome": "Gerenciador de Bases de Dados - Microisis",
+          "ementa": "Vis\u00e3o introdut\u00f3ria sobre o MICROISIS: conceitua\u00e7\u00e3o e hist\u00f3rico. Experi\u00eancias e aplicativos em MICROISIS. Planejamento de uma base de dados. MICROISSIS: caracter\u00edsticas e comandos principais, defini\u00e7\u00e3o da base de dados, manuten\u00e7\u00e3o de arquivos, recupera\u00e7\u00e3o de dados e gera\u00e7\u00e3o de produtos impressos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5351",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5401": {
+          "codigo": "CIN5401",
+          "nome": "Arquivos Especializados",
+          "ementa": "Organiza\u00e7\u00e3o e Administra\u00e7\u00e3o de Arqu\u00edvos Especializados",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5401",
+          "prerequisito": "CIN5424",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5402": {
+          "codigo": "CIN5402",
+          "nome": "Informa\u00e7\u00e3o para a Empresa",
+          "ementa": "Informa\u00e7\u00e3o na empresa: servi\u00e7os e produtos. Fontes de informa\u00e7\u00e3o; Patentes e normas t\u00e9cnicas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5402",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5403": {
+          "codigo": "CIN5403",
+          "nome": "Conserva\u00e7\u00e3o e Preserva\u00e7\u00e3o de Documentos Especiais",
+          "ementa": "Teorias e m\u00e9todos de conserva\u00e7\u00e3o e preserva\u00e7\u00e3o de documentos especiais.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5403",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5408": {
+          "codigo": "CIN5408",
+          "nome": "Conserva\u00e7\u00e3o e Restaura\u00e7\u00e3o de Documentos",
+          "ementa": "Teoria e m\u00e9todos de conserva\u00e7\u00e3o e restaura\u00e7\u00e3o de documentos.",
+          "carga_horaria": 54,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC1408 ou BDC5408",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5414": {
+          "codigo": "CIN5414",
+          "nome": "Introdu\u00e7\u00e3o \u00e0 Ci\u00eancia da Informa\u00e7\u00e3o",
+          "ementa": "Caracteriza\u00e7\u00e3o da informa\u00e7\u00e3o cient\u00edfica e tecnol\u00f3gica. Introdu\u00e7\u00e3o \u00e0 teoria da informa\u00e7\u00e3o. Estrutura e comportamento da literatura.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC1414 ou BDC5414",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "GCN5212": {
+          "codigo": "GCN5212",
+          "nome": "Documenta\u00e7\u00e3o Cartogr\u00e1fica",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5601": {
+          "codigo": "CIN5601",
+          "nome": "Atividades Extraclasse - Eventos",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5601",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5602": {
+          "codigo": "CIN5602",
+          "nome": "Atividades Extraclasse - Eventos",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5602",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5603": {
+          "codigo": "CIN5603",
+          "nome": "Atividades Extraclasse - Pesquisa I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5603",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5604": {
+          "codigo": "CIN5604",
+          "nome": "Atividades Extraclasse - Pesquisa II",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5604",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5605": {
+          "codigo": "CIN5605",
+          "nome": "Atividades Extraclasse - Pesquisa III",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5605",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5606": {
+          "codigo": "CIN5606",
+          "nome": "Atividades Extraclasse - Extens\u00e3o I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5606",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5607": {
+          "codigo": "CIN5607",
+          "nome": "Atividades Extraclasse - Extens\u00e3o II",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5607",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5608": {
+          "codigo": "CIN5608",
+          "nome": "Atividades Extraclasse - Monitoria",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5608",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5609": {
+          "codigo": "CIN5609",
+          "nome": "Atividades Extraclasse - Est\u00e1gio I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5609",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5610": {
+          "codigo": "CIN5610",
+          "nome": "Atividades Extraclasse - Est\u00e1gio II",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5610",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5611": {
+          "codigo": "CIN5611",
+          "nome": "Atividades Extraclasse - Cursos",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5611",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5612": {
+          "codigo": "CIN5612",
+          "nome": "Atividades Extraclasse - Cursos",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5612",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5613": {
+          "codigo": "CIN5613",
+          "nome": "Atividades Extraclasse - Entidades de Classe I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5613",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5614": {
+          "codigo": "CIN5614",
+          "nome": "Atividades Extraclasse - Entidades de Classe II",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "BDC5614",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        }
+      }
+    },
+    "20051": {
+      "id": "389",
+      "codigo": 20051,
+      "codigo_curso": 324,
+      "carga_horaria_ufsc": 2898,
+      "carga_horaria_mec": 2400,
+      "aulas_semana_min": 12,
+      "aulas_semana_esperado": 16,
+      "aulas_semana_max": 23,
+      "num_periodos_min": 8,
+      "num_periodos_esperado": 8,
+      "num_periodos_max": 14,
+      "descricao": "Referente ao curriculo 20051",
+      "ucs": {
+        "CIN5001": {
+          "codigo": "CIN5001",
+          "nome": "Fundamentos de Biblioteconomia",
+          "ementa": "Busca a compreens\u00e3o do texto s\u00f3cio-econ\u00f4mico, dos aportes te\u00f3ricos  e da ambi\u00eancia ocupacional no qual os profissionais da informa\u00e7\u00e3o exercem seus pap\u00e9is, desenvolvem compet\u00eancias, constroem e reconstroem conhecimentos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 1,
+          "equivalencia": "CIN5335 ou CIN7138",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5002": {
+          "codigo": "CIN5002",
+          "nome": "Pesquisa Bibliogr\u00e1fica para Biblioteconomia",
+          "ementa": "Trata da comunica\u00e7\u00e3o cient\u00edfica, dos m\u00e9todos e t\u00e9cnicas da pesquisa bibliogr\u00e1fica, do hist\u00f3rico da normaliza\u00e7\u00e3o geral e da normaliza\u00e7\u00e3o da documenta\u00e7\u00e3o e do conhecimento e assimila\u00e7\u00e3o dos procedimentos de normaliza\u00e7\u00e3o documental criados no Brasil pela ABNT.",
+          "carga_horaria": 72,
+          "fase_sugestao": 1,
+          "equivalencia": "(CIN5103 e CIN5423 ou CIN7140) ou CIN5100",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5003": {
+          "codigo": "CIN5003",
+          "nome": "Evolu\u00e7\u00e3o dos Meios de Informa\u00e7\u00e3o e Comunica\u00e7\u00e3o",
+          "ementa": "Trata da perspectiva hist\u00f3rica dos instrumentos e suportes para o registro da informa\u00e7\u00e3o e da evolu\u00e7\u00e3o dos meios de  comunica\u00e7\u00e3o e sua rela\u00e7\u00e3o com a hist\u00f3ria da humanidade.",
+          "carga_horaria": 72,
+          "fase_sugestao": 1,
+          "equivalencia": "CIN5331",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5026": {
+          "codigo": "CIN5026",
+          "nome": "\u00c9tica Profissional",
+          "ementa": "\u00c9tica Profissional. Direitos e Deveres. Comportamento e postura profissional. Sigilo profissional",
+          "carga_horaria": 36,
+          "fase_sugestao": 1,
+          "equivalencia": "CIN7203",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "JOR5300": {
+          "codigo": "JOR5300",
+          "nome": "Comunica\u00e7\u00e3o",
+          "ementa": "Progressos sociais e processos de comunica\u00e7\u00e3o. Comunica\u00e7\u00e3o, abordagem te\u00f3rica das condi\u00e7\u00f5es de produ\u00e7\u00e3o, circula\u00e7\u00e3o e consumo de mensagem. As pol\u00edticas que determinam e condicionam o processo da informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 1,
+          "equivalencia": "COM5300",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "LLV7802": {
+          "codigo": "LLV7802",
+          "nome": "Leitura e Produ\u00e7\u00e3o do Texto",
+          "ementa": "Abordagens te\u00f3ricas sobre leitura e concep\u00e7\u00f5es de leitura correlatas. N\u00edveis, estrat\u00e9gias e pr\u00e1ticas de leitura. Fatores de textualiza\u00e7\u00e3o\/textualidade, regras de coer\u00eancia e referencia\u00e7\u00e3o. Condi\u00e7\u00f5es de produ\u00e7\u00e3o textual e particularidades de g\u00eaneros do discurso.",
+          "carga_horaria": 72,
+          "fase_sugestao": 1,
+          "equivalencia": "LLV5603 ou LLV7003",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CAD5106": {
+          "codigo": "CAD5106",
+          "nome": "Teoria Geral da Administra\u00e7\u00e3o",
+          "ementa": "Correntes do pensamento Administrativo: Escola Cl\u00e1ssica, Rela\u00e7\u00f5es Humanas,  \nNeocl\u00e1ssica, Comportamentalista, Estruturalista, Sist\u00eamica e Contingencial. Novas tend\u00eancias.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "CAD7002",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5004": {
+          "codigo": "CIN5004",
+          "nome": "Fontes de Informa\u00e7\u00e3o I",
+          "ementa": "Trata do controle bibliogr\u00e1fico universal e nacional. Apresenta a tipologia e finalidade das fontes de informa\u00e7\u00e3o. Analisa e avalia as fontes de informa\u00e7\u00e3o gerais.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "CIN5430 e CIN5431 ou CIN7206",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5006": {
+          "codigo": "CIN5006",
+          "nome": "Cataloga\u00e7\u00e3o I",
+          "ementa": "Evolu\u00e7\u00e3o e teorias da cataloga\u00e7\u00e3o e c\u00f3digos. Programas de cataloga\u00e7\u00e3o. Padr\u00f5es e formatos de descri\u00e7\u00e3o para interc\u00e2mbio. Cat\u00e1logos. Representa\u00e7\u00e3o descritiva de livros, folhetos e folhas soltas impressas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "CIN5115 ou CIN7506",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "LLE5105": {
+          "codigo": "LLE5105",
+          "nome": "Ingl\u00eas Instrumental I-B",
+          "ementa": "Introdu\u00e7\u00e3o ao desenvolvimento das estrat\u00e9gias de leitura e estudo de estruturas b\u00e1sicas da l\u00edngua inglesa, tendo como objetivo a compreens\u00e3o de textos preferencialmente aut\u00eanticos, gerais e espec\u00edficos da \u00e1rea.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "SPO5116": {
+          "codigo": "SPO5116",
+          "nome": "Introdu\u00e7\u00e3o \u00e0 Sociologia para Biblioteconomia",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "SPO5141",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZT1393": {
+          "codigo": "ZZT1393",
+          "nome": "Disciplinas Optativas II",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 8,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": [],
+          "tipo_uc": "Anota\u00e7\u00e3o"
+        },
+        "CIN5008": {
+          "codigo": "CIN5008",
+          "nome": "Fontes de Informa\u00e7\u00e3o II",
+          "ementa": "Analisa e avalia as fontes de informa\u00e7\u00e3o especializadas nas ci\u00eancias puras e aplicadas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 3,
+          "equivalencia": "CIN5432 e CIN5433 ou CIN7508",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5009": {
+          "codigo": "CIN5009",
+          "nome": "Linguagens Document\u00e1rias",
+          "ementa": "Aborda aspectos te\u00f3ricos e metodol\u00f3gicos das linguagens document\u00e1rias. Trata da \ntipologia das linguagens document\u00e1rias.",
+          "carga_horaria": 72,
+          "fase_sugestao": 3,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5010": {
+          "codigo": "CIN5010",
+          "nome": "Cataloga\u00e7\u00e3o II",
+          "ementa": "Pontos de acesso, cabe\u00e7alhos e t\u00edtulos uniformes nos diferentes suportes da \ninforma\u00e7\u00e3o. Cataloga\u00e7\u00e3o descritiva de multimeios.",
+          "carga_horaria": 108,
+          "fase_sugestao": 3,
+          "equivalencia": "CIN5111 ou CIN5116 ou CIN7605 e CIN7706",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5019": {
+          "codigo": "CIN5019",
+          "nome": "Organiza\u00e7\u00e3o de Unidades de Informa\u00e7\u00e3o",
+          "ementa": "Estrutura organizacional das unidades de informa\u00e7\u00e3o. Os fluxos de trabalho em \nunidades de informa\u00e7\u00e3o. Distribui\u00e7\u00e3o do trabalho. Estrutura\u00e7\u00e3o do espa\u00e7o f\u00edsico. \nElabora\u00e7\u00e3o de manuais, de formul\u00e1rios e relat\u00f3rios.",
+          "carga_horaria": 72,
+          "fase_sugestao": 3,
+          "equivalencia": "CIN7606",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "PSI5112": {
+          "codigo": "PSI5112",
+          "nome": "Rela\u00e7\u00f5es Humanas",
+          "ementa": "A personalidade humana. Os grupos e sua din\u00e2mica, a comunica\u00e7\u00e3o e seus problemas.",
+          "carga_horaria": 36,
+          "fase_sugestao": 3,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5011": {
+          "codigo": "CIN5011",
+          "nome": "Gest\u00e3o da Qualidade em Unidades de Informa\u00e7\u00e3o",
+          "ementa": "Conceito de gest\u00e3o da qualidade em organiza\u00e7\u00f5es. Sistemas de gest\u00e3o da qualidade e abordagens de ferramentas de apoio aplicadas \u00e0 unidade de informa\u00e7\u00e3o. Gest\u00e3o da \nrotina e processos da unidade de informa\u00e7\u00e3o. Gest\u00e3o eficiente de recursos. Estudo e \nrepresenta\u00e7\u00e3o de processos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN7305",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5012": {
+          "codigo": "CIN5012",
+          "nome": "Recupera\u00e7\u00e3o da Informa\u00e7\u00e3o",
+          "ementa": "Trata da introdu\u00e7\u00e3o aos sistemas de informa\u00e7\u00e3o, dos fundamentos da tecnologia da \ninforma\u00e7\u00e3o: hardware (componentes, tecnologia de armazenamento, tecnologia de \nentrada e sa\u00edda) e software (tipos, gera\u00e7\u00f5es), redes de computadores. Aborda as \ntecnologias da Internet e Web, os sistemas de recupera\u00e7\u00e3o de informa\u00e7\u00e3o, as \ngera\u00e7\u00f5es, as l\u00f3gicas, os recursos e as estrat\u00e9gias de busca. Versa sobre recupera\u00e7\u00e3o \nda informa\u00e7\u00e3o na Web, dos motores e metamotores de busca e dos diret\u00f3rios. Estuda \nos sistemas de gerenciamento de bases de dados, seus componentes, modelos e \nprojeto de sistema. Trata das bases de dados bibliogr\u00e1ficas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN5205 ou CIN7112 ou CIN7205",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5013": {
+          "codigo": "CIN5013",
+          "nome": "Sistemas de Classifica\u00e7\u00e3o",
+          "ementa": "Aborda a caracteriza\u00e7\u00e3o das diferentes tabelas de classifica\u00e7\u00e3o e  seus dispositivos de constru\u00e7\u00e3o das nota\u00e7\u00f5es, a pr\u00e1tica de CDD, a pr\u00e1tica de CDU e a nota\u00e7\u00e3o de autor.",
+          "carga_horaria": 108,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN5212 e CIN5213 e CIN7507",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5014": {
+          "codigo": "CIN5014",
+          "nome": "Indexa\u00e7\u00e3o",
+          "ementa": "Aborda aspectos te\u00f3ricos e metodol\u00f3gicos da Indexa\u00e7\u00e3o. Trata da tipologia de indexa\u00e7\u00e3o, \u00edndices e resumos. Aplica pr\u00e1tica da indexa\u00e7\u00e3o, elabora\u00e7\u00e3o de \u00edndices e resumos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN5210 e CIN7607",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5015": {
+          "codigo": "CIN5015",
+          "nome": "Pesquisa em Biblioteconomia",
+          "ementa": "Aborda os conceitos s\u00f3cio-econ\u00f4micos de Ci\u00eancia, conhecimento, pesquisa e comunica\u00e7\u00e3o cient\u00edfica. Trata dos m\u00e9todos e t\u00e9cnicas da pesquisa social e da elabora\u00e7\u00e3o do projeto e execu\u00e7\u00e3o da pesquisa at\u00e9 sua etapa conclusiva de elabora\u00e7\u00e3o do relat\u00f3rio final.",
+          "carga_horaria": 72,
+          "fase_sugestao": 5,
+          "equivalencia": "CIN5440 ou CIN7303",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5016": {
+          "codigo": "CIN5016",
+          "nome": "Gest\u00e3o Estrat\u00e9gica em Unidades de Informa\u00e7\u00e3o",
+          "ementa": "Conceitos de Gest\u00e3o Estrat\u00e9gica em unidades de informa\u00e7\u00e3o. Planejamento de \nunidades de informa\u00e7\u00e3o. Projetos em unidades de informa\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 5,
+          "equivalencia": "CIN5328 ou CIN7108 ou CIN7404",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5017": {
+          "codigo": "CIN5017",
+          "nome": "Gest\u00e3o de Documentos",
+          "ementa": "Trata da an\u00e1lise, gest\u00e3o, classifica\u00e7\u00e3o e tratamento de documentos. Aborda os \nconceitos de qualidade, o processo de digitaliza\u00e7\u00e3o de documentos. Considera a \nlegisla\u00e7\u00e3o arquiv\u00edstica e as pol\u00edticas e projetos nacionais e internacionais de Gest\u00e3o de Documentos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 5,
+          "equivalencia": "CIN5427 ou CIN7515",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5018": {
+          "codigo": "CIN5018",
+          "nome": "Informatiza\u00e7\u00e3o de Unidades de Informa\u00e7\u00e3o l",
+          "ementa": "Trata da elabora\u00e7\u00e3o de projetos de sistemas de informa\u00e7\u00e3o, do ciclo de vida dos \nsistemas e das etapas do seu desenvolvimento. Aborda a biblioteca como sistema, os \nn\u00facleos de atividades, suas fun\u00e7\u00f5es e tarefas. Estuda os elementos de sistemas \ninformatizados de bibliotecas e as motiva\u00e7\u00f5es para sua informatiza\u00e7\u00e3o. Planeja a \ninformatiza\u00e7\u00e3o de bibliotecas, a escolha de solu\u00e7\u00f5es, a aquisi\u00e7\u00e3o de programas, o \ndesenvolvimento de sistemas pr\u00f3prios e a participa\u00e7\u00e3o em redes. Analisa a \nimplementa\u00e7\u00e3o de sistemas de informatiza\u00e7\u00e3o de bibliotecas, a prepara\u00e7\u00e3o do local, a \nsua entrada em opera\u00e7\u00e3o e a convers\u00e3o retrospectiva. Aborda a experi\u00eancia \ninternacional e brasileira no uso da inform\u00e1tica em bibliotecas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 5,
+          "equivalencia": "CIN5329 ou CIN7139 e CIN7405",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "INE5111": {
+          "codigo": "INE5111",
+          "nome": "Estat\u00edstica Aplicada I",
+          "ementa": "Estat\u00edstica descritiva. Elabora\u00e7\u00e3o de instrumentos de pesquisa. No\u00e7\u00f5es de probabilidade. Uso das principais distribui\u00e7\u00f5es de probabilidade. T\u00f3picos de infer\u00eancia de estat\u00edstica.",
+          "carga_horaria": 72,
+          "fase_sugestao": 5,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5007": {
+          "codigo": "CIN5007",
+          "nome": "Gest\u00e3o da Informa\u00e7\u00e3o e do Conhecimento",
+          "ementa": "Organiza\u00e7\u00f5es na era do conhecimento. O valor da informa\u00e7\u00e3o e do conhecimento nas organiza\u00e7\u00f5es. Informa\u00e7\u00e3o e os ambientes interno e externo. Introdu\u00e7\u00e3o \u00e0 intelig\u00eancia competitiva. Gest\u00e3o da informa\u00e7\u00e3o x gest\u00e3o do conhecimento.",
+          "carga_horaria": 36,
+          "fase_sugestao": 6,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5020": {
+          "codigo": "CIN5020",
+          "nome": "Estudos de Usu\u00e1rios e de Comunidades",
+          "ementa": "Aborda os tipos e caracter\u00edsticas dos usu\u00e1rios de servi\u00e7os de unidades de informa\u00e7\u00e3o, seu impacto sobre a tomada de decis\u00e3o  quanto a implanta\u00e7\u00e3o dessas unidades e quanto \u00e0s transforma\u00e7\u00f5es desses servi\u00e7os, conforme os perfis de demanda existentes em diversos ambientes sociais. Trata dos procedimentos empregados para o conhecimento das comunidades de interesse em informa\u00e7\u00e3o, visando \u00e0 elabora\u00e7\u00e3o de projeto de estudo.",
+          "carga_horaria": 72,
+          "fase_sugestao": 6,
+          "equivalencia": "CIN5417 ou CIN7509",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5021": {
+          "codigo": "CIN5021",
+          "nome": "Pr\u00e1tica de Tratamento da Informa\u00e7\u00e3o",
+          "ementa": "Aborda as pr\u00e1ticas de registro, cataloga\u00e7\u00e3o, classifica\u00e7\u00e3o, indexa\u00e7\u00e3o e preparo para circula\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 6,
+          "equivalencia": "CIN5511 ou CIN7702",
+          "prerequisito": "CIN5006 e CIN5009 e CIN5010 e CIN5013 e CIN5014",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5022": {
+          "codigo": "CIN5022",
+          "nome": "Servi\u00e7os de Informa\u00e7\u00e3o",
+          "ementa": "Trata das redes e sistemas de informa\u00e7\u00e3o nacionais e internacionais e dos produtos e dos servi\u00e7os de dissemina\u00e7\u00e3o da informa\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 6,
+          "equivalencia": "CIN7703",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5025": {
+          "codigo": "CIN5025",
+          "nome": "Pr\u00e1tica de Gest\u00e3o",
+          "ementa": "Pr\u00e1tica dos conceitos de gest\u00e3o associados as unidades de informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 6,
+          "equivalencia": "",
+          "prerequisito": "CIN5011 e CIN5016 e CIN5019",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZT1401": {
+          "codigo": "ZZT1401",
+          "nome": "Disciplinas Optativas",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 6,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": [],
+          "tipo_uc": "Anota\u00e7\u00e3o"
+        },
+        "CIN5023": {
+          "codigo": "CIN5023",
+          "nome": "Refer\u00eancia",
+          "ementa": "Trata do processo de refer\u00eancia e dos servi\u00e7os de refer\u00eancia tradicional e virtual, \nabordando aspectos relativos \u00e0 comunica\u00e7\u00e3o cient\u00edfica.",
+          "carga_horaria": 72,
+          "fase_sugestao": 7,
+          "equivalencia": "CIN7703",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5024": {
+          "codigo": "CIN5024",
+          "nome": "Forma\u00e7\u00e3o e Desenvolvimento de Cole\u00e7\u00f5es",
+          "ementa": "Trata o processo de desenvolvimento de cole\u00e7\u00f5es como atividade de planejamento nas unidades de informa\u00e7\u00e3o.  Discute princ\u00edpios para a forma\u00e7\u00e3o e desenvolvimento de cole\u00e7\u00e3o dando \u00eanfase \u00e0s pol\u00edticas, m\u00e9todos, t\u00e9cnicas e procedimentos aplic\u00e1veis ao processo.",
+          "carga_horaria": 72,
+          "fase_sugestao": 7,
+          "equivalencia": "CIN5340 ou CIN7608",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5027": {
+          "codigo": "CIN5027",
+          "nome": "Projeto de Pesquisa em Biblioteconomia",
+          "ementa": "Elabora\u00e7\u00e3o do projeto de Trabalho de Conclus\u00e3o de Curso (TCC).",
+          "carga_horaria": 72,
+          "fase_sugestao": 7,
+          "equivalencia": "CIN5051 ou CIN7704",
+          "prerequisito": "CAD5106 e CIN5001 e CIN5002 e CIN5003 e CIN5004 e CIN5006 e CIN5007 e CIN5008 e CIN5009 e CIN5010 e CIN5011 e CIN5012 e CIN5013 e CIN5014 e CIN5015 e CIN5016 e CIN5017 e CIN5018 e CIN5019 e CIN5020 e CIN5021 e CIN5022 e CIN5026 e INE5111 e JOR5300 e LLE5105 e LLV5603 e PSI5112 e SPO5116",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5029": {
+          "codigo": "CIN5029",
+          "nome": "Informa\u00e7\u00e3o e Gest\u00e3o da Inova\u00e7\u00e3o",
+          "ementa": "Inova\u00e7\u00e3o. Gest\u00e3o da Inova\u00e7\u00e3o. Servi\u00e7os de informa\u00e7\u00e3o no suporte \u00e0 gest\u00e3o da inova\u00e7\u00e3o. Inova\u00e7\u00e3o aplicada \u00e0 tecnologia, servi\u00e7os e unidades de informa\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 7,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5050": {
+          "codigo": "CIN5050",
+          "nome": "Est\u00e1gio Supervisionado em Biblioteconomia",
+          "ementa": "Plano de atividades pr\u00e1ticas, desenvolvida e supervisionada em Unidades de Informa\u00e7\u00e3o (UI), credenciadas na UFSC. Relat\u00f3rio de est\u00e1gio.",
+          "carga_horaria": 270,
+          "fase_sugestao": 8,
+          "equivalencia": "CIN5506 ou CIN7802",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 2340,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5052": {
+          "codigo": "CIN5052",
+          "nome": "TCC - Trabalho de Conclus\u00e3o de Curso",
+          "ementa": "Reda\u00e7\u00e3o e defesa p\u00fablica do Trabalho de Conclus\u00e3o de Curso.",
+          "carga_horaria": 108,
+          "fase_sugestao": 8,
+          "equivalencia": "CIN7801",
+          "prerequisito": "CIN5027",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5030": {
+          "codigo": "CIN5030",
+          "nome": "Biblioteca Digital",
+          "ementa": "Aborda os conceitos e caracter\u00edsticas da biblioteca digital, sua organiza\u00e7\u00e3o e infra-estrutura t\u00e9cnica. Trata dos formatos digitais, da digitaliza\u00e7\u00e3o de documentos, das pol\u00edticas e projetos de bibliotecas digitais nacionais e internacionais. Direitos autorais, propriedade intelectual e licenciamento de softwares.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5031": {
+          "codigo": "CIN5031",
+          "nome": "Biblioteca Virtual",
+          "ementa": "Aborda os conceitos,  caracter\u00edsticas e estruturas da biblioteca  virtual,  os portais verticais e vortais. Trata da organiza\u00e7\u00e3o e administra\u00e7\u00e3o da informa\u00e7\u00e3o em rede computadores, e das  pol\u00edticas e projetos de bibliotecas virtuais tem\u00e1ticas nacionais e internacionais.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5032": {
+          "codigo": "CIN5032",
+          "nome": "Biblioterapia",
+          "ementa": "Conceitua e apresenta o fundamento filos\u00f3fico da biblioterapia. Aponta os objetivos e aplica\u00e7\u00f5es da biblioterapia. Apresenta o m\u00e9todo biblioterap\u00eautico.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5033": {
+          "codigo": "CIN5033",
+          "nome": "Conserva\u00e7\u00e3o e Restaura\u00e7\u00e3o de Documentos",
+          "ementa": "Apresenta a teoria e os m\u00e9todos de conserva\u00e7\u00e3o e restaura\u00e7\u00e3o de documentos.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5034": {
+          "codigo": "CIN5034",
+          "nome": "Editora\u00e7\u00e3o Cient\u00edfica",
+          "ementa": "Trata do hist\u00f3rico e da organiza\u00e7\u00e3o da editora\u00e7\u00e3o, do mercado livreiro nacional e \ninternacional. Aborda os processos de editora\u00e7\u00e3o tradicional e eletr\u00f4nica. Direitos \nautorais.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "CIN5332 ou CIN7402",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5035": {
+          "codigo": "CIN5035",
+          "nome": "Informa\u00e7\u00e3o e Cidadania",
+          "ementa": "Trata do Estado e da garantia dos direitos do cidad\u00e3o e da coletividade \u00e0 informa\u00e7\u00e3o e comunica\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5036": {
+          "codigo": "CIN5036",
+          "nome": "Informa\u00e7\u00e3o Liter\u00e1ria",
+          "ementa": "Trata das fontes liter\u00e1rias e do atendimento ao usu\u00e1rio, incorporando a conceitua\u00e7\u00e3o de literatura, o conhecimento dos g\u00eaneros e movimentos liter\u00e1rios e dos autores representativos dos v\u00e1rios movimentos no Brasil.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5037": {
+          "codigo": "CIN5037",
+          "nome": "Informa\u00e7\u00e3o para a Empresa",
+          "ementa": "A informa\u00e7\u00e3o na empresa: identifica\u00e7\u00e3o de necessidades, tipologia de informa\u00e7\u00e3o na empresa, fluxos e usos. Fontes, servi\u00e7os e produtos de informa\u00e7\u00e3o para neg\u00f3cios. Fontes, servi\u00e7os e produtos de informa\u00e7\u00e3o para empresas.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5038": {
+          "codigo": "CIN5038",
+          "nome": "Leitura e Informa\u00e7\u00e3o",
+          "ementa": "Apresenta as principais defini\u00e7\u00f5es de leitura. Apresenta aspectos cognitivos da leitura. Estuda as diferentes modalidades e estrat\u00e9gias de leitura. Apresenta a leitura como um processo de constru\u00e7\u00e3o de significados. Discute o papel social da leitura e da informa\u00e7\u00e3o. Relaciona a leitura com o processo de recupera\u00e7\u00e3o e dissemina\u00e7\u00e3o de informa\u00e7\u00f5es. Discute o papel do bibliotec\u00e1rio na forma\u00e7\u00e3o do leitor.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5039": {
+          "codigo": "CIN5039",
+          "nome": "T\u00f3picos Especiais\/Biblioteconomia\/Ci\u00eancia da Informa\u00e7\u00e3o: Fundamentos",
+          "ementa": "Aborda temas emergentes na \u00e1rea de Fundamentos te\u00f3ricos da Biblioteconomia e Ci\u00eancia da Informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5040": {
+          "codigo": "CIN5040",
+          "nome": "T\u00f3picos Especiais\/Biblioteconomia\/Ci\u00eancias\/Informa\u00e7\u00e3o:Organiza\u00e7\u00e3o e Tratamento",
+          "ementa": "Aborda o modelo de requisitos funcionais para registros bibliogr\u00e1ficos (FRBR) e para dados de autoridade (FRAD). Trata da norma de descri\u00e7\u00e3o e acesso a recursos (RDA). Analisa a utiliza\u00e7\u00e3o de tecnologias da informa\u00e7\u00e3o e da comunica\u00e7\u00e3o na implanta\u00e7\u00e3o de FRBR e RDA em bibliotecas.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5041": {
+          "codigo": "CIN5041",
+          "nome": "T\u00f3picos Especiais\/Biblioteconomia\/Ci\u00eancia\/Informa\u00e7\u00e3o: Recursos e Servi\u00e7os",
+          "ementa": "Aborda temas emergentes na \u00e1rea de Organiza\u00e7\u00e3o e Tratamento da Informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5042": {
+          "codigo": "CIN5042",
+          "nome": "T\u00f3picos Especiais\/Biblioteconomia\/Ci\u00eancia da Informa\u00e7\u00e3o: Gest\u00e3o da informa\u00e7\u00e3o",
+          "ementa": "Aborda temas emergentes na \u00e1rea de Gest\u00e3o da Informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5043": {
+          "codigo": "CIN5043",
+          "nome": "T\u00f3picos Especiais\/Biblioteconomia\/Ci\u00eancia da Informa\u00e7\u00e3o: Tecnologias-Informa\u00e7\u00e3o",
+          "ementa": "Aborda temas emergentes em Tecnologias da Informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5044": {
+          "codigo": "CIN5044",
+          "nome": "Unidades de Informa\u00e7\u00e3o Gerais",
+          "ementa": "Contempla o estudo dos servi\u00e7os desenvolvidos em bibliotecas p\u00fablicas, escolares e infantis.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5045": {
+          "codigo": "CIN5045",
+          "nome": "Unidades de Informa\u00e7\u00e3o Especializadas",
+          "ementa": "Contempla o estudo dos servi\u00e7os desenvolvidos em bibliotecas universit\u00e1rias e especializadas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5046": {
+          "codigo": "CIN5046",
+          "nome": "Gerenciador de Bases de Dados - CDS\/ISIS",
+          "ementa": "Vis\u00e3o introdut\u00f3ria sobre o CDS\/ISIS: contextualiza\u00e7\u00e3o e hist\u00f3rico. Experi\u00eancias e aplicativos em CDS\/ISIS. Planejamento de uma base de dados. CDS\/ISIS: caracter\u00edsticas e comandos principais, defini\u00e7\u00e3o da base de dados, manuten\u00e7\u00e3o de arquivos, recupera\u00e7\u00e3o de informa\u00e7\u00f5es e gera\u00e7\u00e3o de produtos impressos ou na tela.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5047": {
+          "codigo": "CIN5047",
+          "nome": "Programa de Interc\u00e2mbio I",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5048": {
+          "codigo": "CIN5048",
+          "nome": "Programa de Interc\u00e2mbio II",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "CIN5047",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5049": {
+          "codigo": "CIN5049",
+          "nome": "Bibliometria",
+          "ementa": "Teoria e pr\u00e1tica dos estudos m\u00e9tricos desde a sua origem e seus principais representantes no \u00e2mbito nacional e internacional. Utiliza\u00e7\u00e3o de instrumentos quantitativos de an\u00e1lise de dados para avalia\u00e7\u00e3o de conte\u00fados documentais: aplica\u00e7\u00e3o como instrumento de gest\u00e3o e valoriza\u00e7\u00e3o do acervo documental.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "CIN7135 ou CIN7401",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5053": {
+          "codigo": "CIN5053",
+          "nome": "Introdu\u00e7\u00e3o a FRBR e RDA",
+          "ementa": "Aborda o modelo de requisitos funcionais para registros bibliogr\u00e1ficos (FRBR) e para \ndados de autoridade (FRAD). Trata da norma de descri\u00e7\u00e3o e acesso a recursos (RDA). Analisa a utiliza\u00e7\u00e3o de tecnologias da informa\u00e7\u00e3o e da comunica\u00e7\u00e3o na implanta\u00e7\u00e3o de FRBR e RDA em bibliotecas.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5054": {
+          "codigo": "CIN5054",
+          "nome": "Compet\u00eancia Informacional",
+          "ementa": "Aspectos conceituais, hist\u00f3ricos e metodol\u00f3gicos da Compet\u00eancia Informacional. \nDimens\u00f5es da Compet\u00eancia Informacional. Programas e modelos de desenvolvimento \nda Compet\u00eancia Informacional.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "CIN7306",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EGC5028": {
+          "codigo": "EGC5028",
+          "nome": "Habitats de Inova\u00e7\u00e3o",
+          "ementa": "Sistemas de ci\u00eancia, tecnologia e inova\u00e7\u00e3o. A tr\u00edplice h\u00e9lice. Coopera\u00e7\u00e3o universidade empresa. Redes de coopera\u00e7\u00e3o. Habitats de inova\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "LSB7904": {
+          "codigo": "LSB7904",
+          "nome": "L\u00edngua Brasileira de Sinais I",
+          "ementa": "Desmistifica\u00e7\u00e3o de id\u00e9ias recebidas relativamente \u00e0s l\u00ednguas de sinais. A l\u00edngua de sinais enquanto l\u00edngua utilizada pela comunidade surda brasileira. Introdu\u00e7\u00e3o \u00e0 l\u00edngua brasileira de sinais: usar a l\u00edngua em contextos que exigem comunica\u00e7\u00e3o b\u00e1sica, como se apresentar, realizar perguntas, responder perguntas e dar informa\u00e7\u00f5es sobre alguns aspectos pessoais (nome, endere\u00e7o, telefone). Conhecer aspectos culturais espec\u00edficos da comunidade surda brasileira.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "LLE7881",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa",
+            "3": "PCC"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5055": {
+          "codigo": "CIN5055",
+          "nome": "Atividades Extra-classe - Eventos I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5056": {
+          "codigo": "CIN5056",
+          "nome": "Atividades Extra-classe - Eventos II",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5057": {
+          "codigo": "CIN5057",
+          "nome": "Atividades Extra-classe - Pesquisa I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5058": {
+          "codigo": "CIN5058",
+          "nome": "Atividades Extra-classe - Pesquisa II",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5059": {
+          "codigo": "CIN5059",
+          "nome": "Atividades Extra-classe - Pesquisa III",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5060": {
+          "codigo": "CIN5060",
+          "nome": "Atividades Extra-classe - Extens\u00e3o I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5061": {
+          "codigo": "CIN5061",
+          "nome": "Atividades Extra-classe - Extens\u00e3o II",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5062": {
+          "codigo": "CIN5062",
+          "nome": "Atividades Extra-classe - Monitoria",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5063": {
+          "codigo": "CIN5063",
+          "nome": "Atividades Extra-classe - Est\u00e1gio I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5064": {
+          "codigo": "CIN5064",
+          "nome": "Atividades Extra-classe - Est\u00e1gio II",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5065": {
+          "codigo": "CIN5065",
+          "nome": "Atividades Extra-classe - Cursos",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5066": {
+          "codigo": "CIN5066",
+          "nome": "Atividades Extra-classe - Cursos",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5067": {
+          "codigo": "CIN5067",
+          "nome": "Atividades Extra-classe - Organiza\u00e7\u00f5es",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5068": {
+          "codigo": "CIN5068",
+          "nome": "Atividades Extra-classe - Empresa J\u00fanior",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5069": {
+          "codigo": "CIN5069",
+          "nome": "Atividades Extraclasse: Comiss\u00f5es, Colegiados na UFSC",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        }
+      }
+    },
+    "20161": {
+      "id": "529",
+      "codigo": 20161,
+      "codigo_curso": 324,
+      "carga_horaria_ufsc": 2988,
+      "carga_horaria_mec": 2880,
+      "aulas_semana_min": 12,
+      "aulas_semana_esperado": 16,
+      "aulas_semana_max": 23,
+      "num_periodos_min": 8,
+      "num_periodos_esperado": 8,
+      "num_periodos_max": 14,
+      "descricao": "Referente ao curriculo 20161",
+      "ucs": {
+        "CIN5001": {
+          "codigo": "CIN5001",
+          "nome": "Fundamentos de Biblioteconomia",
+          "ementa": "Busca a compreens\u00e3o do texto s\u00f3cio-econ\u00f4mico, dos aportes te\u00f3ricos  e da ambi\u00eancia ocupacional no qual os profissionais da informa\u00e7\u00e3o exercem seus pap\u00e9is, desenvolvem compet\u00eancias, constroem e reconstroem conhecimentos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 1,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7139": {
+          "codigo": "CIN7139",
+          "nome": "Introdu\u00e7\u00e3o \u00e0s Tecnologias da Informa\u00e7\u00e3o e Comunica\u00e7\u00e3o",
+          "ementa": "Introdu\u00e7\u00e3o aos sistemas de informa\u00e7\u00e3o. Fundamentos das tecnologias da informa\u00e7\u00e3o e comunica\u00e7\u00e3o. Hardware (componentes, tecnologia de armazenamento, tecnologia de entrada e sa\u00edda), software (tipos, gera\u00e7\u00f5es) e redes de computadores. Editores de texto. Planilhas eletr\u00f4nicas. Instala\u00e7\u00e3o e configura\u00e7\u00e3o de programas.",
+          "carga_horaria": 36,
+          "fase_sugestao": 1,
+          "equivalencia": "CIN5018",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7140": {
+          "codigo": "CIN7140",
+          "nome": "Pesquisa Bibliogr\u00e1fica",
+          "ementa": "Comunica\u00e7\u00e3o cient\u00edfica. Introdu\u00e7\u00e3o \u00e0s fontes de informa\u00e7\u00e3o. Caracteriza\u00e7\u00e3o da pesquisa cient\u00edfica. Pesquisa bibliogr\u00e1fica: m\u00e9todos, t\u00e9cnicas e normaliza\u00e7\u00e3o. Elabora\u00e7\u00e3o de projeto e relat\u00f3rio de Pesquisa Bibliogr\u00e1fica.",
+          "carga_horaria": 72,
+          "fase_sugestao": 1,
+          "equivalencia": "CIN5002 ou CIN5100",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7141": {
+          "codigo": "CIN7141",
+          "nome": "L\u00f3gica Instrumental I",
+          "ementa": "Introdu\u00e7\u00e3o ao Racioc\u00ednio L\u00f3gico-Matem\u00e1tico. Teoria de Conjuntos. L\u00f3gica Proposicional. C\u00e1lculo de Predicados. An\u00e1lise e Valida\u00e7\u00e3o de Argumentos. Introdu\u00e7\u00e3o ao Pensamento Dedutivo.",
+          "carga_horaria": 36,
+          "fase_sugestao": 1,
+          "equivalencia": "CIN5043",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7142": {
+          "codigo": "CIN7142",
+          "nome": "Evolu\u00e7\u00e3o do Pensamento Filos\u00f3fico e Cient\u00edfico",
+          "ementa": "Estudo das principais formas hist\u00f3ricas do discurso filos\u00f3fico e cient\u00edfico no Ocidente, \ndesde as primeiras manifesta\u00e7\u00f5es gregas at\u00e9 a atualidade.",
+          "carga_horaria": 36,
+          "fase_sugestao": 1,
+          "equivalencia": "CIN7106",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7143": {
+          "codigo": "CIN7143",
+          "nome": "Empreendedorismo I",
+          "ementa": "Fundamentos do empreendedorismo. Caracter\u00edsticas e perfil do empreendedor. \nA\u00e7\u00f5es empreendedoras.",
+          "carga_horaria": 36,
+          "fase_sugestao": 1,
+          "equivalencia": "CIN7137",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7144": {
+          "codigo": "CIN7144",
+          "nome": "Tutoria Acad\u00eamica I",
+          "ementa": "A UFSC. PRAE. PROGRAD. DAE. Bolsas e aux\u00edlios. Bolsa Estudantil. Perman\u00eancia e \n\u00eaxito. PPC do Curso. Centro acad\u00eamico. DCE. Resolu\u00e7\u00e3o 017\/Cun\/97. Restaurante \nUniversit\u00e1rio. Biblioteca Universit\u00e1ria. CAGR. Sistema de Matr\u00edculas e ajuste de matr\u00edcula.",
+          "carga_horaria": 18,
+          "fase_sugestao": 1,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "LLV7802": {
+          "codigo": "LLV7802",
+          "nome": "Leitura e Produ\u00e7\u00e3o do Texto",
+          "ementa": "Abordagens te\u00f3ricas sobre leitura e concep\u00e7\u00f5es de leitura correlatas. N\u00edveis, estrat\u00e9gias e pr\u00e1ticas de leitura. Fatores de textualiza\u00e7\u00e3o\/textualidade, regras de coer\u00eancia e referencia\u00e7\u00e3o. Condi\u00e7\u00f5es de produ\u00e7\u00e3o textual e particularidades de g\u00eaneros do discurso.",
+          "carga_horaria": 72,
+          "fase_sugestao": 1,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CAD5103": {
+          "codigo": "CAD5103",
+          "nome": "Administra\u00e7\u00e3o I",
+          "ementa": "Origem da administra\u00e7\u00e3o como ci\u00eancia. As fun\u00e7\u00f5es administrativas: planejamento, organiza\u00e7\u00e3o, coordena\u00e7\u00e3o, comando e controle.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "CAD7001",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7201": {
+          "codigo": "CIN7201",
+          "nome": "Sistemas de Organiza\u00e7\u00e3o do Conhecimento",
+          "ementa": "Aborda os aspectos introdut\u00f3rios sobre teorias e metodologias dos Sistemas de Organiza\u00e7\u00e3o do Conhecimento (SOC), utilizados para a organiza\u00e7\u00e3o e recupera\u00e7\u00e3o da informa\u00e7\u00e3o: classifica\u00e7\u00f5es, tesauros, taxonomias e ontologias.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7202": {
+          "codigo": "CIN7202",
+          "nome": "Sociedade da Informa\u00e7\u00e3o",
+          "ementa": "Sociedade da informa\u00e7\u00e3o e economia do conhecimento. Cibercultura. Converg\u00eancia digital. Governo eletr\u00f4nico e governan\u00e7a eletr\u00f4nica. Organiza\u00e7\u00f5es em rede. Redes sociais.",
+          "carga_horaria": 36,
+          "fase_sugestao": 2,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7203": {
+          "codigo": "CIN7203",
+          "nome": "\u00c9tica Profissional",
+          "ementa": "\u00c9tica: conceito e objeto. As quest\u00f5es \u00e9ticas e a atua\u00e7\u00e3o profissional. Legisla\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 2,
+          "equivalencia": "CIN5026 ou CIN7107",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7204": {
+          "codigo": "CIN7204",
+          "nome": "Tutoria Acad\u00eamica II",
+          "ementa": "Est\u00e1gios. Atividades Complementares. Crit\u00e9rios de escolha de disciplinas optativas. \nProjeto profissional. Oportunidades no exterior. Mobilidade. Projetos de Pesquisa, \nExtens\u00e3o, Monitoria. Ouvidoria. Retornos e transfer\u00eancias. Apoio psicol\u00f3gico na PRAE. Exame de Avalia\u00e7\u00e3o de Aproveitamento Extraordin\u00e1rio de Estudos.",
+          "carga_horaria": 18,
+          "fase_sugestao": 2,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7205": {
+          "codigo": "CIN7205",
+          "nome": "Recupera\u00e7\u00e3o da Informa\u00e7\u00e3o",
+          "ementa": "Os sistemas de recupera\u00e7\u00e3o de informa\u00e7\u00e3o, as gera\u00e7\u00f5es, as l\u00f3gicas, os recursos e as estrat\u00e9gias de busca em bases de dados. Recupera\u00e7\u00e3o da informa\u00e7\u00e3o na Web, dos motores de busca, dos diret\u00f3rios e dos metabuscadores.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "CIN5012",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7206": {
+          "codigo": "CIN7206",
+          "nome": "Fontes Gerais de Informa\u00e7\u00e3o",
+          "ementa": "Controle bibliogr\u00e1fico universal e nacional. Introdu\u00e7\u00e3o \u00e0s fontes de informa\u00e7\u00e3o. Tipologia e finalidade das fontes de informa\u00e7\u00e3o. An\u00e1lise e avalia\u00e7\u00e3o das fontes de informa\u00e7\u00e3o gerais.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "CIN5004",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7301": {
+          "codigo": "CIN7301",
+          "nome": "Introdu\u00e7\u00e3o \u00e0 Representa\u00e7\u00e3o Tem\u00e1tica",
+          "ementa": "Introdu\u00e7\u00e3o \u00e0 An\u00e1lise da Informa\u00e7\u00e3o. Indexa\u00e7\u00e3o - tipologia, instrumentos e metodologias. Aborda aspectos introdut\u00f3rios da Recupera\u00e7\u00e3o da Informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 3,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7302": {
+          "codigo": "CIN7302",
+          "nome": "Introdu\u00e7\u00e3o \u00e0 Representa\u00e7\u00e3o Descritiva",
+          "ementa": "Aspectos te\u00f3ricos, metodol\u00f3gicos e princ\u00edpios norteadores da representa\u00e7\u00e3o descritiva. Elementos, n\u00edveis e instrumentos de pesquisa da representa\u00e7\u00e3o descritiva. Normas e padr\u00f5es da representa\u00e7\u00e3o descritiva e suas aplica\u00e7\u00f5es nos recursos informacionais.",
+          "carga_horaria": 36,
+          "fase_sugestao": 3,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7303": {
+          "codigo": "CIN7303",
+          "nome": "Metodologia da Pesquisa",
+          "ementa": "Aborda os conceitos s\u00f3cio hist\u00f3ricos de ci\u00eancia, conhecimento, pesquisa e comunica\u00e7\u00e3o cient\u00edfica. Trata dos m\u00e9todos e t\u00e9cnicas da pesquisa social e da elabora\u00e7\u00e3o do projeto e execu\u00e7\u00e3o da pesquisa at\u00e9 sua etapa conclusiva de elabora\u00e7\u00e3o do relat\u00f3rio final.",
+          "carga_horaria": 36,
+          "fase_sugestao": 3,
+          "equivalencia": "CIN7114",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7304": {
+          "codigo": "CIN7304",
+          "nome": "Introdu\u00e7\u00e3o \u00e0 Bancos de Dados",
+          "ementa": "Banco de Dados. Sistemas Gerenciadores de Bancos de Dados. Bancos de Dados e Bases de Dados. Projeto de Banco de Dados.",
+          "carga_horaria": 36,
+          "fase_sugestao": 3,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7306": {
+          "codigo": "CIN7306",
+          "nome": "Compet\u00eancia Informacional",
+          "ementa": "Aspectos conceituais, hist\u00f3ricos e metodol\u00f3gicos da compet\u00eancia informacional. Dimens\u00f5es da compet\u00eancia informacional. Programas e modelos de desenvolvimento da compet\u00eancia informacional.",
+          "carga_horaria": 36,
+          "fase_sugestao": 3,
+          "equivalencia": "CIN5054",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7309": {
+          "codigo": "CIN7309",
+          "nome": "Gest\u00e3o de Processos Organizacionais",
+          "ementa": "Gest\u00e3o dos processos como uma abordagem na gest\u00e3o das organiza\u00e7\u00f5es. Conceitos b\u00e1sicos da\ngest\u00e3o dos processos: conceitos e classifica\u00e7\u00e3o. Principais processos nas organiza\u00e7\u00f5es. Tecnologias orientadas\npara otimiza\u00e7\u00e3o de processos organizacionais. Mapeamento de Processos. Desenho, arranjo f\u00edsico, an\u00e1lise de\nfluxos e a gest\u00e3o dos processos. Padroniza\u00e7\u00e3o, manualiza\u00e7\u00e3o e tecnologia da informa\u00e7\u00e3o nos processos. O\npapel dos processos na Gest\u00e3o da Qualidade. Inova\u00e7\u00e3o e metodologias de an\u00e1lise e melhoria de processos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 3,
+          "equivalencia": "CAD5213",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7936": {
+          "codigo": "CIN7936",
+          "nome": "Prote\u00e7\u00e3o de Dados Pessoais",
+          "ementa": "No\u00e7\u00f5es Gerais de \u00c9tica. Introdu\u00e7\u00e3o aos conceitos de ordenamento jur\u00eddico, Poder Judici\u00e1rio e Marco\nCivil da Internet. Conceitos B\u00e1sicos da Lei Geral de Prote\u00e7\u00e3o de Dados. O Tratamento de Dados Pessoais. Os\nDireitos do Titular. A Transfer\u00eancia Internacional de Dados. Os Agentes de Tratamento de Dados Pessoais. A\nSeguran\u00e7a de dados e as Boas Pr\u00e1ticas. Ressarcimento de Danos e San\u00e7\u00f5es Administrativas.",
+          "carga_horaria": 36,
+          "fase_sugestao": 3,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "HST7921": {
+          "codigo": "HST7921",
+          "nome": "Hist\u00f3ria do Brasil Contempor\u00e2neo",
+          "ementa": "A forma\u00e7\u00e3o do Brasil Contempor\u00e2neo: Da 1\u00aa Rep\u00fablica \u00e0 Ditadura Militar. A redemocratiza\u00e7\u00e3o e o Brasil atual: Temas e \nquest\u00f5es contempor\u00e2neas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 3,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7401": {
+          "codigo": "CIN7401",
+          "nome": "Estudos M\u00e9tricos da Informa\u00e7\u00e3o",
+          "ementa": "Teoria e pr\u00e1tica dos estudos m\u00e9tricos desde sua origem e seus principais representantes no \u00e2mbito mundial, nacional e acad\u00eamico na Ci\u00eancia da Informa\u00e7\u00e3o. Compreens\u00e3o dos fen\u00f4menos estat\u00edsticos na informa\u00e7\u00e3o cient\u00edfica e tecnol\u00f3gica, dando suporte b\u00e1sico para os discentes entenderem o contexto dos estudos m\u00e9tricos. Apresentar sistemas consolidados de medi\u00e7\u00e3o da Ci\u00eancia e da Tecnologia, bem como a quantifica\u00e7\u00e3o da informa\u00e7\u00e3o bibliogr\u00e1fica\/documental.",
+          "carga_horaria": 72,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN5049 ou CIN7135",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7402": {
+          "codigo": "CIN7402",
+          "nome": "Editora\u00e7\u00e3o Cient\u00edfica",
+          "ementa": "Processo da comunica\u00e7\u00e3o cient\u00edfica e seus atores. Organiza\u00e7\u00e3o e arquivamento de peri\u00f3dicos cient\u00edficos. Recursos e instrumentos para editora\u00e7\u00e3o de peri\u00f3dicos cient\u00edficos.",
+          "carga_horaria": 36,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN5034",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7403": {
+          "codigo": "CIN7403",
+          "nome": "Acessibilidade e Inclus\u00e3o Digital",
+          "ementa": "Estudo dos processos de inclus\u00e3o\/exclus\u00e3o social pela interface digital. Potencial inclusivo das Tecnologias de Informa\u00e7\u00e3o e de Comunica\u00e7\u00e3o (TICs) na sociedade contempor\u00e2nea. Normas e padr\u00f5es internacionais sobre acessibilidade; estudo de tecnologia assistiva e de outras inova\u00e7\u00f5es tecnol\u00f3gicas que visem \u00e0 inclus\u00e3o social da pessoa com defici\u00eancia.",
+          "carga_horaria": 36,
+          "fase_sugestao": 4,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7404": {
+          "codigo": "CIN7404",
+          "nome": "Planejamento Estrat\u00e9gico",
+          "ementa": "Introdu\u00e7\u00e3o ao Planejamento Estrat\u00e9gico. Elementos para o Planejamento Estrat\u00e9gico. Balanced Scorecard (BSC). Elabora\u00e7\u00e3o do Planejamento Estrat\u00e9gico. Avalia\u00e7\u00e3o do Planejamento Estrat\u00e9gico",
+          "carga_horaria": 36,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN5016 ou CIN7108",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7405": {
+          "codigo": "CIN7405",
+          "nome": "Projeto de Informatiza\u00e7\u00e3o",
+          "ementa": "Aborda a unidade de informa\u00e7\u00e3o como sistema, seus n\u00facleos de atividades, suas fun\u00e7\u00f5es e tarefas, e as motiva\u00e7\u00f5es para sua informatiza\u00e7\u00e3o. Planeja a informatiza\u00e7\u00e3o de uma unidade de informa\u00e7\u00e3o, a partir da escolha de solu\u00e7\u00f5es e de aquisi\u00e7\u00e3o de programas ou do desenvolvimento de sistemas pr\u00f3prios.",
+          "carga_horaria": 36,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN5018 ou CIN7111",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7406": {
+          "codigo": "CIN7406",
+          "nome": "Preserva\u00e7\u00e3o Digital",
+          "ementa": "Preserva\u00e7\u00e3o digital. Estrat\u00e9gias estruturais: ado\u00e7\u00e3o de padr\u00f5es; elabora\u00e7\u00e3o de normas e manuais; metadados de preserva\u00e7\u00e3o digital; montagem de infraestrutura; forma\u00e7\u00e3o de cons\u00f3rcios e parcerias. Estrat\u00e9gias Operacionais: migra\u00e7\u00e3o; emula\u00e7\u00e3o; preserva\u00e7\u00e3o de tecnologia; encapsulamento. Modelos de refer\u00eancia e projetos.",
+          "carga_horaria": 36,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN7130",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7410": {
+          "codigo": "CIN7410",
+          "nome": "Laborat\u00f3rio de Empreendimentos Sociais",
+          "ementa": "Disciplina de natureza te\u00f3rico-pr\u00e1tico-reflexiva que desenvolve atividades\nde integra\u00e7\u00e3o entre academia e a sociedade civil onde se possa estabelecer uma rela\u00e7\u00e3o\ndial\u00f3gica e contribuir para a implanta\u00e7\u00e3o da meta 12.7 do Plano Nacional de educa\u00e7\u00e3o .\nDesenvolver atividades de concep\u00e7\u00e3o, planejamento e execu\u00e7\u00e3o de programas, projetos\ne a\u00e7\u00f5es de extens\u00e3o em diferentes realidades sociais e a partir de um referencial s\u00f3ciocultural.",
+          "carga_horaria": 36,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN7307 e CIN7408",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7412": {
+          "codigo": "CIN7412",
+          "nome": "Marketing da Informa\u00e7\u00e3o",
+          "ementa": "Conceitos b\u00e1sicos de Marketing aplicados \u00e0 Ci\u00eancia da Informa\u00e7\u00e3o. O composto de\nMarketing de produtos e servi\u00e7os. Coleta e an\u00e1lise de informa\u00e7\u00f5es no ambiente em\nMarketing. Plano de marketing.",
+          "carga_horaria": 36,
+          "fase_sugestao": 4,
+          "equivalencia": "CIN7407",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "INE5111": {
+          "codigo": "INE5111",
+          "nome": "Estat\u00edstica Aplicada I",
+          "ementa": "Estat\u00edstica descritiva. Elabora\u00e7\u00e3o de instrumentos de pesquisa. No\u00e7\u00f5es de probabilidade. Uso das principais distribui\u00e7\u00f5es de probabilidade. T\u00f3picos de infer\u00eancia de estat\u00edstica.",
+          "carga_horaria": 72,
+          "fase_sugestao": 4,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7506": {
+          "codigo": "CIN7506",
+          "nome": "Representa\u00e7\u00e3o Descritiva I",
+          "ementa": "C\u00f3digos e normas de cataloga\u00e7\u00e3o. Programas de cataloga\u00e7\u00e3o. Padr\u00f5es e formatos de descri\u00e7\u00e3o para interc\u00e2mbio. Cat\u00e1logos. Representa\u00e7\u00e3o descritiva de livros, folhetos e folhas soltas impressas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 5,
+          "equivalencia": "CIN5006",
+          "prerequisito": "CIN7302",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7507": {
+          "codigo": "CIN7507",
+          "nome": "Sisitemas de Classifica\u00e7\u00e3o",
+          "ementa": "Caracteriza\u00e7\u00e3o das diferentes tabelas de classifica\u00e7\u00e3o e seus dispositivos de constru\u00e7\u00e3o das nota\u00e7\u00f5es. Pr\u00e1ticas da Classifica\u00e7\u00e3o Decimal de Dewey (CDD), da Classifica\u00e7\u00e3o Decimal Universal (CDU) e da nota\u00e7\u00e3o de autor.",
+          "carga_horaria": 108,
+          "fase_sugestao": 5,
+          "equivalencia": "CIN5013",
+          "prerequisito": "CIN7201 e CIN7301",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7508": {
+          "codigo": "CIN7508",
+          "nome": "Fontes Especializadas de Informa\u00e7\u00e3o",
+          "ementa": "An\u00e1lise e avalia\u00e7\u00e3o de fontes especializadas de informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 5,
+          "equivalencia": "CIN5008",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7509": {
+          "codigo": "CIN7509",
+          "nome": "Estudos de Usu\u00e1rios",
+          "ementa": "Caracteriza\u00e7\u00e3o de Usu\u00e1rios. Execu\u00e7\u00e3o de Estudo de usu\u00e1rios. Relat\u00f3rio de estudo de usu\u00e1rios.",
+          "carga_horaria": 72,
+          "fase_sugestao": 5,
+          "equivalencia": "CIN5020",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "PSI5112": {
+          "codigo": "PSI5112",
+          "nome": "Rela\u00e7\u00f5es Humanas",
+          "ementa": "A personalidade humana. Os grupos e sua din\u00e2mica, a comunica\u00e7\u00e3o e seus problemas.",
+          "carga_horaria": 36,
+          "fase_sugestao": 5,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZT6529": {
+          "codigo": "ZZT6529",
+          "nome": "Optativa\/Atividades Extraclasse(*)",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 8,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": [],
+          "tipo_uc": "Anota\u00e7\u00e3o"
+        },
+        "CIN7605": {
+          "codigo": "CIN7605",
+          "nome": "Representa\u00e7\u00e3o Descritiva II",
+          "ementa": "Estudo te\u00f3rico e pr\u00e1tico dos pontos de acesso, segundo o AACR2R e as novas regras vigentes de cataloga\u00e7\u00e3o",
+          "carga_horaria": 72,
+          "fase_sugestao": 6,
+          "equivalencia": "CIN5010",
+          "prerequisito": "CIN7506",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7606": {
+          "codigo": "CIN7606",
+          "nome": "Organiza\u00e7\u00e3o de Bibliotecas",
+          "ementa": "Estrutura organizacional das bibliotecas. Os fluxos de trabalho nas bibliotecas. Estrutura\u00e7\u00e3o do espa\u00e7o f\u00edsico de bibliotecas. Elabora\u00e7\u00e3o de manuais, normas de procedimentos e relat\u00f3rios em Bibliotecas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 6,
+          "equivalencia": "CIN5019",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7607": {
+          "codigo": "CIN7607",
+          "nome": "Indexa\u00e7\u00e3o",
+          "ementa": "Aborda aspectos te\u00f3ricos e metodol\u00f3gicos da Indexa\u00e7\u00e3o. Trata da tipologia de indexa\u00e7\u00e3o, \u00edndices e resumos. Aplica pr\u00e1tica da indexa\u00e7\u00e3o, elabora\u00e7\u00e3o de \u00edndices e resumos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 6,
+          "equivalencia": "CIN5014",
+          "prerequisito": "CIN7201",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7608": {
+          "codigo": "CIN7608",
+          "nome": "Forma\u00e7\u00e3o e Desenvolvimento de Cole\u00e7\u00f5es",
+          "ementa": "Processo de desenvolvimento de cole\u00e7\u00f5es. Princ\u00edpios para forma\u00e7\u00e3o e desenvolvimento de cole\u00e7\u00f5es. Pol\u00edticas, m\u00e9todos, t\u00e9cnicas e procedimentos aplic\u00e1veis ao processo.",
+          "carga_horaria": 72,
+          "fase_sugestao": 6,
+          "equivalencia": "CIN5024",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "JOR5300": {
+          "codigo": "JOR5300",
+          "nome": "Comunica\u00e7\u00e3o",
+          "ementa": "Progressos sociais e processos de comunica\u00e7\u00e3o. Comunica\u00e7\u00e3o, abordagem te\u00f3rica das condi\u00e7\u00f5es de produ\u00e7\u00e3o, circula\u00e7\u00e3o e consumo de mensagem. As pol\u00edticas que determinam e condicionam o processo da informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 6,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7702": {
+          "codigo": "CIN7702",
+          "nome": "Pr\u00e1ticas de Tratamento de Informa\u00e7\u00e3o",
+          "ementa": "Pr\u00e1ticas de registro, cataloga\u00e7\u00e3o, classifica\u00e7\u00e3o, indexa\u00e7\u00e3o e preparo para circula\u00e7\u00e3o. Uso de sistemas informatizados.",
+          "carga_horaria": 72,
+          "fase_sugestao": 7,
+          "equivalencia": "CIN7702",
+          "prerequisito": "CIN7507 e CIN7605 e CIN7606 e CIN7607",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7703": {
+          "codigo": "CIN7703",
+          "nome": "Refer\u00eancia e Servi\u00e7os de Informa\u00e7\u00e3o",
+          "ementa": "Processo de refer\u00eancia. Servi\u00e7os de refer\u00eancia em diversos suportes. Redes e sistemas de informa\u00e7\u00e3o nacionais e internacionais. Produtos e dos servi\u00e7os de dissemina\u00e7\u00e3o da informa\u00e7\u00e3o. Compet\u00eancias do bibliotec\u00e1rio de refer\u00eancia.",
+          "carga_horaria": 72,
+          "fase_sugestao": 7,
+          "equivalencia": "CIN5022 ou CIN5023",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7704": {
+          "codigo": "CIN7704",
+          "nome": "Projeto de Pesquisa",
+          "ementa": "Elabora\u00e7\u00e3o do projeto de pesquisa.",
+          "carga_horaria": 36,
+          "fase_sugestao": 7,
+          "equivalencia": "CIN5027",
+          "prerequisito": "CAD7213 e CIN7139 e CIN7140 e CIN7141 e CIN7142 e CIN7143 e CIN7144 e CIN7201 e CIN7202 e CIN7203 e CIN7204 e CIN7205 e CIN7206 e CIN7301 e CIN7302 e CIN7303 e CIN7304 e CIN7306 e CIN7401 e CIN7402 e CIN7403 e CIN7404 e CIN7405 e CIN7406 e CIN7408 e CIN7506 e CIN7507 e CIN7605 e CIN7606",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7705": {
+          "codigo": "CIN7705",
+          "nome": "Publica\u00e7\u00e3o Bibliogr\u00e1fica",
+          "ementa": "Publica\u00e7\u00e3o bibliogr\u00e1fica: hist\u00f3rico e organiza\u00e7\u00e3o. Processo editorial de publica\u00e7\u00f5es bibliogr\u00e1ficas impressas e digitais. Mercado nacional e internacional da publica\u00e7\u00e3o bibliogr\u00e1fica. Dep\u00f3sito legal e direitos autorais. Recursos e instrumentos para editora\u00e7\u00e3o e preserva\u00e7\u00e3o de publica\u00e7\u00e3o bibliogr\u00e1fica.",
+          "carga_horaria": 36,
+          "fase_sugestao": 7,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7706": {
+          "codigo": "CIN7706",
+          "nome": "Tratamentos de Multimeios",
+          "ementa": "Os diferentes suportes da informa\u00e7\u00e3o. Caracteriza\u00e7\u00e3o e descri\u00e7\u00e3o dos multimeios: aplica\u00e7\u00e3o de normas vigentes da cataloga\u00e7\u00e3o descritiva e escolha de pontos de acesso.",
+          "carga_horaria": 72,
+          "fase_sugestao": 7,
+          "equivalencia": "CIN5010",
+          "prerequisito": "CIN7302 e CIN7605",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7801": {
+          "codigo": "CIN7801",
+          "nome": "Trabalho de Conclus\u00e3o de Curso",
+          "ementa": "Coleta, tratamento e an\u00e1lise de dados. Elabora\u00e7\u00e3o de artigo cient\u00edfico. Apresenta\u00e7\u00e3o de artigo cient\u00edfico.",
+          "carga_horaria": 72,
+          "fase_sugestao": 8,
+          "equivalencia": "CIN5052",
+          "prerequisito": "CIN7704",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7802": {
+          "codigo": "CIN7802",
+          "nome": "Est\u00e1gio Supervisionado",
+          "ementa": "Plano de atividades. Pr\u00e1tica supervisionada em unidades de informa\u00e7\u00e3o \ncredenciadas na UFSC. Reda\u00e7\u00e3o e apresenta\u00e7\u00e3o de relat\u00f3rio de est\u00e1gio.",
+          "carga_horaria": 288,
+          "fase_sugestao": 8,
+          "equivalencia": "CIN5050",
+          "prerequisito": "CIN7702",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7138": {
+          "codigo": "CIN7138",
+          "nome": "Introdu\u00e7\u00e3o \u00e0 Ci\u00eancia da Informa\u00e7\u00e3o",
+          "ementa": "Busca identificar a perspectiva hist\u00f3rico\/social da Ci\u00eancia da Informa\u00e7\u00e3o no mundo e \nno Brasil. Compreender os aportes te\u00f3ricos e seus pioneiros. Inser\u00e7\u00e3o da Ci\u00eancia da \nInforma\u00e7\u00e3o nas Ci\u00eancias Sociais Aplicadas segundo seu objeto de estudo, suas teorias e sua interdisciplinaridade.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "CIN5001",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7919": {
+          "codigo": "CIN7919",
+          "nome": "Informa\u00e7\u00e3o, Direito e Cidadania",
+          "ementa": "Estudo da cidadania como categoria jur\u00eddica e pol\u00edtica em transforma\u00e7\u00e3o. An\u00e1lise da rela\u00e7\u00e3o entre cidadania, Estado e espa\u00e7o p\u00fablico. Cidadania e gest\u00e3o liberal. Cidadania e Estado de Bem-Estar Social. Cidadania e Estado brasileiro. Participa\u00e7\u00e3o popular e raz\u00e3o comunicativa.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7920": {
+          "codigo": "CIN7920",
+          "nome": "Informa\u00e7\u00e3o Tecnol\u00f3gica e Inova\u00e7\u00e3o",
+          "ementa": "Propriedade Intelectual e Inova\u00e7\u00e3o. Marcas e Patentes. Regime Jur\u00eddico da Ci\u00eancia, Tecnologia e Inova\u00e7\u00e3o no Brasil. Marco Civil da Internet. Lei de Acesso \u00e0 Informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7921": {
+          "codigo": "CIN7921",
+          "nome": "Marketing em Arquivo",
+          "ementa": "Marketing: hist\u00f3rico e evolu\u00e7\u00e3o. Marketing t\u00e9cnicas e fun\u00e7\u00f5es. Marketing aplicado em Arquivo.  Plano de Marketing. Auditoria do Marketing. Endomarketing.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7922": {
+          "codigo": "CIN7922",
+          "nome": "Direito na Gest\u00e3o da Inova\u00e7\u00e3o",
+          "ementa": "Aborda a rela\u00e7\u00e3o entre o ordenamento jur\u00eddico, o processo de inova\u00e7\u00e3o e suas \ninterfaces com a ci\u00eancia da informa\u00e7\u00e3o em tr\u00eas dimens\u00f5es normativas espec\u00edficas. A \nprimeira \u00e9 o Marco Civil da Internet (Lei 12.965\/14), destacando-se o acesso \u00e0 \ninforma\u00e7\u00e3o (Lei 12,527\/2011) e ao conhecimento. A segunda dimens\u00e3o normativa s\u00e3o os marcos legais do Sistema Nacional de Inova\u00e7\u00e3o, destacando-se a Emenda \nConstitucional n\u00b0 85\/2015 e a Lei 13.243\/16 (Novo Marco Legal da Ci\u00eancia, Tecnologia e Inova\u00e7\u00e3o). J\u00e1 a terceira dimens\u00e3o normativa refere-se ao Instituto da Propriedade Intelectual, mais especificamente o instituto jur\u00eddico da Propriedade Industrial (Patentes e Registro) e os Direitos Intelectuais sui generis (Software, topografia dos circuitos integrados e cultivares).",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7924": {
+          "codigo": "CIN7924",
+          "nome": "Tipologia de Bibliotecas",
+          "ementa": "Tipos de bibliotecas. Conceitua\u00e7\u00e3o, caracter\u00edsticas e servi\u00e7os das diferentes\nbibliotecas.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7925": {
+          "codigo": "CIN7925",
+          "nome": "Introdu\u00e7\u00e3o a Algoritmos",
+          "ementa": "Decomposi\u00e7\u00e3o e estrutura\u00e7\u00e3o de problemas l\u00f3gicos. Desenvolvimento introdut\u00f3rio de\nalgoritmos. Pr\u00e1tica de resolu\u00e7\u00e3o de problemas por meio de algoritmos.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7926": {
+          "codigo": "CIN7926",
+          "nome": "Informa\u00e7\u00e3o e Cultura Popular",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7927": {
+          "codigo": "CIN7927",
+          "nome": "Gest\u00e3o da Informa\u00e7\u00e3o P\u00fablica",
+          "ementa": "Aborda pr\u00e1ticas de pol\u00edticas e regime de acesso e dissemina\u00e7\u00e3o da Informa\u00e7\u00e3o P\u00fablica para\nfins de controle social e outros. Formas de publicidade, transpar\u00eancia e gerenciamento de\ninforma\u00e7\u00f5es p\u00fablicas. Meios de divulga\u00e7\u00e3o, acesso e uso de informa\u00e7\u00f5es governamentais\npara transpar\u00eancia ativa. Pol\u00edticas de dados abertos.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7928": {
+          "codigo": "CIN7928",
+          "nome": "T\u00f3picos Especiais em Informa\u00e7\u00e3o e Tecnologia",
+          "ementa": "Introdu\u00e7\u00e3o e conceitos da comunica\u00e7\u00e3o dados. Modelos de refer\u00eancia. Roteamento de\ndados. Introdu\u00e7\u00e3o \u00e0 Seguran\u00e7a da Informa\u00e7\u00e3o. Estudo de casos.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7948": {
+          "codigo": "CIN7948",
+          "nome": "Profissional da Informa\u00e7\u00e3o nas Humanidades Digitais",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN7951": {
+          "codigo": "CIN7951",
+          "nome": "O Marco Legal das Startups e o Marco Legal da Ci\u00eancia, Tecnologia e Inova\u00e7\u00e3o: interfaces entre direi",
+          "ementa": "Aborda a rela\u00e7\u00e3o entre o ordenamento jur\u00eddico, o processo de inova\u00e7\u00e3o e suas interfaces com a ci\u00eancia da informa\u00e7\u00e3o em quatro dimens\u00f5es normativas espec\u00edficas. A Primeira dimens\u00e3o normativa s\u00e3o os marcos legais do Sistema Nacional de Inova\u00e7\u00e3o, destacando-se a Emenda Constitucional n\u00b0 85\/2015, a Lei 13.243\/16 (Novo Marco Legal da Ci\u00eancia, Tecnologia e Inova\u00e7\u00e3o) e o Decreto 9.283\/18. A Segunda dimens\u00e3o normativa refere-se ao Instituto da Propriedade Intelectual, mais especificamente o instituto jur\u00eddico da Propriedade Industrial (Patentes e\nRegistro) e os Direitos Intelectuais sui generis (Software, topografia dos circuitos integrados e cultivares). A terceira dimens\u00e3o refere-se ao Novo Marco Legal das Startups (Lei Complementar n\u00b0. 182\/2021) e sua rela\u00e7\u00e3o\ncom o empreendedorismo inovador. Por fim, a quarta dimens\u00e3o traz o Marco Civil da Internet e sua interface com a inova\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EGC5028": {
+          "codigo": "EGC5028",
+          "nome": "Habitats de Inova\u00e7\u00e3o",
+          "ementa": "Sistemas de ci\u00eancia, tecnologia e inova\u00e7\u00e3o. A tr\u00edplice h\u00e9lice. Coopera\u00e7\u00e3o universidade empresa. Redes de coopera\u00e7\u00e3o. Habitats de inova\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "LSB7244": {
+          "codigo": "LSB7244",
+          "nome": "L\u00edngua Brasileira de Sinais - Libras I",
+          "ementa": "Pr\u00e1tica de conversa\u00e7\u00e3o em Libras habilitando o aluno a se comunicar n\u00edvel b\u00e1sico. Mitos e Cren\u00e7as relacionadas \u00e0 L\u00edngua Brasileira de Sinais (Libras) e aos Surdos. No\u00e7\u00f5es sobre os estudos lingu\u00edsticos das l\u00ednguas de sinais em diferentes n\u00edveis da descri\u00e7\u00e3o lingu\u00edstica. Conceitos b\u00e1sicos da L\u00edngua Brasileira de Sinais como iconicidade e arbitrariedade e aspectos culturais e hist\u00f3ricos espec\u00edficos da comunidade surda brasileira. Educa\u00e7\u00e3o de surdos, pap\u00e9is dos professores e de int\u00e9rpretes de libras-portugu\u00eas em uma perspectiva inclusiva. Atividades de pr\u00e1tica como componente curricular aplicadas \u00e0 comunica\u00e7\u00e3o em Libras.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "LSB7904",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa",
+            "3": "PCC"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5055": {
+          "codigo": "CIN5055",
+          "nome": "Atividades Extra-classe - Eventos I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5056": {
+          "codigo": "CIN5056",
+          "nome": "Atividades Extra-classe - Eventos II",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5057": {
+          "codigo": "CIN5057",
+          "nome": "Atividades Extra-classe - Pesquisa I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5058": {
+          "codigo": "CIN5058",
+          "nome": "Atividades Extra-classe - Pesquisa II",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5059": {
+          "codigo": "CIN5059",
+          "nome": "Atividades Extra-classe - Pesquisa III",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5060": {
+          "codigo": "CIN5060",
+          "nome": "Atividades Extra-classe - Extens\u00e3o I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5061": {
+          "codigo": "CIN5061",
+          "nome": "Atividades Extra-classe - Extens\u00e3o II",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5062": {
+          "codigo": "CIN5062",
+          "nome": "Atividades Extra-classe - Monitoria",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5063": {
+          "codigo": "CIN5063",
+          "nome": "Atividades Extra-classe - Est\u00e1gio I",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5064": {
+          "codigo": "CIN5064",
+          "nome": "Atividades Extra-classe - Est\u00e1gio II",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5065": {
+          "codigo": "CIN5065",
+          "nome": "Atividades Extra-classe - Cursos",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5066": {
+          "codigo": "CIN5066",
+          "nome": "Atividades Extra-classe - Cursos",
+          "ementa": "",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5067": {
+          "codigo": "CIN5067",
+          "nome": "Atividades Extra-classe - Organiza\u00e7\u00f5es",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5068": {
+          "codigo": "CIN5068",
+          "nome": "Atividades Extra-classe - Empresa J\u00fanior",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5069": {
+          "codigo": "CIN5069",
+          "nome": "Atividades Extraclasse: Comiss\u00f5es, Colegiados na UFSC",
+          "ementa": "",
+          "carga_horaria": 18,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5030": {
+          "codigo": "CIN5030",
+          "nome": "Biblioteca Digital",
+          "ementa": "Aborda os conceitos e caracter\u00edsticas da biblioteca digital, sua organiza\u00e7\u00e3o e infra-estrutura t\u00e9cnica. Trata dos formatos digitais, da digitaliza\u00e7\u00e3o de documentos, das pol\u00edticas e projetos de bibliotecas digitais nacionais e internacionais. Direitos autorais, propriedade intelectual e licenciamento de softwares.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5031": {
+          "codigo": "CIN5031",
+          "nome": "Biblioteca Virtual",
+          "ementa": "Aborda os conceitos,  caracter\u00edsticas e estruturas da biblioteca  virtual,  os portais verticais e vortais. Trata da organiza\u00e7\u00e3o e administra\u00e7\u00e3o da informa\u00e7\u00e3o em rede computadores, e das  pol\u00edticas e projetos de bibliotecas virtuais tem\u00e1ticas nacionais e internacionais.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5032": {
+          "codigo": "CIN5032",
+          "nome": "Biblioterapia",
+          "ementa": "Conceitua e apresenta o fundamento filos\u00f3fico da biblioterapia. Aponta os objetivos e aplica\u00e7\u00f5es da biblioterapia. Apresenta o m\u00e9todo biblioterap\u00eautico.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5035": {
+          "codigo": "CIN5035",
+          "nome": "Informa\u00e7\u00e3o e Cidadania",
+          "ementa": "Trata do Estado e da garantia dos direitos do cidad\u00e3o e da coletividade \u00e0 informa\u00e7\u00e3o e comunica\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5036": {
+          "codigo": "CIN5036",
+          "nome": "Informa\u00e7\u00e3o Liter\u00e1ria",
+          "ementa": "Trata das fontes liter\u00e1rias e do atendimento ao usu\u00e1rio, incorporando a conceitua\u00e7\u00e3o de literatura, o conhecimento dos g\u00eaneros e movimentos liter\u00e1rios e dos autores representativos dos v\u00e1rios movimentos no Brasil.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5037": {
+          "codigo": "CIN5037",
+          "nome": "Informa\u00e7\u00e3o para a Empresa",
+          "ementa": "A informa\u00e7\u00e3o na empresa: identifica\u00e7\u00e3o de necessidades, tipologia de informa\u00e7\u00e3o na empresa, fluxos e usos. Fontes, servi\u00e7os e produtos de informa\u00e7\u00e3o para neg\u00f3cios. Fontes, servi\u00e7os e produtos de informa\u00e7\u00e3o para empresas.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5038": {
+          "codigo": "CIN5038",
+          "nome": "Leitura e Informa\u00e7\u00e3o",
+          "ementa": "Apresenta as principais defini\u00e7\u00f5es de leitura. Apresenta aspectos cognitivos da leitura. Estuda as diferentes modalidades e estrat\u00e9gias de leitura. Apresenta a leitura como um processo de constru\u00e7\u00e3o de significados. Discute o papel social da leitura e da informa\u00e7\u00e3o. Relaciona a leitura com o processo de recupera\u00e7\u00e3o e dissemina\u00e7\u00e3o de informa\u00e7\u00f5es. Discute o papel do bibliotec\u00e1rio na forma\u00e7\u00e3o do leitor.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5039": {
+          "codigo": "CIN5039",
+          "nome": "T\u00f3picos Especiais\/Biblioteconomia\/Ci\u00eancia da Informa\u00e7\u00e3o: Fundamentos",
+          "ementa": "Aborda temas emergentes na \u00e1rea de Fundamentos te\u00f3ricos da Biblioteconomia e Ci\u00eancia da Informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5041": {
+          "codigo": "CIN5041",
+          "nome": "T\u00f3picos Especiais\/Biblioteconomia\/Ci\u00eancia\/Informa\u00e7\u00e3o: Recursos e Servi\u00e7os",
+          "ementa": "Aborda temas emergentes na \u00e1rea de Organiza\u00e7\u00e3o e Tratamento da Informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5042": {
+          "codigo": "CIN5042",
+          "nome": "T\u00f3picos Especiais\/Biblioteconomia\/Ci\u00eancia da Informa\u00e7\u00e3o: Gest\u00e3o da informa\u00e7\u00e3o",
+          "ementa": "Aborda temas emergentes na \u00e1rea de Gest\u00e3o da Informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5043": {
+          "codigo": "CIN5043",
+          "nome": "T\u00f3picos Especiais\/Biblioteconomia\/Ci\u00eancia da Informa\u00e7\u00e3o: Tecnologias-Informa\u00e7\u00e3o",
+          "ementa": "Aborda temas emergentes em Tecnologias da Informa\u00e7\u00e3o.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5044": {
+          "codigo": "CIN5044",
+          "nome": "Unidades de Informa\u00e7\u00e3o Gerais",
+          "ementa": "Contempla o estudo dos servi\u00e7os desenvolvidos em bibliotecas p\u00fablicas, escolares e infantis.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "CIN5045": {
+          "codigo": "CIN5045",
+          "nome": "Unidades de Informa\u00e7\u00e3o Especializadas",
+          "ementa": "Contempla o estudo dos servi\u00e7os desenvolvidos em bibliotecas universit\u00e1rias e especializadas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "SPO5113": {
+          "codigo": "SPO5113",
+          "nome": "Sociologia e Cultura",
+          "ementa": "Conceitos sociol\u00f3gicos e culturais. Modernidade: concep\u00e7\u00f5es. P\u00f3s-modernidade: concep\u00e7\u00f5es. Cultura de massa: conceitos. Hibrida\u00e7\u00e3o Cultural: o caso espec\u00edfico da Am\u00e9rica Latina.",
+          "carga_horaria": 36,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        }
+      }
+    }
+  }
+}

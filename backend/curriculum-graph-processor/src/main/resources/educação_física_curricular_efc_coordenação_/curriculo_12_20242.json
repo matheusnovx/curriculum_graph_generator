@@ -1,0 +1,1073 @@
+{
+  "codigo": 12,
+  "nome": "EDUCA\u00c7\u00c3O F\u00cdSICA CURRICULAR - EFC - (coordena\u00e7\u00e3o)",
+  "sigla_centro": "CDS",
+  "sigla_departamento": "EFC",
+  "trimestral": false,
+  "periodo_corrente": 20242,
+  "codigos_curriculos": {
+    "19881": 19881,
+    "20001": 20001,
+    "20051": 20051
+  },
+  "situacao": 0,
+  "situacao_descricao": "regular",
+  "num_vagas_total": 0,
+  "num_vagas_primeiro_semestre": 0,
+  "num_vagas_segundo_semestre": 0,
+  "presencial": true,
+  "curriculos": {
+    "19881": {
+      "id": "19",
+      "codigo": 19881,
+      "codigo_curso": 12,
+      "carga_horaria_ufsc": 3114,
+      "carga_horaria_mec": 1800,
+      "aulas_semana_min": 12,
+      "aulas_semana_esperado": 22,
+      "aulas_semana_max": 25,
+      "num_periodos_min": 8,
+      "num_periodos_esperado": 8,
+      "num_periodos_max": 14,
+      "descricao": "Referente ao curriculo 19881 (EXTINTO)",
+      "ucs": []
+    },
+    "20001": {
+      "id": "214",
+      "codigo": 20001,
+      "codigo_curso": 12,
+      "carga_horaria_ufsc": 3114,
+      "carga_horaria_mec": 1800,
+      "aulas_semana_min": 12,
+      "aulas_semana_esperado": 22,
+      "aulas_semana_max": 25,
+      "num_periodos_min": 8,
+      "num_periodos_esperado": 8,
+      "num_periodos_max": 14,
+      "descricao": "Referente ao curriculo 20001 (EXTINTO)",
+      "ucs": []
+    },
+    "20051": {
+      "id": "387",
+      "codigo": 20051,
+      "codigo_curso": 12,
+      "carga_horaria_ufsc": 3114,
+      "carga_horaria_mec": 1800,
+      "aulas_semana_min": 12,
+      "aulas_semana_esperado": 22,
+      "aulas_semana_max": 25,
+      "num_periodos_min": 8,
+      "num_periodos_esperado": 8,
+      "num_periodos_max": 14,
+      "descricao": "Referente ao curriculo 20051",
+      "ucs": {
+        "MTM3100": {
+          "codigo": "MTM3100",
+          "nome": "Pr\u00e9-C\u00e1lculo",
+          "ementa": "Conjuntos e aritm\u00e9tica b\u00e1sica; C\u00e1lculo com express\u00f5es alg\u00e9bricas; equa\u00e7\u00f5es; inequa\u00e7\u00f5es; fun\u00e7\u00f5es.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "MTM3101": {
+          "codigo": "MTM3101",
+          "nome": "C\u00e1lculo 1",
+          "ementa": "C\u00e1lculo de fun\u00e7\u00f5es de uma vari\u00e1vel real: limites; continuidade; derivada; aplica\u00e7\u00f5es da derivada (taxas de varia\u00e7\u00e3o, retas tangentes e normais, problemas de otimiza\u00e7\u00e3o e m\u00e1ximos e  m\u00ednimos, esbo\u00e7o de gr\u00e1ficos, aproxima\u00e7\u00f5es lineares e quadr\u00e1ticas); integral definida e indefinida;  \u00e1reas entre curvas; t\u00e9cnicas de integra\u00e7\u00e3o (substitui\u00e7\u00e3o, por partes, substitui\u00e7\u00e3o trigonom\u00e9trica, fra\u00e7\u00f5es parciais); integral impr\u00f3pria.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "1": "Obrigat\u00f3ria"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "MTM5812": {
+          "codigo": "MTM5812",
+          "nome": "H-\u00c1lgebra II",
+          "ementa": "Espa\u00e7os vetoriais. Bases e dimens\u00e3o. Transforma\u00e7\u00f5es lineares. Produto interno. Bases ortonormais. Decomposi\u00e7\u00e3o QR. Autovalores e autovetores de um operador linear. M\u00e9todos num\u00e9ricos para c\u00e1lculo de autovalores e autovetores. Matrizes autoadjuntas e o teorema espectral. Identifica\u00e7\u00e3o de c\u00f4nicas em R2 e qu\u00e1dricas em R3. Uso de pacotes. Aplica\u00e7\u00f5es num\u00e9ricas.",
+          "carga_horaria": 108,
+          "fase_sugestao": 2,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "MTM5814": {
+          "codigo": "MTM5814",
+          "nome": "H-An\u00e1lise Linear",
+          "ementa": "Converg\u00eancia em Espa\u00e7os Euclidianos. Teoria Geral das EDO. \t\nTransformada de Laplace. S\u00e9ries de Fourier. Problemas de fronteira   \t\npara EDO e EDP. Uso de Pacotes.",
+          "carga_horaria": 108,
+          "fase_sugestao": 2,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "MTM7001": {
+          "codigo": "MTM7001",
+          "nome": "Calculo N\u00e3o Presencial A",
+          "ementa": "N\u00fameros reais. Desigualdades. Fun\u00e7\u00f5es reais de vari\u00e1vel real. Fun\u00e7\u00f5es elementares do c\u00e1lculo. No\u00e7\u00f5es sobre limite e continuidade. A derivada. Aplica\u00e7\u00f5es da derivada. Integral definida e indefinida. \u00c1rea de uma regi\u00e3o do plano limitada pelo gr\u00e1fico de duas ou mais fun\u00e7\u00f5es. Volume de s\u00f3lidos de revolu\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 2,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5509": {
+          "codigo": "EFC5509",
+          "nome": "Xadrez Misto",
+          "ementa": "A consci\u00eancia do corpo e fundamento da aptid\u00e3o f\u00edsica relacionada \u00e0 sa\u00fade. O conhecimento  articulado \u00e0 realidade, ou seja, a totalidade do processo social. Capacidade de movimento e sentimentos nas a\u00e7\u00f5es humanas. Valores \u00e9tico-pol\u00edticos do corpo. Estilo de vida e conceito de sa\u00fade. Nutri\u00e7\u00e3o, peso e exerc\u00edcio f\u00edsico. Stress. Fadiga.  Hist\u00f3rico. Defini\u00e7\u00e3o. Tabuleiro. Pe\u00e7as. Capturas. Xeque. Sinais convencionais. Anota\u00e7\u00e3o das partidas: sistemas alg\u00e9brico e desatino. No\u00e7\u00f5es de estrat\u00e9gia. Vocabul\u00e1rio.",
+          "carga_horaria": 54,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5546": {
+          "codigo": "EFC5546",
+          "nome": "Voleibol Feminino de Areia I",
+          "ementa": "A consci\u00eancia do corpo. Valores \u00e9tico-pol\u00edticos do corpo. Fundamentos da aptid\u00e3o f\u00edsica relacionada \u00e0 sa\u00fade. . Estilo de vida e conceito de sa\u00fade positiva. Hist\u00f3rico e evolu\u00e7\u00e3o do voleibol de areia. Valor educativo e possibilidades do voleibol de areia. No\u00e7\u00f5es e fundamentos b\u00e1sicos-t\u00e9cnicos. Deslocamentos e coberturas. Regras.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5550": {
+          "codigo": "EFC5550",
+          "nome": "Basquetebol Masculino: Inicia\u00e7\u00e3o",
+          "ementa": "Levar o aluno, atrav\u00e9s da pr\u00e1tica do basquetebol, a entender a import\u00e2ncia da pr\u00e1tica da atividade f\u00edsica em seu cotidiano como forma de socializa\u00e7\u00e3o com outros universit\u00e1rios, de integra\u00e7\u00e3o na institui\u00e7\u00e3o, de lazer e de sa\u00fade.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5551": {
+          "codigo": "EFC5551",
+          "nome": "Futebol de Campo: Inicia\u00e7\u00e3o",
+          "ementa": "A autodidaxia em atividade f\u00edsica. Hist\u00f3rico. Evolu\u00e7\u00e3o. Aprendizagem dos fundamentos t\u00e9cnicos do futebol de campo. Pequenos jogos. No\u00e7\u00f5es das regras.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5552": {
+          "codigo": "EFC5552",
+          "nome": "Futebol Su\u00ed\u00e7o Masculino: Inicia\u00e7\u00e3o",
+          "ementa": "Significado do esporte universit\u00e1rio, o futebol como manifesta\u00e7\u00e3o cultural e suas varia\u00e7\u00f5es, potencialidades do futebol como esporte coletivo, estudo das regras do futebol su\u00ed\u00e7o e suas possibilidades de transforma\u00e7\u00e3o, aspectos t\u00e9cnicos e t\u00e1ticos da modalidade, efeitos da pr\u00e1tica desse esporte nas diferentes dimens\u00f5es da vida humana.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5553": {
+          "codigo": "EFC5553",
+          "nome": "Futebol de Sal\u00e3o Masculino: Inicia\u00e7\u00e3o",
+          "ementa": "A autodidaxia em atividade f\u00edsica. Hist\u00f3rico. Evolu\u00e7\u00e3o. Aprendizagem dos fundamentos t\u00e9cnicos. No\u00e7\u00f5es das regras.",
+          "carga_horaria": 54,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5554": {
+          "codigo": "EFC5554",
+          "nome": "Handebol Feminino: Inicia\u00e7\u00e3o",
+          "ementa": "Inicia\u00e7\u00e3o em Handebol. O Handebol e suas possibilidades educativas. O Handebol e o desenvolvimento Humano: sa\u00fade lazer e aspectos s\u00f3cio- afetivos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5555": {
+          "codigo": "EFC5555",
+          "nome": "Voleibol Feminino: Inicia\u00e7\u00e3o",
+          "ementa": "Inicia\u00e7\u00e3o em Voleibol. O Voleibol e suas possibilidades educativas. O voleibol e o desenvolvimento humano: sa\u00fade, lazer e aspectos s\u00f3cio-afetivos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5556": {
+          "codigo": "EFC5556",
+          "nome": "Nata\u00e7\u00e3o Mista: Inicia\u00e7\u00e3o",
+          "ementa": "A consci\u00eancia do corpo e fundamento da aptid\u00e3o f\u00edsica relacionada \u00e0 sa\u00fade. O conhecimento do corpo  articulado \u00e0 realidade. Capacidade de movimentos e sentimentos nas a\u00e7\u00f5es humanas. Estilo de vida e conceito da sa\u00fade. Nutri\u00e7\u00e3o, peso e exerc\u00edcio f\u00edsico. Stress. Fadiga. No\u00e7\u00f5es b\u00e1sicas sobre sa\u00fade e funcionalidade do seu corpo no desporto aqu\u00e1tico. Hist\u00f3rico e evolu\u00e7\u00e3o.  Adapta\u00e7\u00e3o ao meio l\u00edquido do crawl e costa.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5557": {
+          "codigo": "EFC5557",
+          "nome": "T\u00eanis: Inicia\u00e7\u00e3o",
+          "ementa": "Autodidaxia em atividade f\u00edsica. Hist\u00f3rico. Evolu\u00e7\u00e3o. Aprendizagem dos fundamentos t\u00e9cnicos: empunhadura; golpe de direita e esquerda com top-spin; saque; smach; jogo de simples. No\u00e7\u00f5es das regras.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5558": {
+          "codigo": "EFC5558",
+          "nome": "Xadrez: Inicia\u00e7\u00e3o",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5559": {
+          "codigo": "EFC5559",
+          "nome": "Jud\u00f4 Misto: Inicia\u00e7\u00e3o",
+          "ementa": "O Jud\u00f4 como meio educacional. Aspectos hist\u00f3ricos e filos\u00f3ficos. No\u00e7\u00f5es fundamentais. Ensino-aprendizagem das principais t\u00e9cnicas de proje\u00e7\u00e3o e de solo. Regras.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5561": {
+          "codigo": "EFC5561",
+          "nome": "Handebol Masculino",
+          "ementa": "A consci\u00eancia do corpo e fundamento da aptid\u00e3o f\u00edsica relacionada \u00e0 sa\u00fade. O conhecimento articulado \u00e0 realidade, ou seja, \u00e0 totalidade do processo social. Capacidade de movimentos e sentimentos nas a\u00e7\u00f5es humanas. Valores \u00e9tico-pol\u00edticos do corpo. Estilo de vida e conceito de sa\u00fade. Nutri\u00e7\u00e3o, peso e exerc\u00edcio f\u00edsico. Stress. Fadiga.  Hist\u00f3rico. Evolu\u00e7\u00e3o. Valor Educativo. Habilidades Motoras. Recep\u00e7\u00e3o. Passes. Progress\u00e3o e condu\u00e7\u00e3o. Arremessos. Cobran\u00e7as. No\u00e7\u00f5es de defesa e ataque. Regulamenta\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5567": {
+          "codigo": "EFC5567",
+          "nome": "Voleibol Masculino de Areia I",
+          "ementa": "A consci\u00eancia do corpo. Valores \u00e9tico-pol\u00edticos do corpo. Fundamentos da aptid\u00e3o f\u00edsica relacionada \u00e0 sa\u00fade. Estilo de vida e conceito de sa\u00fade positiva. Hist\u00f3rico e evolu\u00e7\u00e3o do voleibol de areia. Valor educativo e possibilidades do voleibol de areia. No\u00e7\u00f5es e fundamentos b\u00e1sicos-t\u00e9cnicos. Deslocamentos e coberturas. Regras.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5568": {
+          "codigo": "EFC5568",
+          "nome": "Basquetebol Feminino: Inicia\u00e7\u00e3o",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5569": {
+          "codigo": "EFC5569",
+          "nome": "Futebol Su\u00ed\u00e7o Feminino: Inicia\u00e7\u00e3o",
+          "ementa": "Autodidaxia em atividade f\u00edsica. Princ\u00edpios b\u00e1sicos do condicionamento f\u00edsico. Metodologia, planejamento, prescri\u00e7\u00e3o, controle e avalia\u00e7\u00e3o da atividade f\u00edsica. Fundamentos t\u00e9cnicos e t\u00e1ticos e regras.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5571": {
+          "codigo": "EFC5571",
+          "nome": "Capoeira Mista: Inicia\u00e7\u00e3o",
+          "ementa": "Hist\u00f3ria da Capoeira. Capoeira na escola. Cultura e tradi\u00e7\u00e3o - fundamentos ritual\u00edsticos da capoeira. As principais vertentes de capoeira e seus principais representantes. Organiza\u00e7\u00e3o e normatiza\u00e7\u00e3o da capoeira.O processo de institucionaliza\u00e7\u00e3o da capoeira. Aquisi\u00e7\u00e3o de habilidades perceptivo-motoras na capoeira. Express\u00e3o corporal em capoeira. Fundamentos s\u00f3cio-filos\u00f3ficos da capoeira. Metodologias aplicadas \u00e0 capoeira. Fundamentos t\u00e9cnicos da capoeira.Fundamentos misicais e instrumenta\u00e7\u00e3o da capoeira. Bases morfo-fisiol\u00f3gicas da pr\u00e1tica da capoeira.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5573": {
+          "codigo": "EFC5573",
+          "nome": "Futsal - Inicia\u00e7\u00e3o",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5649": {
+          "codigo": "EFC5649",
+          "nome": "Basquetebol Feminino: Aperfei\u00e7oamento",
+          "ementa": "Autonomia na pr\u00e1tica de atividade f\u00edsica relacionada ao Basquetebol. Aperfei\u00e7oamento das habilidades do Basquetebol, mantendo o car\u00e1ter l\u00fadico e cooperativo.Sistemas de defesa e de ataque. No\u00e7\u00f5es de regulamenta\u00e7\u00e3o e arbitragem.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5650": {
+          "codigo": "EFC5650",
+          "nome": "Basquetebol Masculino: Aperfei\u00e7oamento",
+          "ementa": "Levar o aluno a aperfei\u00e7oar as suas habilidades de Basquetebol, mantendo o car\u00e1ter l\u00fadico e cooperativo dessa pr\u00e1tica de atividade f\u00edsica.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5651": {
+          "codigo": "EFC5651",
+          "nome": "Futebol de Campo: Aperfei\u00e7oamento",
+          "ementa": "Pr\u00e1tica de futebol de campo. Aprendizagem dos fundamentos t\u00e1ticos do futebol de campo. No\u00e7\u00f5es de sistemas de jogo. Jogos completos.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5652": {
+          "codigo": "EFC5652",
+          "nome": "Futebol Su\u00ed\u00e7o Feminino: Aperfei\u00e7oamento",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5653": {
+          "codigo": "EFC5653",
+          "nome": "Futebol de Sal\u00e3o Masculino: Aperfei\u00e7oamento",
+          "ementa": "",
+          "carga_horaria": 54,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5654": {
+          "codigo": "EFC5654",
+          "nome": "Handebol Feminino: Aperfei\u00e7oamento",
+          "ementa": "Aprofundamento em Handebol. O Handebol como possibilidade de uma autonomia em atividades f\u00edsicas. O handebol e seus fundamentos t\u00e9cnicos e t\u00e1ticos, sistemas ofensivos e defensivos, no\u00e7\u00f5es de arbitragem e regulamenta\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5655": {
+          "codigo": "EFC5655",
+          "nome": "Voleibol Feminino: Aperfei\u00e7oamento",
+          "ementa": "Aprofundamento em Voleibol. O voleibol como possibilidade de uma autonomia em atividades f\u00edsicas. O voleibol e seus fundamentos t\u00e9cnicos e t\u00e1ticos, sistemas ofensivos e defensivos, no\u00e7\u00f5es de arbitragem e regulamenta\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5656": {
+          "codigo": "EFC5656",
+          "nome": "Nata\u00e7\u00e3o Mista: Aperfei\u00e7oamento",
+          "ementa": "Autodidaxia da atividade f\u00edsica. Princ\u00edpios b\u00e1sicos do conhecimento. Metodologia, planejamento, prescri\u00e7\u00e3o, controle e avalia\u00e7\u00e3o da atividade f\u00edsica. Aperfei\u00e7oamento dos estilos CRAWL, costa, peiro cl\u00e1ssico, borboleta (golfinho) e revezamento. Regulamenta\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5657": {
+          "codigo": "EFC5657",
+          "nome": "T\u00eanis: Aperfei\u00e7oamento",
+          "ementa": "A autodidaxia em atividade f\u00edsica. Hist\u00f3rico. Evolu\u00e7\u00e3o. Aprendizagem dos fundamentos t\u00e9cnicos e t\u00e1ticos: golpe de direita e esquerda com slice; saque chapado; v\u00f4lei; lob; jogos de duplas; t\u00e1tica de ataque e defesa.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5658": {
+          "codigo": "EFC5658",
+          "nome": "Xadrez: Aperfei\u00e7oamento",
+          "ementa": "Autodidaxia das atividades f\u00edsicas. Regulamenta\u00e7\u00e3o internacional do xadrez, aprofundamento do estudo sobre as fases do jogo, solu\u00e7\u00e3o de problemas, xadrez rel\u00e2mpago e torneio interno.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5659": {
+          "codigo": "EFC5659",
+          "nome": "Jud\u00f4 Misto: Aperfei\u00e7oamento",
+          "ementa": "O Jud\u00f4 competitivo. Princ\u00edpios biomec\u00e2nicos aplicados \u00e0 pr\u00e1tica. Aprimoramentos t\u00e9cnico, t\u00e1tico e f\u00edsico. Arbitragem. Inicia\u00e7\u00e3o aos Katas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5668": {
+          "codigo": "EFC5668",
+          "nome": "Voleibol Masculino: Aperfei\u00e7oamento",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5671": {
+          "codigo": "EFC5671",
+          "nome": "Capoeira Mista: Aperfei\u00e7oamento",
+          "ementa": "Aprofundar an\u00e1lises sobre a hist\u00f3ria da capoeira. O processo de escolariza\u00e7\u00e3o da capoeira no Brasil. Refer\u00eancias significativas da capoeira. As principais vertentes de capoeira e seus principais representantes. O processo de organiza\u00e7\u00e3o da capoeira no Brasil e no Mundo. A capoeira como complexo tem\u00e1tico no ensino superior. Aprofundamento dos fundamentos s\u00f3cio-filos\u00f3ficos da capoeira. Problematiza\u00e7\u00e3o das metodologias aplicadas \u00e0 capoeira.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5673": {
+          "codigo": "EFC5673",
+          "nome": "Futsal - Aperfei\u00e7oamento",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5756": {
+          "codigo": "EFC5756",
+          "nome": "Nata\u00e7\u00e3o Mista: Treinamento",
+          "ementa": "Planejamento do treino da nata\u00e7\u00e3o. Componentes do treinamento: volume, intensidade, densidade e complexidade. Treinamento dos quatro estilos. Controle do treinamento. Fatores que influenciam a capacidade de performance esportiva.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5800": {
+          "codigo": "EFC5800",
+          "nome": "Pr\u00e1ticas Corporais na Natureza",
+          "ementa": "Rela\u00e7\u00e3o homen - natureza. Evolu\u00e7\u00e3o das principais concep\u00e7\u00f5es das pr\u00e1ticas corporais na natureza. Pr\u00e1ticas corporais na natureza e suas rela\u00e7\u00f5es com lazer, educa\u00e7\u00e3o e sa\u00fade.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5801": {
+          "codigo": "EFC5801",
+          "nome": "Condicionamento F\u00edsico",
+          "ementa": "Princ\u00edpios b\u00e1sicos do condicionamento f\u00edsico, stress, fadiga. Aptid\u00e3o f\u00edsica. Qualidades f\u00edsicas obtidas com a muscula\u00e7\u00e3o. A muscula\u00e7\u00e3o como meio competitivo, profil\u00e1tico, terap\u00eautico, est\u00e9tico e prepara\u00e7\u00e3o f\u00edsica. Prescri\u00e7\u00e3o de exerc\u00edcios com peso, testes espec\u00edficos na muscula\u00e7\u00e3o. Prescri\u00e7\u00e3o de atividades aer\u00f3bicas. Exerc\u00edcios de resist\u00eancia e for\u00e7a muscular e atividades aer\u00f3bicas.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5802": {
+          "codigo": "EFC5802",
+          "nome": "Gin\u00e1stica Mista",
+          "ementa": "Consci\u00eancia corporal. O conhecimento do corpo articulado ao processo social. Movimentos e sentimentos nas a\u00e7\u00f5es humanas. Valores \u00e9ticos, pol\u00edticos e est\u00e9ticos do corpo: sa\u00fade e atividade f\u00edsica. Exerc\u00edcio f\u00edsico. T\u00e9cnicas de relaxa\u00e7\u00e3o.",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5803": {
+          "codigo": "EFC5803",
+          "nome": "Dan\u00e7a e Improvisa\u00e7\u00e3o",
+          "ementa": "Consci\u00eancia do corpo em diferentes din\u00e2micas de movimento. Condi\u00e7\u00e3o corporal relacionada \u00e0 dan\u00e7a. T\u00e9cnicas de dan\u00e7a moderna e contempor\u00e2nea. Improvisa\u00e7\u00e3o. Coreografia.",
+          "carga_horaria": 54,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5804": {
+          "codigo": "EFC5804",
+          "nome": "Yoga",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5805": {
+          "codigo": "EFC5805",
+          "nome": "P\u00f3lo Aqu\u00e1tico",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5806": {
+          "codigo": "EFC5806",
+          "nome": "Pilates Solo",
+          "ementa": "",
+          "carga_horaria": 72,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "EFC5866": {
+          "codigo": "EFC5866",
+          "nome": "Gin\u00e1stica de Estabiliza\u00e7\u00e3o",
+          "ementa": "",
+          "carga_horaria": 54,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "MTM5801": {
+          "codigo": "MTM5801",
+          "nome": "H C\u00e1lculo I",
+          "ementa": "N\u00fameros: propriedades b\u00e1sicas, valor absoluto, desigualdades, n\u00fameros naturais, inteiros, racionais e reais. Fun\u00e7\u00f5es reais de uma vari\u00e1vel real: gr\u00e1ficos, limites, continuidade, \u00ednfimo e supremo, exist\u00eancia de m\u00e1ximo de uma fun\u00e7\u00e3o cont\u00ednua em um intervalo fechado. Derivada: diferencia\u00e7\u00e3o, significado da derivada, convexidade, derivada da fun\u00e7\u00e3o inversa. Integral: somas de Riemann, Teorema fundamental do c\u00e1lculo. Fun\u00e7\u00f5es trigonom\u00e9tricas, logar\u00edtmica e exponencial. Aplica\u00e7\u00f5es num\u00e9ricas. Uso de pacotes.",
+          "carga_horaria": 108,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "MTM5802": {
+          "codigo": "MTM5802",
+          "nome": "H C\u00e1lculo II",
+          "ementa": "Integral, T\u00e9cnicas de Integra\u00e7\u00e3o, Aproxima\u00e7\u00f5es por Polin\u00f4mios, Seq\u00fc\u00eancias e S\u00e9ries, Converg\u00eancia Uniforme.",
+          "carga_horaria": 108,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "MTM5803": {
+          "codigo": "MTM5803",
+          "nome": "H C\u00e1lculo III",
+          "ementa": "Sistemas de coordenadas: cartesianas, polares, cil\u00edndricas, esf\u00e9ricas, mudan\u00e7a de coordenadas. Fun\u00e7\u00f5es reais de v\u00e1rias vari\u00e1veis: gr\u00e1ficos, limite, continuidade, deriva\u00e7\u00e3o, gradiente, derivada direcional. Fun\u00e7\u00f5es vetoriais: campos de vetores, divergente, rotacional, c\u00e1lculo diferencial vetorial. Derivadas de ordem superior: teorema de Taylor, extremos de fun\u00e7\u00f5es reais, multiplicadores de Lagrange, teorema da fun\u00e7\u00e3o impl\u00edcita. Integrais duplas: integra\u00e7\u00e3o sobre diversos tipos de regi\u00f5es, mudan\u00e7a na ordem de integra\u00e7\u00e3o. Uso de pacotes. Aplica\u00e7\u00f5es num\u00e9ricas.",
+          "carga_horaria": 108,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "MTM5804": {
+          "codigo": "MTM5804",
+          "nome": "H-C\u00e1lculo IV",
+          "ementa": "Integrais de Curva e Superf\u00edcies, Teoremas de Integra\u00e7\u00e3o da An\u00e1lise Vetorial, Aplica\u00e7\u00f5es.",
+          "carga_horaria": 108,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "MTM5813": {
+          "codigo": "MTM5813",
+          "nome": "H-\u00c1lgebra III",
+          "ementa": "Autovalores e autovetores: aplica\u00e7\u00f5es, Matrizes definidas positivas, Computa\u00e7\u00e3o com matrizes, \nPrograma\u00e7\u00e3o linear , Uso de pacotes computacionais",
+          "carga_horaria": 108,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "PFC5000": {
+          "codigo": "PFC5000",
+          "nome": "Atividade de Ensino de Forma\u00e7\u00e3o Continuada do PROFOR",
+          "ementa": "",
+          "carga_horaria": 54,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "PFC5001": {
+          "codigo": "PFC5001",
+          "nome": "Educa\u00e7\u00e3o e Tecnologias (PROFOR)",
+          "ementa": "A Educa\u00e7\u00e3o a Dist\u00e2ncia e os novos paradigmas do conhecimento. Caracter\u00edsticas fundamentais da Educa\u00e7\u00e3o mediada por tecnologias. Media\u00e7\u00e3o pedag\u00f3gica na EaD. A linguagem audiovisual: descri\u00e7\u00e3o das m\u00eddias e suas caracter\u00edsticas. Processos de produ\u00e7\u00e3o da linguagem audiovisual e hipermidi\u00e1tica na educa\u00e7\u00e3o presencial e a dist\u00e2ncia. Os ambientes virtuais de Ensino e Aprendizagem e seu papel na educa\u00e7\u00e3o presencial e a dist\u00e2ncia. Linguagem e comunica\u00e7\u00e3o no contexto da EaD. Intera\u00e7\u00e3o e Motiva\u00e7\u00e3o. A avalia\u00e7\u00e3o e seu papel na EaD.",
+          "carga_horaria": 54,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZD0000": {
+          "codigo": "ZZD0000",
+          "nome": "Situacao Regular",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZD0040": {
+          "codigo": "ZZD0040",
+          "nome": "Programa de Mobilidade Acad\u00eamica - Andifes",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZD0041": {
+          "codigo": "ZZD0041",
+          "nome": "Programa de Interc\u00e2mbio I",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZD0042": {
+          "codigo": "ZZD0042",
+          "nome": "Programa de Interc\u00e2mbio II",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZD0043": {
+          "codigo": "ZZD0043",
+          "nome": "Programa de Interc\u00e2mbio III",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZD0044": {
+          "codigo": "ZZD0044",
+          "nome": "Programa de Interc\u00e2mbio IV",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZD0046": {
+          "codigo": "ZZD0046",
+          "nome": "Programa Internacional de Dupla Diploma\u00e7\u00e3o",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZD0047": {
+          "codigo": "ZZD0047",
+          "nome": "Est\u00e1gio Internacional",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": [],
+          "tipo_uc": "Disciplina"
+        },
+        "ZZD0050": {
+          "codigo": "ZZD0050",
+          "nome": "Semestre para complementa\u00e7\u00e3o de men\u00e7\u00e3o I",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        },
+        "ZZD2020": {
+          "codigo": "ZZD2020",
+          "nome": "Situa\u00e7\u00e3o Regular UFSC - Pandemia - COVID-19",
+          "ementa": "",
+          "carga_horaria": 0,
+          "fase_sugestao": 999,
+          "equivalencia": "",
+          "prerequisito": "",
+          "prerequisito_criterio_id": 0,
+          "prerequisito_carga_horaria": 0,
+          "correquisito": "",
+          "etiquetas": {
+            "2": "Optativa"
+          },
+          "tipo_uc": "Disciplina"
+        }
+      }
+    }
+  }
+}

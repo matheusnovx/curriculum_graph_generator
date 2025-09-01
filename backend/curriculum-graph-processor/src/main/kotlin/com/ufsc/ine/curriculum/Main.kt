@@ -1,5 +1,3 @@
-// Em: src/main/kotlin/com/ufsc/ine/curriculum/Main.kt
-
 package com.ufsc.ine.curriculum
 
 import com.ufsc.ine.curriculum.config.Neo4jDriverFactory
@@ -24,6 +22,7 @@ fun main() {
         return
     }
 
+    val unprocessedFiles = mutableListOf<File>()
     // Varre todos os arquivos e subdiretórios em busca de arquivos .json
     resourcesDir.walkTopDown()
         .filter { it.isFile && it.extension == "json" }
@@ -43,10 +42,16 @@ fun main() {
 
             } catch (e: Exception) {
                 println("❌ Erro ao processar o arquivo ${jsonFile.name}: ${e.message}")
+                unprocessedFiles.add(jsonFile)
                 // Opcional: descomente para ver o stack trace completo do erro
-                 e.printStackTrace()
+                // e.printStackTrace()
             }
         }
+
+    if (unprocessedFiles.isNotEmpty()) {
+        println("⚠️ Arquivos não processados:")
+        unprocessedFiles.forEach { println(" - ${it.name}") }
+    }
 
     // Fecha a conexão com o banco de dados ao final de tudo
     driver.close()

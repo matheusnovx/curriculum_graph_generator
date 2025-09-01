@@ -17,11 +17,13 @@ class CurriculumRepository(private val driver: Driver) {
                     MERGE (cur:Curriculum {id: ${'$'}curriculumId, courseCode: ${'$'}courseCode})
                     ON CREATE SET cur.courseName = ${'$'}courseName
                 """
-                tx.run(curriculumQuery, parameters(
-                    "curriculumId", graph.curriculumId,
-                    "courseCode", graph.courseCode,
-                    "courseName", graph.courseName
-                ))
+                tx.run(
+                    curriculumQuery, parameters(
+                        "curriculumId", graph.curriculumId,
+                        "courseCode", graph.courseCode,
+                        "courseName", graph.courseName
+                    )
+                )
 
                 // 2. Itera para criar todos os nós de curso e ligá-los ao currículo
                 val courseQuery = """
@@ -36,30 +38,43 @@ class CurriculumRepository(private val driver: Driver) {
                 """
 
                 graph.nodes.values.forEach { node ->
-                    tx.run(courseQuery, parameters(
-                        "courseId", node.id,
-                        "name", node.name,
-                        "description", node.description,
-                        "workloadHours", node.workloadHours,
-                        "suggestedSemester", node.suggestedSemester
-                    ))
-                    tx.run(linkQuery, parameters(
-                        "curriculumId", graph.curriculumId,
-                        "courseId", node.id
-                    ))
+                    tx.run(
+                        courseQuery, parameters(
+                            "courseId", node.id,
+                            "name", node.name,
+                            "description", node.description,
+                            "workloadHours", node.workloadHours,
+                            "suggestedSemester", node.suggestedSemester
+                        )
+                    )
+                    tx.run(
+                        linkQuery, parameters(
+                            "curriculumId", graph.curriculumId,
+                            "courseId", node.id
+                        )
+                    )
                 }
 
                 // 3. Itera para criar todas as relações entre os cursos
                 graph.relationships.forEach { relationship ->
                     val (query, params) = when (relationship) {
                         is Relationship.Prerequisite -> {
-                            "MATCH (from:Course {courseId: ${'$'}from}), (to:Course {courseId: ${'$'}to}) MERGE (from)-[:IS_PREREQUISITE_FOR]->(to)" to
-                                    parameters("from", relationship.from, "to", relationship.to)
+                            """
+                            MATCH (from:Course {courseId: ${'$'}from}), (to:Course {courseId: ${'$'}to})
+                            MERGE (from)-[r:IS_PREREQUISITE_FOR {curriculumId: ${'$'}curriculumId, courseCode: ${'$'}courseCode}]->(to)
+                            """ to parameters(
+                                "from", relationship.from,
+                                "to", relationship.to,
+                                "curriculumId", graph.curriculumId, // Passa o ID do currículo para a query
+                                "courseCode", graph.courseCode   // Passa o código do curso para a query
+                            )
                         }
+
                         is Relationship.Corequisite -> {
                             "MATCH (from:Course {courseId: ${'$'}from}), (to:Course {courseId: ${'$'}to}) MERGE (from)-[:IS_COREQUISITE_FOR]->(to)" to
                                     parameters("from", relationship.from, "to", relationship.to)
                         }
+
                         is Relationship.Equivalence -> {
                             // Relação bidirecional sem direção específica
                             "MATCH (from:Course {courseId: ${'$'}from}), (to:Course {courseId: ${'$'}to}) MERGE (from)-[:IS_EQUIVALENT_TO]-(to)" to

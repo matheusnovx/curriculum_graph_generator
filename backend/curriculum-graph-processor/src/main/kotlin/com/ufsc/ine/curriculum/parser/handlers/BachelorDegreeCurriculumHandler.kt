@@ -26,7 +26,6 @@ class BachelorDegreeCurriculumHandler : BaseCurriculumHandler() {
 
             val ucsElement = curriculumJson["ucs"]
             if (ucsElement == null || ucsElement !is JsonObject) {
-                // Skip this curriculum if "ucs" is missing or not a JsonObject
                 return@mapNotNull null
             }
 

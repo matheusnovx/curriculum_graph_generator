@@ -17,6 +17,7 @@ abstract class BaseCurriculumHandler : CurriculumParserHandler {
         val workloadHours = ucJson["carga_horaria"]?.jsonPrimitive?.int ?: 0
         val suggestedSemester = ucJson["semestre_sugerido"]?.jsonPrimitive?.int ?: 0
         val description = ucJson["ementa"]?.jsonPrimitive?.content ?: ""
+        // TODO: Adicionar etiquetas para saber se é ou não obrigatória
 
         return CourseNode(
             id = id,

@@ -5,13 +5,6 @@ import DiagramLoader from './components/DiagramLoader'; // 👈 Import the new l
 export default function Home() {
   return (
     <main>
-      <h1>
-        My Next.js Flow Diagram 🚀
-      </h1>
-      <p>
-        This diagram is interactive! Try dragging the nodes around.
-      </p>
-
       <div>
         <DiagramLoader /> {/* 👈 Use the loader component here */}
       </div>

@@ -1,4 +1,3 @@
-// src/app/components/CurriculumDiagram.js
 'use client';
 
 import React, { useEffect, useState, useCallback } from 'react';
@@ -26,7 +25,6 @@ export default function CurriculumDiagram() {
   const [highlightedIds, setHighlightedIds] = useState(new Set());
 
   useEffect(() => {
-    // ... (this useEffect hook is unchanged)
     async function fetchInitialGraph() {
       try {
         const response = await fetch('/api/graph');
@@ -43,7 +41,6 @@ export default function CurriculumDiagram() {
   }, []);
 
   const onNodeClick = useCallback(async (event, node) => {
-    // ... (this onNodeClick function is unchanged)
     if (highlightedIds.has(node.id)) {
       setHighlightedIds(new Set());
       return;
@@ -81,7 +78,7 @@ export default function CurriculumDiagram() {
   return (
     <div style={{ width: '100%', height: '80vh', border: '1px solid #333', borderRadius: '12px' }}>
       <ReactFlow
-        nodes={nodesWithHighlight} // Use the new array with the highlight flag
+        nodes={nodesWithHighlight}
         edges={edgesWithHighlight}
         onNodeClick={onNodeClick}
         nodeTypes={nodeTypes}

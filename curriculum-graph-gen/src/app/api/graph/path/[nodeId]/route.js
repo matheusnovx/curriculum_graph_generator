@@ -1,15 +1,9 @@
-// src/app/api/graph/path/[nodeId]/route.js
 import { NextResponse } from 'next/server';
 import neo4j from 'neo4j-driver';
 
-// This module-level variable will hold the driver instance.
 let driver;
 
-/**
- * A robust function to create and verify the Neo4j driver connection.
- */
 async function getDriver() {
-  // If the driver isn't initialized, create it.
   if (!driver) {
     try {
       driver = neo4j.driver(
@@ -19,11 +13,9 @@ async function getDriver() {
           process.env.NEO4J_PASSWORD || 'Matheus2001'
         )
       );
-      // Verify the connection is good before returning the driver
       await driver.verifyConnectivity();
       console.log('✅ Path API: Neo4j driver connected');
     } catch (error) {
-      // If connection fails, log the real error and set driver to null
       console.error('🔴 Path API: Could not create Neo4j driver.', error);
       driver = null;
     }
@@ -32,8 +24,7 @@ async function getDriver() {
 }
 
 export async function GET(request, { params }) {
-  const { nodeId } = params;
-
+  const { nodeId } = await params;
   const driver = await getDriver();
   
   if (!driver) {
@@ -41,11 +32,18 @@ export async function GET(request, { params }) {
   }
 
   const session = driver.session();
-
   try {
     const result = await session.run(
-      `MATCH p = (:Course {code: $startNodeId})-[:IS_PREREQUISITE_FOR*]->(endNode:Course)
-       RETURN nodes(p) AS pathNodes`,
+      // TODO: Essa query pode estar pegando nodos a mais e travando
+      `
+       // 1. Find the starting course and its curriculum
+       MATCH (startNode:Course {courseId: $startNodeId})-[:PART_OF]->(cur:Curriculum {id: "20071"})
+       // 2. Find all prerequisite paths starting from this node
+       MATCH path = (startNode)-[:IS_PREREQUISITE_FOR*]->(endNode:Course)
+       // 3. IMPORTANT: Ensure every single course in the path belongs to the same curriculum
+       WHERE ALL(node IN nodes(path) WHERE (node)-[:PART_OF]->(cur))
+       RETURN nodes(path) AS pathNodes
+      `,
       { startNodeId: nodeId }
     );
     
@@ -54,7 +52,9 @@ export async function GET(request, { params }) {
     result.records.forEach(record => {
       const pathNodes = record.get('pathNodes');
       pathNodes.forEach(node => {
-        highlightedIds.add(node.properties.code);
+        if(node.properties.courseId) {
+            highlightedIds.add(node.properties.courseId);
+        }
       });
     });
 

@@ -1,133 +1,111 @@
-// src/app/api/graph/route.js
 import { NextResponse } from 'next/server';
 import neo4j from 'neo4j-driver';
 import dagre from 'dagre';
-import { type } from 'os';
 
-// This module-level variable will hold the driver instance.
 let driver;
 
-/**
- * A robust function to create and verify the Neo4j driver connection.
- */
 async function getDriver() {
-  // If the driver isn't initialized, create it.
   if (!driver) {
     try {
       driver = neo4j.driver(
-        process.env.NEO4J_URI || 'bolt://localhost:7687',
-        neo4j.auth.basic(
-          process.env.NEO4J_USER || 'neo4j',
-          process.env.NEO4J_PASSWORD || 'Matheus2001'
-        )
+        'bolt://localhost:7687',
+        neo4j.auth.basic('neo4j', 'Matheus2001') // Sua senha
       );
-      // Verify the connection is good before returning the driver
       await driver.verifyConnectivity();
       console.log('✅ Neo4j driver connected');
     } catch (error) {
-      // If connection fails, log the real error and set driver to null
-      console.error('🔴 Could not create Neo4j driver. Is the database running?', error);
+      console.error('🔴 Could not create Neo4j driver.', error);
       driver = null;
     }
   }
-  return driver; // Return the driver instance (or null if it failed)
+  return driver;
 }
-
 
 export async function GET() {
   const driver = await getDriver();
-  
-  // If the driver failed to connect, return an error response
   if (!driver) {
-    return NextResponse.json(
-      { error: 'Could not connect to the database.' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Could not connect to the database.' }, { status: 500 });
   }
 
   const session = driver.session();
-
   try {
     const result = await session.run(`
-      MATCH (c:Course)
-      OPTIONAL MATCH (c)-[r:IS_PREREQUISITE_FOR]->(d:Course)
-      RETURN c, r, d
-    `);
+      // 1. Encontra o currículo âncora
+      MATCH (cur:Curriculum {id: "20071", courseCode: 208})
+      // 2. Encontra pares de disciplinas que pertencem a esse currículo
+      MATCH (c1:Course)-[:PART_OF]->(cur)
+      MATCH (c2:Course)-[:PART_OF]->(cur)
 
-    // (The rest of the Dagre layout logic is the same)
+      // 3. Encontra a relação de pré-requisito entre elas
+      MATCH path = (c1)-[r {curriculumId: cur.id, courseCode: cur.courseCode}]->(c2)
+      // 4. Retorna os elementos separados, como o JavaScript espera
+      RETURN c1 AS c, path as r, c2 AS d
+    `);
+    
+    console.log(`[API] Query retornou ${result.records.length} relacionamentos para o currículo 20071.`);
+
     const dagreGraph = new dagre.graphlib.Graph();
-    dagreGraph.setGraph({ rankdir: 'LR', nodesep: 50, ranksep: 120 });
+    dagreGraph.setGraph({ rankdir: 'LR', nodesep: 50, ranksep: 120, marginx: 50, marginy: 50 });
     dagreGraph.setDefaultEdgeLabel(() => ({}));
 
-    const nodesForReactFlow = [];
+    const nodesMap = new Map();
     const edgesForReactFlow = [];
-    const nodeIds = new Set();
     
     const NODE_WIDTH = 172;
     const NODE_HEIGHT = 50;
 
+    const addNode = (courseNode) => {
+        if (!courseNode) return;
+        const nodeId = courseNode.properties.courseId;
+        if (!nodesMap.has(nodeId)) {
+            nodesMap.set(nodeId, {
+                id: nodeId,
+                data: { label: `${nodeId}\n${courseNode.properties.name}` },
+                position: { x: 0, y: 0 },
+                type: 'course'
+            });
+            dagreGraph.setNode(nodeId, { 
+              label: courseNode.properties.name, 
+              width: NODE_WIDTH, 
+              height: NODE_HEIGHT 
+            });
+        }
+    };
+
     result.records.forEach(record => {
-      const courseNode = record.get('c');
-      if (courseNode && !nodeIds.has(courseNode.properties.code)) {
-        nodeIds.add(courseNode.properties.code);
-        dagreGraph.setNode(courseNode.properties.code, { 
-          label: courseNode.properties.name, 
-          width: NODE_WIDTH, 
-          height: NODE_HEIGHT 
-        });
-        nodesForReactFlow.push({
-          id: courseNode.properties.code,
-          data: { label: `${courseNode.properties.code}\n${courseNode.properties.name}` },
-          position: { x: 0, y: 0 },
-          type: 'course'
-        });
-      }
-      const relationship = record.get('r');
+      const sourceNode = record.get('c');
       const targetNode = record.get('d');
-      if (relationship && courseNode && targetNode) {
-        const sourceId = courseNode.properties.code;
-        const targetId = targetNode.properties.code;
-        dagreGraph.setEdge(sourceId, targetId);
-        edgesForReactFlow.push({
-          id: `e-${sourceId}-${targetId}`,
-          source: sourceId,
-          target: targetId,
-          type: 'smoothstep',
-        });
-      }
+      
+      addNode(sourceNode);
+      addNode(targetNode);
+        
+      const sourceId = sourceNode.properties.courseId;
+      const targetId = targetNode.properties.courseId;
+        
+      dagreGraph.setEdge(sourceId, targetId);
+      edgesForReactFlow.push({
+        id: `e-${sourceId}-${targetId}`,
+        source: sourceId,
+        target: targetId,
+        type: 'default',
+      });
     });
 
     dagre.layout(dagreGraph);
     
-    // 1. Find all node IDs that belong to Fase 1
-    const fase1NodeIds = new Set(
-      nodesForReactFlow.filter(n => n.data.fase === 1).map(n => n.id)
-    );
-
-    // 2. Find the minimum x-position calculated by Dagre for any Fase 1 node
-    let targetX = Infinity;
-    fase1NodeIds.forEach(id => {
-      const dagreNode = dagreGraph.node(id);
-      if (dagreNode && dagreNode.x < targetX) {
-        targetX = dagreNode.x;
-      }
+    const finalNodes = Array.from(nodesMap.values()).map(node => {
+        const dagreNode = dagreGraph.node(node.id);
+        if(dagreNode){
+            node.position = { 
+                x: dagreNode.x - NODE_WIDTH / 2, 
+                y: dagreNode.y - NODE_HEIGHT / 2 
+            };
+        }
+        return node;
     });
-
-    // 3. Apply the final positions
-    nodesForReactFlow.forEach(node => {
-      const dagreNode = dagreGraph.node(node.id);
-      if (dagreNode) {
-        // If the node is in Fase 1, use the targetX. Otherwise, use Dagre's calculated x.
-        const finalX = fase1NodeIds.has(node.id) ? targetX : dagreNode.x;
-        
-        node.position = { 
-          x: finalX - NODE_WIDTH / 2, 
-          y: dagreNode.y - NODE_HEIGHT / 2 
-        };
-      }
-    });
-
-    return NextResponse.json({ nodes: nodesForReactFlow, edges: edgesForReactFlow });
+    
+    console.log(`[API] Final response: ${finalNodes.length} nodes, ${edgesForReactFlow.length} edges.`);
+    return NextResponse.json({ nodes: finalNodes, edges: edgesForReactFlow });
 
   } catch (error) {
     console.error('API Route logic error:', error);

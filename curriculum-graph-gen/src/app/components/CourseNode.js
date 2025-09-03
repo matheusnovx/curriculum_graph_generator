@@ -1,4 +1,3 @@
-// src/app/components/CourseNode.js
 'use client';
 
 import React from 'react';

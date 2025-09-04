@@ -42,6 +42,8 @@ export async function GET(request, { params }) {
        MATCH path = (startNode)-[:IS_PREREQUISITE_FOR*]->(endNode:Course)
        // 3. IMPORTANT: Ensure every single course in the path belongs to the same curriculum
        WHERE ALL(node IN nodes(path) WHERE (node)-[:PART_OF]->(cur))
+       AND startNode.etiqueta = true AND endNode.etiqueta = true
+
        RETURN nodes(path) AS pathNodes
       `,
       { startNodeId: nodeId }

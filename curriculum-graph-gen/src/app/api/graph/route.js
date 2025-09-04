@@ -38,6 +38,8 @@ export async function GET() {
 
       // 3. Encontra a relação de pré-requisito entre elas
       MATCH path = (c1)-[r {curriculumId: cur.id, courseCode: cur.courseCode}]->(c2)
+      WHERE c1.etiqueta = true AND c2.etiqueta = true
+      
       // 4. Retorna os elementos separados, como o JavaScript espera
       RETURN c1 AS c, path as r, c2 AS d
     `);

@@ -15,16 +15,21 @@ abstract class BaseCurriculumHandler : CurriculumParserHandler {
         val id = ucJson["codigo"]?.jsonPrimitive?.content ?: ""
         val name = ucJson["nome"]?.jsonPrimitive?.content ?: ""
         val workloadHours = ucJson["carga_horaria"]?.jsonPrimitive?.int ?: 0
-        val suggestedSemester = ucJson["semestre_sugerido"]?.jsonPrimitive?.int ?: 0
+        val suggestedSemester = ucJson["fase_sugestao"]?.jsonPrimitive?.int ?: 0
         val description = ucJson["ementa"]?.jsonPrimitive?.content ?: ""
-        // TODO: Adicionar etiquetas para saber se é ou não obrigatória
+
+        // Use string contains check on raw JSON
+        val etiquetasRaw = ucJson["etiquetas"].toString()
+        val etiquetaIsOne = etiquetasRaw.contains("\"1\"") || etiquetasRaw.contains("\":\"1\"")
+
 
         return CourseNode(
             id = id,
             name = name,
             description = description,
             workloadHours = workloadHours,
-            suggestedSemester = suggestedSemester
+            suggestedSemester = suggestedSemester,
+            etiqueta = etiquetaIsOne
         )
     }
 

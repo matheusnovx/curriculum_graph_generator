@@ -29,7 +29,8 @@ class CurriculumRepository(private val driver: Driver) {
                 val courseQuery = """
                     MERGE (c:Course {courseId: ${'$'}courseId})
                     SET c.name = ${'$'}name, c.description = ${'$'}description, 
-                        c.workloadHours = ${'$'}workloadHours, c.suggestedSemester = ${'$'}suggestedSemester
+                        c.workloadHours = ${'$'}workloadHours, c.suggestedSemester = ${'$'}suggestedSemester,
+                        c.etiqueta = ${'$'}etiqueta
                 """
                 val linkQuery = """
                     MATCH (cur:Curriculum {id: ${'$'}curriculumId})
@@ -44,7 +45,8 @@ class CurriculumRepository(private val driver: Driver) {
                             "name", node.name,
                             "description", node.description,
                             "workloadHours", node.workloadHours,
-                            "suggestedSemester", node.suggestedSemester
+                            "suggestedSemester", node.suggestedSemester,
+                            "etiqueta", node.etiqueta
                         )
                     )
                     tx.run(

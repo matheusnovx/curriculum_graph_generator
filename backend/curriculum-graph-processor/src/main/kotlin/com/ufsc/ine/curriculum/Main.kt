@@ -15,38 +15,40 @@ fun main() {
 
     // Caminho para a pasta de recursos onde os JSONs estão
     val resourcesPath = "/Users/novais/curriculum_graph_generator/backend/curriculum-graph-processor/src/main/resources"
-    val resourcesDir = File(resourcesPath)
+    val debugFilePath: String? = null // Ex: "/caminho/para/seu/arquivo.json"
+    val resourcesDirOrFile = debugFilePath?.let { File(it) } ?: File(resourcesPath)
 
-    if (!resourcesDir.exists()) {
+    if (!resourcesDirOrFile.exists()) {
         println("❌ Erro: Diretório de recursos não encontrado em '$resourcesPath'")
         return
     }
 
     val unprocessedFiles = mutableListOf<File>()
-    // Varre todos os arquivos e subdiretórios em busca de arquivos .json
-    resourcesDir.walkTopDown()
-        .filter { it.isFile && it.extension == "json" }
-        .forEach { jsonFile ->
-            try {
-                println("📄 Processando arquivo: ${jsonFile.path}")
-                val jsonString = jsonFile.readText()
 
-                // O parser retorna uma lista de grafos (um para cada currículo no arquivo)
-                val graphs = parser.parse(jsonString)
+    val jsonFiles = if (resourcesDirOrFile.isFile && resourcesDirOrFile.extension == "json") {
+        listOf(resourcesDirOrFile)
+    } else {
+        resourcesDirOrFile.walkTopDown()
+            .filter { it.isFile && it.extension == "json" }
+            .toList()
+    }
 
-                graphs.forEach { graph ->
-                    println("  -> Salvando grafo para o currículo '${graph.curriculumId}' no Neo4j...")
-                    repository.saveGraph(graph)
-                }
-                println("✅ Arquivo ${jsonFile.name} processado com sucesso.")
-
-            } catch (e: Exception) {
-                println("❌ Erro ao processar o arquivo ${jsonFile.name}: ${e.message}")
-                unprocessedFiles.add(jsonFile)
-                // Opcional: descomente para ver o stack trace completo do erro
-                // e.printStackTrace()
+    jsonFiles.forEach { jsonFile ->
+        try {
+            println("📄 Processando arquivo: ${jsonFile.path}")
+            val jsonString = jsonFile.readText()
+            val graphs = parser.parse(jsonString)
+            graphs.forEach { graph ->
+                println("  -> Salvando grafo para o currículo '${graph.curriculumId}' no Neo4j...")
+                repository.saveGraph(graph)
             }
+            println("✅ Arquivo ${jsonFile.name} processado com sucesso.")
+        } catch (e: Exception) {
+            println("❌ Erro ao processar o arquivo ${jsonFile.name}: ${e.message}")
+            unprocessedFiles.add(jsonFile)
+            e.printStackTrace()
         }
+    }
 
     if (unprocessedFiles.isNotEmpty()) {
         println("⚠️ Arquivos não processados:")

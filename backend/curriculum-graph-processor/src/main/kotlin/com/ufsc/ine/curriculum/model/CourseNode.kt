@@ -5,5 +5,6 @@ data class CourseNode(
     val name: String,
     val description: String,
     val workloadHours: Int,
-    val suggestedSemester: Int
+    val suggestedSemester: Int,
+    val etiqueta: Boolean,
 )

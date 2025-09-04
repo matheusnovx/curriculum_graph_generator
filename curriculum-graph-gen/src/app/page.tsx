@@ -1,6 +1,4 @@
-// src/app/page.tsx
-
-import DiagramLoader from './components/DiagramLoader'; // 👈 Import the new loader
+import DiagramLoader from './components/DiagramLoader';
 
 export default function Home() {
   return (

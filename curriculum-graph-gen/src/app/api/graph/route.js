@@ -89,7 +89,7 @@ export async function GET() {
         id: `e-${sourceId}-${targetId}`,
         source: sourceId,
         target: targetId,
-        type: 'default',
+        type: 'smoothstep',
       });
     });
 

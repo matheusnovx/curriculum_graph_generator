@@ -34,7 +34,7 @@ export async function GET() {
   try {
     const result = await session.run(`
       MATCH (cur:Curriculum)
-      RETURN cur.id AS id, cur.courseCode AS courseCode, cur.courseName as courseName
+      RETURN cur.courseCode AS courseCode, cur.courseName AS courseName, MAX(cur.id) AS id
       ORDER BY courseCode DESC
     `);
     

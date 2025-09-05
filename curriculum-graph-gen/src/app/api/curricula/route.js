@@ -64,7 +64,7 @@ export async function GET() {
         originalId: originalId, // Store the original ID
         courseCode: courseCode,
         courseName: courseName,
-        label: `Currículo ${originalId} - Curso ${courseCode}`
+        label: `${courseName}`
       });
     });
     

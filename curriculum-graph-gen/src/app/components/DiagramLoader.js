@@ -63,10 +63,10 @@ export default function DiagramPage() {
         
         <div className="flex flex-col items-center justify-center">
             <label htmlFor="curriculum-select" className="mb-2 text-lg font-medium">
-                Select a Curriculum:
+                Selecione um curso:
             </label>
             {isLoading ? (
-                <p>Loading curricula options...</p>
+                <p>Carregando os cursos disponiveis...</p>
             ) : error ? (
                 <p className="text-red-500">{error}</p>
             ) : (

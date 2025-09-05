@@ -4,13 +4,16 @@ import dagre from 'dagre';
 
 let driver;
 
+// --- Database Driver Connection ---
 async function getDriver() {
   if (!driver) {
     try {
-      driver = neo4j.driver(
-        'bolt://localhost:7687',
-        neo4j.auth.basic('neo4j', 'Matheus2001') // Sua senha
-      );
+      // It's recommended to use environment variables for credentials
+      const uri = process.env.NEO4J_URI || 'bolt://localhost:7687';
+      const user = process.env.NEO4J_USER || 'neo4j';
+      const password = process.env.NEO4J_PASSWORD || 'Matheus2001';
+      
+      driver = neo4j.driver(uri, neo4j.auth.basic(user, password));
       await driver.verifyConnectivity();
       console.log('✅ Neo4j driver connected');
     } catch (error) {
@@ -21,7 +24,21 @@ async function getDriver() {
   return driver;
 }
 
-export async function GET() {
+// --- API GET Handler ---
+export async function GET(request) {
+  // 1. Extract query parameters from the request URL
+  const { searchParams } = new URL(request.url);
+  const curriculumId = searchParams.get('id') || '20071'; // Default to 20071 if not provided
+  const courseCodeParam = searchParams.get('courseCode') || '208'; // Default to 208 if not provided
+
+  // Ensure courseCode is an integer, as it's likely stored as a number in Neo4j
+  const courseCode = parseInt(courseCodeParam, 10);
+  if (isNaN(courseCode)) {
+      return NextResponse.json({ error: 'Invalid courseCode. Must be a number.' }, { status: 400 });
+  }
+  
+  console.log(`[API] Received request for curriculumId: ${curriculumId}, courseCode: ${courseCode}`);
+
   const driver = await getDriver();
   if (!driver) {
     return NextResponse.json({ error: 'Could not connect to the database.' }, { status: 500 });
@@ -29,23 +46,26 @@ export async function GET() {
 
   const session = driver.session();
   try {
+    // 2. Use the parameters in the Cypher query to make it dynamic
     const result = await session.run(`
-      // 1. Encontra o currículo âncora
-      MATCH (cur:Curriculum {id: "20071", courseCode: 208})
-      // 2. Encontra pares de disciplinas que pertencem a esse currículo
+      // Find the curriculum based on the provided parameters
+      MATCH (cur:Curriculum {id: $curriculumId, courseCode: $courseCode})
+      
+      // Find pairs of courses that belong to this curriculum
       MATCH (c1:Course)-[:PART_OF]->(cur)
       MATCH (c2:Course)-[:PART_OF]->(cur)
 
-      // 3. Encontra a relação de pré-requisito entre elas
+      // Find the prerequisite relationship between them for this specific curriculum
       MATCH path = (c1)-[r {curriculumId: cur.id, courseCode: cur.courseCode}]->(c2)
       WHERE c1.etiqueta = true AND c2.etiqueta = true
       
-      // 4. Retorna os elementos separados, como o JavaScript espera
+      // Return the source, path, and destination nodes
       RETURN c1 AS c, path as r, c2 AS d
-    `);
+    `, { curriculumId, courseCode }); // Pass parameters safely
     
-    console.log(`[API] Query retornou ${result.records.length} relacionamentos para o currículo 20071.`);
+    console.log(`[API] Query returned ${result.records.length} relationships for curriculum ${curriculumId}.`);
 
+    // --- Dagre and React Flow setup (no changes needed here) ---
     const dagreGraph = new dagre.graphlib.Graph();
     dagreGraph.setGraph({ rankdir: 'LR', nodesep: 50, ranksep: 120, marginx: 50, marginy: 50 });
     dagreGraph.setDefaultEdgeLabel(() => ({}));

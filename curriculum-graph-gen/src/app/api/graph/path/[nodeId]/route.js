@@ -3,6 +3,7 @@ import neo4j from 'neo4j-driver';
 
 let driver;
 
+// --- Database Driver Connection ---
 async function getDriver() {
   if (!driver) {
     try {
@@ -23,30 +24,51 @@ async function getDriver() {
   return driver;
 }
 
+// --- API GET Handler ---
 export async function GET(request, { params }) {
+  // 1. Extract nodeId from the dynamic route segment
   const { nodeId } = await params;
+
+  // 2. Extract query parameters from the request URL
+  const { searchParams } = new URL(request.url);
+  const curriculumId = searchParams.get('curriculumId');
+  const courseCodeParam = searchParams.get('courseCode');
+
+  // 3. Validate the presence and type of required parameters
+  if (!curriculumId || !courseCodeParam) {
+    return NextResponse.json({ error: 'Missing required query parameters: curriculumId and courseCode.' }, { status: 400 });
+  }
+
+  const courseCode = parseInt(courseCodeParam, 10);
+  if (isNaN(courseCode)) {
+    return NextResponse.json({ error: 'Invalid courseCode. Must be a number.' }, { status: 400 });
+  }
+
+  console.log(`[Path API] Request for nodeId: ${nodeId}, curriculumId: ${curriculumId}, courseCode: ${courseCode}`);
+
   const driver = await getDriver();
-  
   if (!driver) {
     return NextResponse.json({ error: 'Database connection not available.' }, { status: 500 });
   }
 
   const session = driver.session();
   try {
+    // 4. Use all parameters in the Cypher query to make it fully dynamic
     const result = await session.run(
-      // TODO: Essa query pode estar pegando nodos a mais e travando
       `
-       // 1. Find the starting course and its curriculum
-       MATCH (startNode:Course {courseId: $startNodeId})-[:PART_OF]->(cur:Curriculum {id: "20071"})
-       // 2. Find all prerequisite paths starting from this node
+       // Find the starting course within the specified curriculum
+       MATCH (startNode:Course {courseId: $nodeId})-[:PART_OF]->(cur:Curriculum {id: $curriculumId, courseCode: $courseCode})
+       
+       // Find all prerequisite paths starting from this node
        MATCH path = (startNode)-[:IS_PREREQUISITE_FOR*]->(endNode:Course)
-       // 3. IMPORTANT: Ensure every single course in the path belongs to the same curriculum
+
+       // Ensure every course in the path belongs to the SAME curriculum
        WHERE ALL(node IN nodes(path) WHERE (node)-[:PART_OF]->(cur))
        AND startNode.etiqueta = true AND endNode.etiqueta = true
 
        RETURN nodes(path) AS pathNodes
       `,
-      { startNodeId: nodeId }
+      { nodeId, curriculumId, courseCode } // Pass all parameters to the query
     );
     
     const highlightedIds = new Set([nodeId]);
@@ -54,11 +76,13 @@ export async function GET(request, { params }) {
     result.records.forEach(record => {
       const pathNodes = record.get('pathNodes');
       pathNodes.forEach(node => {
-        if(node.properties.courseId) {
-            highlightedIds.add(node.properties.courseId);
+        if (node.properties.courseId) {
+          highlightedIds.add(node.properties.courseId);
         }
       });
     });
+    
+    console.log(`[Path API] Found ${highlightedIds.size} nodes to highlight for ${nodeId}.`);
 
     return NextResponse.json({ highlightedIds: Array.from(highlightedIds) });
 

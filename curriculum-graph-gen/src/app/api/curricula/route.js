@@ -55,18 +55,18 @@ export async function GET() {
       }
       
       // Create a unique key by combining id and courseCode if necessary
+      const originalId = id;
       const uniqueId = seenIds.has(id) ? `${id}-${courseCode}` : id;
       
       seenIds.add(uniqueId);
       curricula.push({
         id: uniqueId,
+        originalId: originalId, // Store the original ID
         courseCode: courseCode,
         courseName: courseName,
-        label: `Currículo ${id} - Curso ${courseCode}`
+        label: `Currículo ${originalId} - Curso ${courseCode}`
       });
     });
-
-    console.log('Curricula API returning:', curricula);
     
     // If no curricula found, return some default test data
     if (curricula.length === 0) {

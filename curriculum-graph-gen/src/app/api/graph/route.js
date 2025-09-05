@@ -8,7 +8,6 @@ let driver;
 async function getDriver() {
   if (!driver) {
     try {
-      // It's recommended to use environment variables for credentials
       const uri = process.env.NEO4J_URI || 'bolt://localhost:7687';
       const user = process.env.NEO4J_USER || 'neo4j';
       const password = process.env.NEO4J_PASSWORD || 'Matheus2001';
@@ -61,11 +60,10 @@ export async function GET(request) {
       
       // Return the source, path, and destination nodes
       RETURN c1 AS c, path as r, c2 AS d
-    `, { curriculumId, courseCode }); // Pass parameters safely
+    `, { curriculumId, courseCode });
     
     console.log(`[API] Query returned ${result.records.length} relationships for curriculum ${curriculumId}.`);
 
-    // --- Dagre and React Flow setup (no changes needed here) ---
     const dagreGraph = new dagre.graphlib.Graph();
     dagreGraph.setGraph({ rankdir: 'LR', nodesep: 50, ranksep: 120, marginx: 50, marginy: 50 });
     dagreGraph.setDefaultEdgeLabel(() => ({}));

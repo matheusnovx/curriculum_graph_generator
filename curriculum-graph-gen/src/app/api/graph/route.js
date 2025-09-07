@@ -79,11 +79,12 @@ export async function GET(request) {
         const nodeId = courseNode.properties.courseId;
         if (!nodesMap.has(nodeId)) {
             nodesMap.set(nodeId, {
-                id: nodeId,
-                data: { label: `${nodeId}\n${courseNode.properties.name}` },
-                description: courseNode.properties.description || 'No description available',
-                position: { x: 0, y: 0 },
-                type: 'course'
+              id: nodeId,
+              data: { label: `${nodeId}\n${courseNode.properties.name}` },
+              description: courseNode.properties.description || 'No description available',
+              position: { x: 0, y: 0 },
+              workloadHours: parseInt(courseNode.properties.workloadHours, 10) || 0,
+              type: 'course'
             });
             dagreGraph.setNode(nodeId, { 
               label: courseNode.properties.name, 

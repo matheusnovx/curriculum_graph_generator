@@ -88,7 +88,7 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
       id: node.id,
       label: node.data.label,
       description: node.description,
-      credits: node.data.credits,
+      workloadHours: node.workloadHours,
     });
     
     setShowNodeInfo(true);
@@ -178,9 +178,9 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
         {error && <Panel position="top-center"><div className="p-2 bg-red-800 text-white rounded">Error: {error}</div></Panel>}
         <Panel position="top-left">
           <div className="p-2 bg-gray-800 text-white text-xs rounded">
-            <p>First click: View course details</p>
-            <p>Second click on selected course: Show path</p>
-            <p>Click again or elsewhere: Clear selection</p>
+            <p>Primeiro click: Ver detalhes do curso</p>
+            <p>Segundo click no curso selecionado: Mostra os pós-requisitos</p>
+            <p>Clique novamente ou em outro lugar: Limpar seleção</p>
           </div>
         </Panel>
         
@@ -198,10 +198,12 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
                 </button>
               </div>
               <div className="mt-2">
-                <p className="text-sm">{selectedNodeInfo.description}</p>
-                {selectedNodeInfo.credits && (
+                <p className="text-sm">
+                  <span className='font-semibold'>Descrição:</span> {selectedNodeInfo.description}
+                </p>
+                {selectedNodeInfo.workloadHours && (
                   <p className="mt-2 text-sm">
-                    <span className="font-semibold">Credits:</span> {selectedNodeInfo.credits}
+                    <span className="font-semibold">Horas aula: {selectedNodeInfo.workloadHours}h</span> 
                   </p>
                 )}
                 {/* Add more course details here as needed */}

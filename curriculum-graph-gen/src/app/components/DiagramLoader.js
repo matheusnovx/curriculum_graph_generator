@@ -59,8 +59,6 @@ export default function DiagramPage() {
   return (
     <main className="container mx-auto p-4 font-sans text-white min-h-screen">
       <div className="space-y-6">
-        <h1 className="text-3xl font-bold text-center">Curricula</h1>
-        
         <div className="flex flex-col items-center justify-center">
             <label htmlFor="curriculum-select" className="mb-2 text-lg font-medium">
                 Selecione um curso:

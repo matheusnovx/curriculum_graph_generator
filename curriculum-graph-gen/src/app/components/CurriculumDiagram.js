@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap, Panel } from 'reactflow';
 import 'reactflow/dist/style.css';
 import CourseNode from './CourseNode';
@@ -9,37 +9,77 @@ const nodeTypes = {
   course: CourseNode,
 };
 
-// --- Style Definitions ---
+// Style definitions
 const defaultEdgeStyle = {
   stroke: '#667',
   strokeWidth: 2,
 };
 const highlightedEdgeStyle = {
-  stroke: '#00bfff', // A vibrant cyan for highlighting
+  stroke: '#00bfff',
   strokeWidth: 3,
 };
 
-export default function CurriculumDiagram({ curriculumId, courseCode }) {
+// Course status styles
+const completedCourseStyle = {
+  background: '#2d6a4f',
+  border: '2px solid #40916c',
+};
+
+const inProgressCourseStyle = {
+  background: '#774936',
+  border: '2px solid #ca6702',
+};
+
+const pendingCourseStyle = {
+  background: '#222',
+  border: '1px solid #666',
+};
+
+export default function CurriculumDiagram({ curriculumId, courseCode, studentProgress }) {
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [highlightedIds, setHighlightedIds] = useState(new Set());
-  
-  // New states for popup management
-  const [showNodeInfo, setShowNodeInfo] = useState(false);
   const [selectedNodeId, setSelectedNodeId] = useState(null);
   const [selectedNodeInfo, setSelectedNodeInfo] = useState(null);
+  const [showNodeInfo, setShowNodeInfo] = useState(false);
 
+  // Create a map of course statuses from student progress data
+  const courseStatusMap = React.useMemo(() => {
+    if (!studentProgress) return {};
+    
+    const statusMap = {};
+    
+    // Map for completed courses
+    studentProgress.cursadas.forEach(course => {
+      statusMap[course.codigo] = { status: 'completed' };
+    });
+    
+    // Map for in-progress courses
+    studentProgress.andamento.forEach(course => {
+      statusMap[course.codigo] = { status: 'in_progress' };
+    });
+    
+    // Map for courses completed by equivalence
+    studentProgress.dispensadas.forEach(course => {
+      statusMap[course.codigo] = { 
+        status: 'completed',
+        equivalence: true 
+      };
+    });
+    
+    return statusMap;
+  }, [studentProgress]);
+
+  // Load graph data
   useEffect(() => {
-    // Ensure we have valid props before trying to fetch
     if (!curriculumId || !courseCode) return;
 
     async function fetchGraphData() {
       setLoading(true);
       setError(null);
       try {
-        // Construct the URL with query parameters
         const apiUrl = `/api/graph?id=${curriculumId}&courseCode=${courseCode}`;
         const response = await fetch(apiUrl);
 
@@ -55,49 +95,44 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
       } catch (err) {
         console.error("Failed to fetch graph data:", err);
         setError(err.message);
-        setNodes([]); // Clear nodes on error
-        setEdges([]); // Clear edges on error
+        setNodes([]);
+        setEdges([]);
       } finally {
         setLoading(false);
       }
     }
 
     fetchGraphData();
-  }, [curriculumId, courseCode]); // Dependency array ensures this runs on prop changes
+  }, [curriculumId, courseCode]);
 
-  // Handle node click - now with selection state logic
+  // Handle node click
   const onNodeClick = useCallback((event, node) => {
-    // If this node is already selected, trigger the path highlighting
     if (selectedNodeId === node.id) {
       handlePathHighlighting(node);
     } else {
-      // First click - show info and select the node
       handleNodeSelection(event, node);
     }
   }, [selectedNodeId, highlightedIds, curriculumId, courseCode]);
 
-  // First click handler - show info in top right panel and select node
+  // Show node info
   const handleNodeSelection = useCallback((event, node) => {
-    // Clear any existing highlights when selecting a new node
     setHighlightedIds(new Set());
     
-    console.log('Node data:', node);
-    
-    // Set node info to display in the top right panel
     setSelectedNodeInfo({
       id: node.id,
       label: node.data.label,
       description: node.description,
       workloadHours: node.workloadHours,
+      status: node.data.status,
+      equivalence: node.data.equivalence
     });
     
     setShowNodeInfo(true);
     setSelectedNodeId(node.id);
   }, []);
 
-  // Second click handler - highlight paths for already selected node
+  // Highlight paths
   const handlePathHighlighting = useCallback(async (node) => {
-    // If there are already highlights, clear them and deselect
     if (highlightedIds.size > 0) {
       setHighlightedIds(new Set());
       setSelectedNodeId(null);
@@ -105,22 +140,17 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
       return;
     }
     
-    setError(null); // Clear previous errors before making a new call
+    setError(null);
     try {
-      // Construct the URL with query parameters to make the API call dynamic
       const apiUrl = `/api/graph/path/${node.id}?curriculumId=${curriculumId}&courseCode=${courseCode}`;
-      console.log(`[handlePathHighlighting] Fetching path from: ${apiUrl}`);
-
       const response = await fetch(apiUrl);
       
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ error: 'Failed to parse error response.' }));
-        console.error(`[handlePathHighlighting] API Error: ${response.status} ${response.statusText}`, errorData);
         throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
       }
       
       const data = await response.json();
-      console.log('[handlePathHighlighting] Received path data:', data);
       setHighlightedIds(new Set(data.highlightedIds));
     } catch (err) {
       console.error("Failed to fetch path:", err);
@@ -134,24 +164,57 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
     setSelectedNodeId(null);
   }, []);
 
-  // Close info and clear selection when clicking outside
+  // Handle pane click
   const onPaneClick = useCallback(() => {
     closeInfo();
-    setHighlightedIds(new Set()); // Clear highlights when clicking away
+    setHighlightedIds(new Set());
   }, [closeInfo]);
 
-  // Memoize nodes and edges with highlighting logic
-  const nodesWithHighlight = React.useMemo(() => nodes.map(node => ({
-    ...node,
-    data: {
-      ...node.data,
-      isHighlighted: highlightedIds.has(node.id),
-      isSelected: node.id === selectedNodeId,
+  // Apply student progress data to nodes
+  const enhancedNodes = React.useMemo(() => {
+    if (!nodes.length || Object.keys(courseStatusMap).length === 0) {
+      return nodes;
     }
-  })), [nodes, highlightedIds, selectedNodeId]);
+    
+    return nodes.map(node => {
+      const courseInfo = courseStatusMap[node.id];
+      if (!courseInfo) {
+        return node;
+      }
+      
+      return {
+        ...node,
+        data: {
+          ...node.data,
+          status: courseInfo.status,
+          equivalence: courseInfo.equivalence
+        }
+      };
+    });
+  }, [nodes, courseStatusMap]);
 
+  // Apply highlighting and styling to nodes
+  const nodesWithHighlight = React.useMemo(() => enhancedNodes.map(node => {
+    let nodeStyle = pendingCourseStyle;
+    if (node.data.status === 'completed') {
+      nodeStyle = completedCourseStyle;
+    } else if (node.data.status === 'in_progress') {
+      nodeStyle = inProgressCourseStyle;
+    }
+    
+    return {
+      ...node,
+      data: {
+        ...node.data,
+        isHighlighted: highlightedIds.has(node.id),
+        isSelected: node.id === selectedNodeId,
+        style: nodeStyle
+      }
+    };
+  }), [enhancedNodes, highlightedIds, selectedNodeId]);
+
+  // Apply highlighting to edges
   const edgesWithHighlight = React.useMemo(() => edges.map(edge => {
-    // An edge is highlighted if both its source and target nodes are in the highlighted set
     const isHighlighted = highlightedIds.has(edge.source) && highlightedIds.has(edge.target);
     return {
       ...edge,
@@ -160,8 +223,26 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
     };
   }), [edges, highlightedIds]);
 
+  // Calculate progress statistics
+  const progressStats = React.useMemo(() => {
+    if (!studentProgress) return null;
+    
+    const completed = studentProgress.cursadas.length + studentProgress.dispensadas.length;
+    const inProgress = studentProgress.andamento.length;
+    const total = nodes.length; // Total courses in curriculum
+    const pending = total - completed - inProgress;
+    
+    return {
+      completed,
+      inProgress,
+      pending,
+      total,
+      completionPercentage: Math.round((completed / total) * 100)
+    };
+  }, [studentProgress, nodes.length]);
+
   return (
-    <div style={{ width: '100%', height: '80vh', border: '1px solid #333', borderRadius: '12px', background: '#1a1a1a', position: 'relative' }}>
+    <div className="w-full h-[80vh] border border-gray-700 rounded-lg bg-gray-900">
       <ReactFlow
         nodes={nodesWithHighlight}
         edges={edgesWithHighlight}
@@ -172,19 +253,56 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
         proOptions={{ hideAttribution: true }}
       >
         <Controls />
-        <Background color="#444" gap={20} />
-        <MiniMap zoomable pannable nodeColor={(n) => n.data.isHighlighted ? '#00bfff' : (n.data.isSelected ? '#ff9500' : '#666')} />
+        <Background color="#333" gap={16} />
+        <MiniMap 
+          nodeColor={(n) => {
+            if (n.data.status === 'completed') return '#2d6a4f';
+            if (n.data.status === 'in_progress') return '#ca6702';
+            if (n.data.isHighlighted) return '#00bfff';
+            if (n.data.isSelected) return '#ff9500';
+            return '#666';
+          }}
+        />
+        
         {loading && <Panel position="top-center"><div className="p-2 bg-gray-700 rounded">Loading...</div></Panel>}
         {error && <Panel position="top-center"><div className="p-2 bg-red-800 text-white rounded">Error: {error}</div></Panel>}
+        
         <Panel position="top-left">
-          <div className="p-2 bg-gray-800 text-white text-xs rounded">
-            <p>Primeiro click: Ver detalhes do curso</p>
-            <p>Segundo click no curso selecionado: Mostra os pós-requisitos</p>
-            <p>Clique novamente ou em outro lugar: Limpar seleção</p>
+          <div className="p-4 bg-gray-800 text-white text-xs rounded">
+            <p className="font-bold mb-2">Status das Disciplinas:</p>
+            <div className="flex items-center mb-1">
+              <div className="w-4 h-4 mr-2" style={{ backgroundColor: '#2d6a4f', border: '1px solid #40916c' }}></div>
+              <p>Cursada</p>
+            </div>
+            <div className="flex items-center mb-1">
+              <div className="w-4 h-4 mr-2" style={{ backgroundColor: '#774936', border: '1px solid #ca6702' }}></div>
+              <p>Em Andamento</p>
+            </div>
+            <div className="flex items-center">
+              <div className="w-4 h-4 mr-2" style={{ backgroundColor: '#222', border: '1px solid #666' }}></div>
+              <p>Pendente</p>
+            </div>
+            
+            {progressStats && (
+              <div className="mt-4 pt-4 border-t border-gray-700">
+                <p className="font-bold">Progresso do Aluno:</p>
+                <p>Concluídas: {progressStats.completed} disciplinas ({progressStats.completionPercentage}%)</p>
+                <p>Em andamento: {progressStats.inProgress} disciplinas</p>
+                <p>Pendentes: {progressStats.pending} disciplinas</p>
+                
+                {/* Visual progress bar */}
+                <div className="mt-2 h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-green-600" 
+                    style={{ width: `${progressStats.completionPercentage}%` }}
+                  ></div>
+                </div>
+              </div>
+            )}
           </div>
         </Panel>
         
-        {/* Course Info Panel in Top Right */}
+        {/* Course Info Panel */}
         {showNodeInfo && selectedNodeInfo && (
           <Panel position="top-right">
             <div className="p-4 bg-gray-800 text-white rounded-lg shadow-lg max-w-md">
@@ -199,14 +317,33 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
               </div>
               <div className="mt-2">
                 <p className="text-sm">
-                  <span className='font-semibold'>Descrição:</span> {selectedNodeInfo.description}
+                  <span className='font-semibold'>Código:</span> {selectedNodeInfo.id}
                 </p>
-                {selectedNodeInfo.workloadHours && (
-                  <p className="mt-2 text-sm">
-                    <span className="font-semibold">Horas aula: {selectedNodeInfo.workloadHours}h</span> 
+                {selectedNodeInfo.description && (
+                  <p className="text-sm mt-1">
+                    <span className='font-semibold'>Descrição:</span> {selectedNodeInfo.description}
                   </p>
                 )}
-                {/* Add more course details here as needed */}
+                {selectedNodeInfo.workloadHours && (
+                  <p className="mt-1 text-sm">
+                    <span className="font-semibold">Carga Horária:</span> {selectedNodeInfo.workloadHours}h
+                  </p>
+                )}
+                
+                {selectedNodeInfo.status && (
+                  <div className="mt-2 p-2 rounded" style={{ 
+                    backgroundColor: selectedNodeInfo.status === 'completed' ? '#2d6a4f' : 
+                                     selectedNodeInfo.status === 'in_progress' ? '#774936' : 
+                                     '#333' 
+                  }}>
+                    <p className="text-sm font-bold">
+                      Status: {selectedNodeInfo.status === 'completed' ? 'Concluída' : 
+                              selectedNodeInfo.status === 'in_progress' ? 'Em Andamento' : 
+                              'Pendente'}
+                      {selectedNodeInfo.equivalence ? ' (Equivalência)' : ''}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </Panel>

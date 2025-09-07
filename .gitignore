@@ -91,3 +91,7 @@ build/
 
 # Teste
 test-output/
+
+# Ignore uploads directory
+uploads/
+!uploads/.gitkeep

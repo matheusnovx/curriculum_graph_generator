@@ -3,38 +3,59 @@
 import React from 'react';
 import { Handle, Position } from 'reactflow';
 
-const handleStyle = { background: '#555' };
-
-// Define the two styles the node can have
-const defaultStyle = {
-  background: '#222',
-  border: '1px solid #666',
-  borderRadius: '4px',
-  padding: '10px 15px',
-  width: 172,
-  textAlign: 'center',
-  color: '#ddd',
-  fontSize: '14px',
-  whiteSpace: 'pre-wrap',
-  transition: 'all 0.2s ease', // Add a smooth transition
-};
-
-const highlightedStyle = {
-  ...defaultStyle,
-  border: '2px solid #00bfff',
-  boxShadow: '0 0 10px #00bfff',
-};
-
-// The component now checks for data.isHighlighted
 function CourseNode({ data }) {
-  // Conditionally choose the style based on the new property
-  const style = data.isHighlighted ? highlightedStyle : defaultStyle;
+  // Base style
+  const baseStyle = {
+    borderRadius: '4px',
+    padding: '10px',
+    minWidth: '150px',
+    maxWidth: '220px',
+    textAlign: 'center',
+    fontSize: '12px',
+    transition: 'all 0.2s ease',
+  };
+
+  // Determine which style to use based on node properties
+  let style = { ...baseStyle };
+  
+  // Apply custom style first (for course status)
+  if (data.style) {
+    style = { ...style, ...data.style };
+  }
+  
+  // Highlighting takes precedence
+  if (data.isHighlighted) {
+    style = {
+      ...style,
+      boxShadow: '0 0 10px #00bfff',
+      border: '2px solid #00bfff',
+    };
+  }
+  
+  // Selection takes precedence over highlighting
+  if (data.isSelected) {
+    style = {
+      ...style,
+      boxShadow: '0 0 10px #ff9500',
+      border: '2px solid #ff9500',
+    };
+  }
 
   return (
     <div style={style}>
-      <Handle type="target" position={Position.Left} style={handleStyle} />
-      <div>{data.label}</div>
-      <Handle type="source" position={Position.Right} style={handleStyle} />
+      <Handle type="target" position={Position.Left} style={{ background: '#555' }} />
+      
+      <div>
+        {data.label}
+        
+        {data.status === 'completed' && data.equivalence && (
+          <div className="text-xs mt-1 italic">
+            (Equivalência)
+          </div>
+        )}
+      </div>
+      
+      <Handle type="source" position={Position.Right} style={{ background: '#555' }} />
     </div>
   );
 }

@@ -81,6 +81,7 @@ export async function GET(request) {
             nodesMap.set(nodeId, {
                 id: nodeId,
                 data: { label: `${nodeId}\n${courseNode.properties.name}` },
+                description: courseNode.properties.description || 'No description available',
                 position: { x: 0, y: 0 },
                 type: 'course'
             });

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import ReactFlow, { Controls, Background, MiniMap, Panel } from 'reactflow';
 import 'reactflow/dist/style.css';
 import CourseNode from './CourseNode';
@@ -25,6 +25,11 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [highlightedIds, setHighlightedIds] = useState(new Set());
+  
+  // New states for popup management
+  const [showNodeInfo, setShowNodeInfo] = useState(false);
+  const [selectedNodeId, setSelectedNodeId] = useState(null);
+  const [selectedNodeInfo, setSelectedNodeInfo] = useState(null);
 
   useEffect(() => {
     // Ensure we have valid props before trying to fetch
@@ -60,11 +65,43 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
     fetchGraphData();
   }, [curriculumId, courseCode]); // Dependency array ensures this runs on prop changes
 
-  // Callback for when a node is clicked to highlight paths
-  const onNodeClick = useCallback(async (event, node) => {
-    // If the clicked node is already highlighted, clear all highlights
-    if (highlightedIds.has(node.id)) {
+  // Handle node click - now with selection state logic
+  const onNodeClick = useCallback((event, node) => {
+    // If this node is already selected, trigger the path highlighting
+    if (selectedNodeId === node.id) {
+      handlePathHighlighting(node);
+    } else {
+      // First click - show info and select the node
+      handleNodeSelection(event, node);
+    }
+  }, [selectedNodeId, highlightedIds, curriculumId, courseCode]);
+
+  // First click handler - show info in top right panel and select node
+  const handleNodeSelection = useCallback((event, node) => {
+    // Clear any existing highlights when selecting a new node
+    setHighlightedIds(new Set());
+    
+    console.log('Node data:', node);
+    
+    // Set node info to display in the top right panel
+    setSelectedNodeInfo({
+      id: node.id,
+      label: node.data.label,
+      description: node.description,
+      credits: node.data.credits,
+    });
+    
+    setShowNodeInfo(true);
+    setSelectedNodeId(node.id);
+  }, []);
+
+  // Second click handler - highlight paths for already selected node
+  const handlePathHighlighting = useCallback(async (node) => {
+    // If there are already highlights, clear them and deselect
+    if (highlightedIds.size > 0) {
       setHighlightedIds(new Set());
+      setSelectedNodeId(null);
+      setShowNodeInfo(false);
       return;
     }
     
@@ -72,24 +109,36 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
     try {
       // Construct the URL with query parameters to make the API call dynamic
       const apiUrl = `/api/graph/path/${node.id}?curriculumId=${curriculumId}&courseCode=${courseCode}`;
-      console.log(`[onNodeClick] Fetching path from: ${apiUrl}`); // Debugging log
+      console.log(`[handlePathHighlighting] Fetching path from: ${apiUrl}`);
 
       const response = await fetch(apiUrl);
       
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ error: 'Failed to parse error response.' }));
-        console.error(`[onNodeClick] API Error: ${response.status} ${response.statusText}`, errorData); // More detailed error log
+        console.error(`[handlePathHighlighting] API Error: ${response.status} ${response.statusText}`, errorData);
         throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
       }
       
       const data = await response.json();
-      console.log('[onNodeClick] Received path data:', data); // Debugging log for the response
+      console.log('[handlePathHighlighting] Received path data:', data);
       setHighlightedIds(new Set(data.highlightedIds));
     } catch (err) {
       console.error("Failed to fetch path:", err);
-      setError(`Failed to fetch path: ${err.message}`); // Set UI error message
+      setError(`Failed to fetch path: ${err.message}`);
     }
-  }, [highlightedIds, curriculumId, courseCode]); // Add props to dependency array
+  }, [highlightedIds, curriculumId, courseCode]);
+
+  // Close info panel
+  const closeInfo = useCallback(() => {
+    setShowNodeInfo(false);
+    setSelectedNodeId(null);
+  }, []);
+
+  // Close info and clear selection when clicking outside
+  const onPaneClick = useCallback(() => {
+    closeInfo();
+    setHighlightedIds(new Set()); // Clear highlights when clicking away
+  }, [closeInfo]);
 
   // Memoize nodes and edges with highlighting logic
   const nodesWithHighlight = React.useMemo(() => nodes.map(node => ({
@@ -97,8 +146,9 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
     data: {
       ...node.data,
       isHighlighted: highlightedIds.has(node.id),
+      isSelected: node.id === selectedNodeId,
     }
-  })), [nodes, highlightedIds]);
+  })), [nodes, highlightedIds, selectedNodeId]);
 
   const edgesWithHighlight = React.useMemo(() => edges.map(edge => {
     // An edge is highlighted if both its source and target nodes are in the highlighted set
@@ -111,20 +161,54 @@ export default function CurriculumDiagram({ curriculumId, courseCode }) {
   }), [edges, highlightedIds]);
 
   return (
-    <div style={{ width: '100%', height: '80vh', border: '1px solid #333', borderRadius: '12px', background: '#1a1a1a' }}>
+    <div style={{ width: '100%', height: '80vh', border: '1px solid #333', borderRadius: '12px', background: '#1a1a1a', position: 'relative' }}>
       <ReactFlow
         nodes={nodesWithHighlight}
         edges={edgesWithHighlight}
         onNodeClick={onNodeClick}
         nodeTypes={nodeTypes}
+        onPaneClick={onPaneClick}
         fitView
         proOptions={{ hideAttribution: true }}
       >
         <Controls />
         <Background color="#444" gap={20} />
-        <MiniMap zoomable pannable nodeColor={(n) => n.data.isHighlighted ? '#00bfff' : '#666'} />
+        <MiniMap zoomable pannable nodeColor={(n) => n.data.isHighlighted ? '#00bfff' : (n.data.isSelected ? '#ff9500' : '#666')} />
         {loading && <Panel position="top-center"><div className="p-2 bg-gray-700 rounded">Loading...</div></Panel>}
         {error && <Panel position="top-center"><div className="p-2 bg-red-800 text-white rounded">Error: {error}</div></Panel>}
+        <Panel position="top-left">
+          <div className="p-2 bg-gray-800 text-white text-xs rounded">
+            <p>First click: View course details</p>
+            <p>Second click on selected course: Show path</p>
+            <p>Click again or elsewhere: Clear selection</p>
+          </div>
+        </Panel>
+        
+        {/* Course Info Panel in Top Right */}
+        {showNodeInfo && selectedNodeInfo && (
+          <Panel position="top-right">
+            <div className="p-4 bg-gray-800 text-white rounded-lg shadow-lg max-w-md">
+              <div className="flex justify-between items-start">
+                <h3 className="font-bold text-lg">{selectedNodeInfo.label}</h3>
+                <button 
+                  onClick={closeInfo}
+                  className="bg-transparent border-none text-gray-400 hover:text-white"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="mt-2">
+                <p className="text-sm">{selectedNodeInfo.description}</p>
+                {selectedNodeInfo.credits && (
+                  <p className="mt-2 text-sm">
+                    <span className="font-semibold">Credits:</span> {selectedNodeInfo.credits}
+                  </p>
+                )}
+                {/* Add more course details here as needed */}
+              </div>
+            </div>
+          </Panel>
+        )}
       </ReactFlow>
     </div>
   );

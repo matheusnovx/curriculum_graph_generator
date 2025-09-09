@@ -65,11 +65,21 @@ export async function POST(request) {
       );
     }
     
-    // Log the command for debugging
-    const command = `python "${pythonScript}" "${filePath}"`;
-    console.log(`Executing: ${command}`);
+    // Use the virtual environment's Python interpreter
+    const pythonPath = path.join(process.cwd(), 'venv', 'bin', 'python');
+    const command = `"${pythonPath}" "${pythonScript}" "${filePath}"`;
+    let stdout, stderr;
     
-    const { stdout, stderr } = await execPromise(command);
+    try {
+      console.log(`Executing: ${command}`);
+      ({ stdout, stderr } = await execPromise(command));
+    } catch (pythonError) {
+      console.error('Error executing Python script:', pythonError);
+      return NextResponse.json(
+        { error: `Failed to parse PDF: ${pythonError.message}` },
+        { status: 500 }
+      );
+    }
     
     if (stderr) {
       console.error('Error parsing PDF:', stderr);

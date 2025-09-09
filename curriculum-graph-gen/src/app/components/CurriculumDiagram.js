@@ -4,6 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap, Panel } from 'reactflow';
 import 'reactflow/dist/style.css';
 import CourseNode from './CourseNode';
+import { organizeGraphLayout } from '../utils/graphLayout';
 
 const nodeTypes = {
   course: CourseNode,
@@ -88,7 +89,11 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
         }
         
         const data = await response.json();
-        setNodes(data.nodes || []);
+        
+        // Aplicar layout automático
+        const layoutedNodes = organizeGraphLayout(data.nodes || [], data.edges || []);
+        setNodes(layoutedNodes);
+        
         setEdges(data.edges || []);
         setHighlightedIds(new Set());
 
@@ -107,16 +112,19 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
 
   // Handle node click
   const onNodeClick = useCallback((event, node) => {
+    // Se o nó já está selecionado, alterna entre mostrar o caminho e esconder
     if (selectedNodeId === node.id) {
       handlePathHighlighting(node);
     } else {
+      // Se um novo nó foi selecionado, mostra suas informações
       handleNodeSelection(event, node);
     }
-  }, [selectedNodeId, highlightedIds, curriculumId, courseCode]);
+  }, [selectedNodeId]);
 
   // Show node info
   const handleNodeSelection = useCallback((event, node) => {
-    setHighlightedIds(new Set());
+    // Não limpa os highlightedIds ao selecionar um nó
+    // Removido: setHighlightedIds(new Set());
     
     setSelectedNodeInfo({
       id: node.id,
@@ -133,10 +141,9 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
 
   // Highlight paths
   const handlePathHighlighting = useCallback(async (node) => {
+    // Se já existe um highlight ativo, limpa
     if (highlightedIds.size > 0) {
       setHighlightedIds(new Set());
-      setSelectedNodeId(null);
-      setShowNodeInfo(false);
       return;
     }
     
@@ -162,6 +169,8 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
   const closeInfo = useCallback(() => {
     setShowNodeInfo(false);
     setSelectedNodeId(null);
+    // Não limpa os highlightedIds ao fechar o painel de informações
+    // Removido: setHighlightedIds(new Set());
   }, []);
 
   // Handle pane click
@@ -299,6 +308,14 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
                 </div>
               </div>
             )}
+            
+            {/* Instruções */}
+            <div className="mt-4 pt-4 border-t border-gray-700">
+              <p className="text-xs text-gray-400">
+                <span className="font-semibold">Dica:</span> Clique em uma disciplina para ver detalhes. 
+                Clique novamente para ver pré-requisitos.
+              </p>
+            </div>
           </div>
         </Panel>
         
@@ -344,6 +361,14 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
                     </p>
                   </div>
                 )}
+                
+                {/* Botão para destacar caminhos */}
+                <button 
+                  onClick={() => handlePathHighlighting({id: selectedNodeInfo.id})}
+                  className="mt-4 w-full px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded text-white text-xs"
+                >
+                  {highlightedIds.size > 0 ? "Ocultar Caminho" : "Mostrar Pré-requisitos"}
+                </button>
               </div>
             </div>
           </Panel>

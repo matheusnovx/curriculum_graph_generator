@@ -58,7 +58,6 @@ export default function StudentProgressPage() {
   const LegendPanel = useMemo(() => {
     return (
       <div className="p-4 bg-gray-800 text-white text-xs rounded">
-        <p className="font-bold mb-2">Status das Disciplinas:</p>
         <div className="flex items-center mb-1">
           <div className="w-4 h-4 mr-2" style={{ backgroundColor: '#2d6a4f', border: '1px solid #40916c' }}></div>
           <p>Cursada</p>

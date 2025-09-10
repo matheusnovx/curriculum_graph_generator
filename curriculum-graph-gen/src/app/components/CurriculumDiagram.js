@@ -44,6 +44,10 @@ export default function CurriculumDiagram({
   legendPanel,
   tipPanel
 }) {
+  // Add state for panel visibility
+  const [showLegendPanel, setShowLegendPanel] = useState(true);
+  const [showTipPanel, setShowTipPanel] = useState(true);
+  
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -290,11 +294,67 @@ export default function CurriculumDiagram({
         {loading && <Panel position="top-center"><div className="p-2 bg-gray-700 rounded">Carregando...</div></Panel>}
         {error && <Panel position="top-center"><div className="p-2 bg-red-800 text-white rounded">Erro: {error}</div></Panel>}
         
-        {/* Exibe o painel de legenda se fornecido */}
-        {legendPanel && <Panel position="top-left">{legendPanel}</Panel>}
+        {/* Exibe o painel de legenda com opção de minimizar */}
+        {legendPanel && (
+          <Panel position="top-left">
+            <div className="bg-gray-800 rounded shadow-lg overflow-hidden">
+              {/* Header with minimize button */}
+              <div className="flex justify-between items-center p-2 bg-gray-700 cursor-pointer" 
+                   onClick={() => setShowLegendPanel(!showLegendPanel)}>
+                <span className="text-xs font-semibold text-white">Status das Disciplinas</span>
+                <button className="text-gray-300 hover:text-white focus:outline-none">
+                  {showLegendPanel ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+              
+              {/* Collapsible content */}
+              {showLegendPanel && (
+                <div className="p-3">
+                  {legendPanel}
+                </div>
+              )}
+            </div>
+          </Panel>
+        )}
         
-        {/* Painel de dicas, se fornecido */}
-        {tipPanel && <Panel position="bottom-left">{tipPanel}</Panel>}
+        {/* Painel de dicas, se fornecido, também com opção de minimizar */}
+        {tipPanel && (
+          <Panel position="bottom-left">
+            <div className="bg-gray-800 rounded shadow-lg overflow-hidden">
+              {/* Header with minimize button */}
+              <div className="flex justify-between items-center p-2 bg-gray-700 cursor-pointer"
+                   onClick={() => setShowTipPanel(!showTipPanel)}>
+                <span className="text-xs font-semibold text-white">Dicas</span>
+                <button className="text-gray-300 hover:text-white focus:outline-none">
+                  {showTipPanel ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+              
+              {/* Collapsible content */}
+              {showTipPanel && (
+                <div className="p-3">
+                  {tipPanel}
+                </div>
+              )}
+            </div>
+          </Panel>
+        )}
         
         {/* Course Info Panel */}
         {showNodeInfo && selectedNodeInfo && (

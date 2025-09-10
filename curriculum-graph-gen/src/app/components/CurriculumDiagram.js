@@ -36,7 +36,14 @@ const pendingCourseStyle = {
   border: '1px solid #666',
 };
 
-export default function CurriculumDiagram({ curriculumId, courseCode, studentProgress }) {
+export default function CurriculumDiagram({ 
+  curriculumId, 
+  courseCode, 
+  studentProgress, 
+  onTotalCoursesUpdate,
+  legendPanel,
+  tipPanel
+}) {
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -250,6 +257,13 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
     };
   }, [studentProgress, nodes.length]);
 
+  // Notifica o componente pai sobre o total de cursos carregados
+  useEffect(() => {
+    if (nodes.length > 0 && onTotalCoursesUpdate) {
+      onTotalCoursesUpdate(nodes.length);
+    }
+  }, [nodes.length, onTotalCoursesUpdate]);
+
   return (
     <div className="w-full h-[80vh] border border-gray-700 rounded-lg bg-gray-900">
       <ReactFlow
@@ -273,51 +287,14 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
           }}
         />
         
-        {loading && <Panel position="top-center"><div className="p-2 bg-gray-700 rounded">Loading...</div></Panel>}
-        {error && <Panel position="top-center"><div className="p-2 bg-red-800 text-white rounded">Error: {error}</div></Panel>}
+        {loading && <Panel position="top-center"><div className="p-2 bg-gray-700 rounded">Carregando...</div></Panel>}
+        {error && <Panel position="top-center"><div className="p-2 bg-red-800 text-white rounded">Erro: {error}</div></Panel>}
         
-        <Panel position="top-left">
-          <div className="p-4 bg-gray-800 text-white text-xs rounded">
-            <p className="font-bold mb-2">Status das Disciplinas:</p>
-            <div className="flex items-center mb-1">
-              <div className="w-4 h-4 mr-2" style={{ backgroundColor: '#2d6a4f', border: '1px solid #40916c' }}></div>
-              <p>Cursada</p>
-            </div>
-            <div className="flex items-center mb-1">
-              <div className="w-4 h-4 mr-2" style={{ backgroundColor: '#774936', border: '1px solid #ca6702' }}></div>
-              <p>Em Andamento</p>
-            </div>
-            <div className="flex items-center">
-              <div className="w-4 h-4 mr-2" style={{ backgroundColor: '#222', border: '1px solid #666' }}></div>
-              <p>Pendente</p>
-            </div>
-            
-            {progressStats && (
-              <div className="mt-4 pt-4 border-t border-gray-700">
-                <p className="font-bold">Progresso do Aluno:</p>
-                <p>Concluídas: {progressStats.completed} disciplinas ({progressStats.completionPercentage}%)</p>
-                <p>Em andamento: {progressStats.inProgress} disciplinas</p>
-                <p>Pendentes: {progressStats.pending} disciplinas</p>
-                
-                {/* Visual progress bar */}
-                <div className="mt-2 h-2 bg-gray-700 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-green-600" 
-                    style={{ width: `${progressStats.completionPercentage}%` }}
-                  ></div>
-                </div>
-              </div>
-            )}
-            
-            {/* Instruções */}
-            <div className="mt-4 pt-4 border-t border-gray-700">
-              <p className="text-xs text-gray-400">
-                <span className="font-semibold">Dica:</span> Clique em uma disciplina para ver detalhes. 
-                Clique novamente para ver pré-requisitos.
-              </p>
-            </div>
-          </div>
-        </Panel>
+        {/* Exibe o painel de legenda se fornecido */}
+        {legendPanel && <Panel position="top-left">{legendPanel}</Panel>}
+        
+        {/* Painel de dicas, se fornecido */}
+        {tipPanel && <Panel position="bottom-left">{tipPanel}</Panel>}
         
         {/* Course Info Panel */}
         {showNodeInfo && selectedNodeInfo && (
@@ -350,8 +327,8 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
                 {selectedNodeInfo.status && (
                   <div className="mt-2 p-2 rounded" style={{ 
                     backgroundColor: selectedNodeInfo.status === 'completed' ? '#2d6a4f' : 
-                                     selectedNodeInfo.status === 'in_progress' ? '#774936' : 
-                                     '#333' 
+                                    selectedNodeInfo.status === 'in_progress' ? '#774936' : 
+                                    '#333' 
                   }}>
                     <p className="text-sm font-bold">
                       Status: {selectedNodeInfo.status === 'completed' ? 'Concluída' : 
@@ -367,7 +344,7 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
                   onClick={() => handlePathHighlighting({id: selectedNodeInfo.id})}
                   className="mt-4 w-full px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded text-white text-xs"
                 >
-                  {highlightedIds.size > 0 ? "Ocultar Caminho" : "Mostrar Pré-requisitos"}
+                  {highlightedIds.size > 0 ? "Ocultar Caminho" : "Mostrar Pós-requisitos"}
                 </button>
               </div>
             </div>
@@ -377,4 +354,7 @@ export default function CurriculumDiagram({ curriculumId, courseCode, studentPro
     </div>
   );
 }
+
+// Exportar também o objeto de progresso
+export { CurriculumDiagram };
 

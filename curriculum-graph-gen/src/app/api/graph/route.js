@@ -83,7 +83,7 @@ export async function GET(request) {
               data: { labelCode: nodeId, labelNome: courseNode.properties.name },
               description: courseNode.properties.description || 'No description available',
               position: { x: 0, y: 0 },
-              workloadxHours: parseInt(courseNode.properties.workloadHours, 10) || 0,
+              workloadHours: parseInt(courseNode.properties.workloadHours, 10) || 0,
               type: 'course'
             });
             dagreGraph.setNode(nodeId, { 

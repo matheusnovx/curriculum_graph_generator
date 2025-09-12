@@ -14,7 +14,8 @@ const CurriculumDiagram = dynamic(() => import('../components/CurriculumDiagram'
 export default function StudentProgressPage() {
   const [studentData, setStudentData] = useState(null);
   const [totalCourses, setTotalCourses] = useState(0);
-  
+  const [showLegendPanel, setShowLegendPanel] = useState(true); // <-- Add this state
+
   // Try to load saved data from localStorage on mount
   useEffect(() => {
     const savedData = localStorage.getItem('parsedPdfData');
@@ -54,7 +55,7 @@ export default function StudentProgressPage() {
     };
   }, [studentData, totalCourses]);
   
-  // Componente da legenda que será passado para o CurriculumDiagram
+  // Componente da legenda que será passado para o painel lateral
   const LegendPanel = useMemo(() => {
     return (
       <div className="p-4 bg-gray-800 text-white text-xs rounded">
@@ -70,25 +71,17 @@ export default function StudentProgressPage() {
           <div className="w-4 h-4 mr-2" style={{ backgroundColor: '#222', border: '1px solid #666' }}></div>
           <p>Pendente</p>
         </div>
-        
-        {/* Dica para usuários */}
-        <div className="mt-4 pt-4 border-t border-gray-700">
-          <p className="text-xs text-gray-400">
-            <span className="font-semibold">Dica:</span> Clique em uma disciplina para ver detalhes. 
-            Clique novamente para ver pós-requisitos.
-          </p>
-        </div>
       </div>
     );
   }, []);
-  
+
   return (
     <main className="container mx-auto px-4 py-8 min-h-screen">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {/* Coluna 1: Uploader e informações do currículo */}
+        {/* Coluna 1: Uploader, informações do currículo e legenda */}
         <div className="lg:col-span-1">
-          <PdfUploader onDataReceived={handleDataReceived} />
-          
+          <PdfUploader onDataReceived={setStudentData} />
+
           {studentData && (
             <div className="mt-6 bg-gray-800 p-4 rounded-lg text-white">
               <h2 className="text-lg font-semibold mb-3 border-b border-gray-700 pb-2">Informações:</h2>
@@ -157,9 +150,39 @@ export default function StudentProgressPage() {
               </button>
             </div>
           )}
+
+          {/* Legend panel below student info */}
+          <div className="mt-6">
+            <div className="bg-gray-800 rounded shadow-lg overflow-hidden">
+              {/* Header with minimize button */}
+              <div
+                className="flex justify-between items-center p-2 bg-gray-700 cursor-pointer"
+                onClick={() => setShowLegendPanel(!showLegendPanel)}
+              >
+                <span className="text-xs font-semibold text-white">Status das Disciplinas</span>
+                <button className="text-gray-300 hover:text-white focus:outline-none">
+                  {showLegendPanel ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+              {/* Collapsible content */}
+              {showLegendPanel && (
+                <div className="p-3">
+                  {LegendPanel}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-        
-        {/* Aumentado para 3/4 da largura em telas grandes */}
+
+        {/* Diagrama ocupa 3/4 da largura em telas grandes */}
         <div className="lg:col-span-3">
           {studentData ? (
             <CurriculumDiagram
@@ -167,7 +190,7 @@ export default function StudentProgressPage() {
               courseCode={studentData.courseCode}
               studentProgress={studentData}
               onTotalCoursesUpdate={setTotalCourses}
-              legendPanel={LegendPanel}
+              // legendPanel={LegendPanel} // <-- REMOVE this prop!
             />
           ) : (
             <div className="flex items-center justify-center h-[80vh] bg-gray-800 rounded-lg">

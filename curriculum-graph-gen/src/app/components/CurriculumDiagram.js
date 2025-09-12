@@ -139,7 +139,7 @@ export default function CurriculumDiagram({
     
     setSelectedNodeInfo({
       id: node.id,
-      label: node.data.label,
+      label: node.data.labelNome,
       description: node.description,
       workloadHours: node.workloadHours,
       status: node.data.status,
@@ -293,87 +293,61 @@ export default function CurriculumDiagram({
       >
         <Controls />
         <Background color="#333" gap={16} />
-        <MiniMap 
-          nodeColor={(n) => {
-            if (n.data.status === 'completed') return '#2d6a4f';
-            if (n.data.status === 'in_progress') return '#ca6702';
-            if (n.data.isHighlighted) return '#00bfff';
-            if (n.data.isSelected) return '#ff9500';
-            return '#666';
-          }}
-        />
         
         {loading && <Panel position="top-center"><div className="p-2 bg-gray-700 rounded">Carregando...</div></Panel>}
         {error && <Panel position="top-center"><div className="p-2 bg-red-800 text-white rounded">Erro: {error}</div></Panel>}
         
-        {/* Exibe o painel de legenda com opção de minimizar */}
-        {legendPanel && (
-          <Panel position="top-left">
-            <div className="bg-gray-800 rounded shadow-lg overflow-hidden">
-              {/* Header with minimize button */}
-              <div className="flex justify-between items-center p-2 bg-gray-700 cursor-pointer" 
-                   onClick={() => setShowLegendPanel(!showLegendPanel)}>
-                <span className="text-xs font-semibold text-white">Status das Disciplinas</span>
-                <button className="text-gray-300 hover:text-white focus:outline-none">
-                  {showLegendPanel ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                    </svg>
-                  )}
-                </button>
-              </div>
-              
-              {/* Collapsible content */}
-              {showLegendPanel && (
-                <div className="p-3">
-                  {legendPanel}
-                </div>
-              )}
+        {/* Painel de dicas*/}
+        <Panel position="bottom-right">
+          {showTipPanel ? (
+            <div className="bg-gray-800 rounded shadow-lg overflow-hidden p-2 flex items-center min-w-[220px] transition-all duration-200">
+              <span className="text-[12px] text-gray-200">
+                <span className="font-semibold">Dica:</span> Clique em uma disciplina para ver detalhes. Clique novamente para ver pós-requisitos.
+              </span>
+              <button
+                className="ml-2 flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-gray-700 hover:bg-blue-600 transition-colors"
+                onClick={() => setShowTipPanel(false)}
+                aria-label="Minimizar dicas"
+                type="button"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
             </div>
-          </Panel>
-        )}
-        
-        {/* Painel de dicas, se fornecido, também com opção de minimizar */}
-        {tipPanel && (
-          <Panel position="bottom-left">
-            <div className="bg-gray-800 rounded shadow-lg overflow-hidden">
-              {/* Header with minimize button */}
-              <div className="flex justify-between items-center p-2 bg-gray-700 cursor-pointer"
-                   onClick={() => setShowTipPanel(!showTipPanel)}>
-                <span className="text-xs font-semibold text-white">Dicas</span>
-                <button className="text-gray-300 hover:text-white focus:outline-none">
-                  {showTipPanel ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                    </svg>
-                  )}
-                </button>
-              </div>
-              
-              {/* Collapsible content */}
-              {showTipPanel && (
-                <div className="p-3">
-                  {tipPanel}
-                </div>
-              )}
-            </div>
-          </Panel>
-        )}
-        
-        {/* Course Info Panel */}
+          ) : (
+            <button
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-blue-600 shadow-lg transition-colors"
+              onClick={() => setShowTipPanel(true)}
+              aria-label="Mostrar dicas"
+              type="button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 16v-4m0-4h.01" />
+              </svg>
+            </button>
+          )}
+        </Panel>
+
         {showNodeInfo && selectedNodeInfo && (
           <Panel position="top-right">
             <div className="p-4 bg-gray-800 text-white rounded-lg shadow-lg max-w-md">
               <div className="flex justify-between items-start">
-                <h3 className="font-bold text-lg">{selectedNodeInfo.label}</h3>
+                <h3 className="font-bold text-lg flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-7 w-7 text-blue-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    title="Mais informações"
+                  >
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 16v-4m0-4h.01" />
+                  </svg>
+                  {selectedNodeInfo.label}
+                </h3>
                 <button 
                   onClick={closeInfo}
                   className="bg-transparent border-none text-gray-400 hover:text-white"
@@ -382,16 +356,13 @@ export default function CurriculumDiagram({
                 </button>
               </div>
               <div className="mt-2">
-                <p className="text-sm">
-                  <span className='font-semibold'>Código:</span> {selectedNodeInfo.id}
-                </p>
                 {selectedNodeInfo.description && (
-                  <p className="text-sm mt-1">
+                  <p className="text-sm mt-2">
                     <span className='font-semibold'>Descrição:</span> {selectedNodeInfo.description}
                   </p>
                 )}
                 {selectedNodeInfo.workloadHours && (
-                  <p className="mt-1 text-sm">
+                  <p className="mt-3 text-sm">
                     <span className="font-semibold">Carga Horária:</span> {selectedNodeInfo.workloadHours}h
                   </p>
                 )}

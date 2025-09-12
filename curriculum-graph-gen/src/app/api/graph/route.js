@@ -80,7 +80,7 @@ export async function GET(request) {
         if (!nodesMap.has(nodeId)) {
             nodesMap.set(nodeId, {
               id: nodeId,
-              data: { label: `${nodeId}\n${courseNode.properties.name}` },
+              data: { labelCode: nodeId, labelNome: courseNode.properties.name },
               description: courseNode.properties.description || 'No description available',
               position: { x: 0, y: 0 },
               workloadxHours: parseInt(courseNode.properties.workloadHours, 10) || 0,

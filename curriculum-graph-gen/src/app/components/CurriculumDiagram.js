@@ -213,6 +213,16 @@ export default function CurriculumDiagram({
     });
   }, [nodes, courseStatusMap]);
 
+  // First, create sets to track which courses have pre and post requisites
+  const coursesWithPrerequisites = new Set();
+  const coursesWithPostRequisites = new Set();
+
+  // When processing edges, update these sets
+  edges.forEach(edge => {
+    coursesWithPostRequisites.add(edge.source);
+    coursesWithPrerequisites.add(edge.target);
+  });
+
   // Apply highlighting and styling to nodes
   const nodesWithHighlight = React.useMemo(() => enhancedNodes.map(node => {
     let nodeStyle = pendingCourseStyle;
@@ -228,10 +238,12 @@ export default function CurriculumDiagram({
         ...node.data,
         isHighlighted: highlightedIds.has(node.id),
         isSelected: node.id === selectedNodeId,
-        style: nodeStyle
+        style: nodeStyle,
+        hasPrerequisites: coursesWithPrerequisites.has(node.id),
+        hasPostRequisites: coursesWithPostRequisites.has(node.id)
       }
     };
-  }), [enhancedNodes, highlightedIds, selectedNodeId]);
+  }), [enhancedNodes, highlightedIds, selectedNodeId, coursesWithPrerequisites, coursesWithPostRequisites]);
 
   // Apply highlighting to edges
   const edgesWithHighlight = React.useMemo(() => edges.map(edge => {

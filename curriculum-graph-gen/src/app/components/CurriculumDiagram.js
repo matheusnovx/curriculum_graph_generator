@@ -215,6 +215,67 @@ export default function CurriculumDiagram({
     }
   }, [curriculumId, courseCode, activeHighlightType]);
 
+  // Add a new function to handle double-click
+  const onNodeDoubleClick = useCallback(async (event, node) => {
+    // Prevent the single click from also triggering
+    event.stopPropagation();
+    
+    // If we already have both types highlighted, clear them
+    if (activeHighlightType === 'both') {
+      setHighlightedIds(new Set());
+      setActiveHighlightType(null);
+      return;
+    }
+    
+    // Clear any existing highlights
+    setHighlightedIds(new Set());
+    setError(null);
+    
+    try {
+      // Fetch both prerequisite and post-requisite paths
+      const preReqUrl = `/api/graph/prerequisites/${node.id}?curriculumId=${curriculumId}&courseCode=${courseCode}`;
+      const postReqUrl = `/api/graph/path/${node.id}?curriculumId=${curriculumId}&courseCode=${courseCode}`;
+      
+      const [preReqResponse, postReqResponse] = await Promise.all([
+        fetch(preReqUrl),
+        fetch(postReqUrl)
+      ]);
+      
+      if (!preReqResponse.ok || !postReqResponse.ok) {
+        throw new Error("Failed to fetch course relationships");
+      }
+      
+      const preReqData = await preReqResponse.json();
+      const postReqData = await postReqResponse.json();
+      
+      // Combine both sets of IDs
+      const combinedIds = new Set([
+        ...preReqData.highlightedIds,
+        ...postReqData.highlightedIds
+      ]);
+      
+      setHighlightedIds(combinedIds);
+      setActiveHighlightType('both');
+      
+      // Make sure this node is selected to show its info panel
+      if (selectedNodeId !== node.id) {
+        setSelectedNodeInfo({
+          id: node.id,
+          label: node.data.labelNome,
+          description: node.description,
+          workloadHours: node.workloadHours,
+          status: node.data.status,
+          equivalence: node.data.equivalence
+        });
+        setShowNodeInfo(true);
+        setSelectedNodeId(node.id);
+      }
+    } catch (err) {
+      console.error("Failed to fetch course relationships:", err);
+      setError(`Failed to fetch course relationships: ${err.message}`);
+    }
+  }, [curriculumId, courseCode, activeHighlightType, selectedNodeId]);
+
   // Close info panel
   const closeInfo = useCallback(() => {
     setShowNodeInfo(false);
@@ -326,6 +387,7 @@ export default function CurriculumDiagram({
         nodes={nodesWithHighlight}
         edges={edgesWithHighlight}
         onNodeClick={onNodeClick}
+        onNodeDoubleClick={onNodeDoubleClick}
         nodeTypes={nodeTypes}
         onPaneClick={onPaneClick}
         fitView
@@ -342,7 +404,8 @@ export default function CurriculumDiagram({
           {showTipPanel ? (
             <div className="bg-gray-800 rounded shadow-lg overflow-hidden p-2 flex items-center min-w-[220px] transition-all duration-200">
               <span className="text-[12px] text-gray-200">
-                <span className="font-semibold">Dica:</span> Clique em uma disciplina para ver detalhes. Clique novamente para ver pós-requisitos.
+                <span className="font-semibold">Dica:</span> Clique em uma disciplina para ver detalhes. Clique novamente para ver pós-requisitos. 
+                <strong>Clique duplo para ver tanto pré quanto pós-requisitos.</strong>
               </span>
               <button
                 className="ml-2 flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-gray-700 hover:bg-blue-600 transition-colors"
@@ -426,23 +489,41 @@ export default function CurriculumDiagram({
                 <div className="mt-4 flex space-x-2">
                   <button 
                     onClick={() => handlePrerequisitesHighlighting({id: selectedNodeInfo.id})}
-                    className="flex-1 px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded text-white text-xs flex items-center justify-center"
+                    className={`flex-1 px-3 py-2 ${activeHighlightType === 'both' || activeHighlightType === 'prerequisites' ? 'bg-blue-800' : 'bg-blue-700 hover:bg-blue-800'} rounded text-white text-xs flex items-center justify-center`}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
-                    {activeHighlightType === 'prerequisites' ? "Ocultar" : "Pré-requisitos"}
+                    {activeHighlightType === 'prerequisites' ? "Ocultar" : 
+                     activeHighlightType === 'both' ? "Ativo" : "Pré-requisitos"}
                   </button>
                   <button 
                     onClick={() => handlePathHighlighting({id: selectedNodeInfo.id})}
-                    className="flex-1 px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded text-white text-xs flex items-center justify-center"
+                    className={`flex-1 px-3 py-2 ${activeHighlightType === 'both' || activeHighlightType === 'postrequisites' ? 'bg-blue-800' : 'bg-blue-700 hover:bg-blue-800'} rounded text-white text-xs flex items-center justify-center`}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
-                    {activeHighlightType === 'postrequisites' ? "Ocultar" : "Pós-requisitos"}
+                    {activeHighlightType === 'postrequisites' ? "Ocultar" : 
+                     activeHighlightType === 'both' ? "Ativo" : "Pós-requisitos"}
                   </button>
                 </div>
+
+                {/* Add a button to clear all highlights when both are active */}
+                {activeHighlightType === 'both' && (
+                  <button 
+                    onClick={() => {
+                      setHighlightedIds(new Set());
+                      setActiveHighlightType(null);
+                    }}
+                    className="mt-2 w-full px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded text-white text-xs flex items-center justify-center"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    Ocultar Tudo
+                  </button>
+                )}
               </div>
             </div>
           </Panel>

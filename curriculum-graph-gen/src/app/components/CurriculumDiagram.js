@@ -57,6 +57,9 @@ export default function CurriculumDiagram({
   const [selectedNodeInfo, setSelectedNodeInfo] = useState(null);
   const [showNodeInfo, setShowNodeInfo] = useState(false);
 
+  // Add a new state to track which type of highlighting is active
+  const [activeHighlightType, setActiveHighlightType] = useState(null); // 'prerequisites' or 'postrequisites' or null
+
   // Create a map of course statuses from student progress data
   const courseStatusMap = React.useMemo(() => {
     if (!studentProgress) return {};
@@ -152,11 +155,15 @@ export default function CurriculumDiagram({
 
   // Highlight paths
   const handlePathHighlighting = useCallback(async (node) => {
-    // Se já existe um highlight ativo, limpa
-    if (highlightedIds.size > 0) {
+    // If this highlighting type is already active, clear it
+    if (activeHighlightType === 'postrequisites') {
       setHighlightedIds(new Set());
+      setActiveHighlightType(null);
       return;
     }
+    
+    // Clear any existing highlights from other types
+    setHighlightedIds(new Set());
     
     setError(null);
     try {
@@ -170,24 +177,57 @@ export default function CurriculumDiagram({
       
       const data = await response.json();
       setHighlightedIds(new Set(data.highlightedIds));
+      setActiveHighlightType('postrequisites');
     } catch (err) {
       console.error("Failed to fetch path:", err);
       setError(`Failed to fetch path: ${err.message}`);
     }
-  }, [highlightedIds, curriculumId, courseCode]);
+  }, [curriculumId, courseCode, activeHighlightType]);
+
+  // Método para destacar pré-requisitos
+  const handlePrerequisitesHighlighting = useCallback(async (node) => {
+    // If this highlighting type is already active, clear it
+    if (activeHighlightType === 'prerequisites') {
+      setHighlightedIds(new Set());
+      setActiveHighlightType(null);
+      return;
+    }
+    
+    // Clear any existing highlights from other types
+    setHighlightedIds(new Set());
+    
+    setError(null);
+    try {
+      const apiUrl = `/api/graph/prerequisites/${node.id}?curriculumId=${curriculumId}&courseCode=${courseCode}`;
+      const response = await fetch(apiUrl);
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Failed to parse error response.' }));
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      setHighlightedIds(new Set(data.highlightedIds));
+      setActiveHighlightType('prerequisites');
+    } catch (err) {
+      console.error("Failed to fetch prerequisites:", err);
+      setError(`Failed to fetch prerequisites: ${err.message}`);
+    }
+  }, [curriculumId, courseCode, activeHighlightType]);
 
   // Close info panel
   const closeInfo = useCallback(() => {
     setShowNodeInfo(false);
     setSelectedNodeId(null);
-    // Não limpa os highlightedIds ao fechar o painel de informações
-    // Removido: setHighlightedIds(new Set());
+    setHighlightedIds(new Set());
+    setActiveHighlightType(null);
   }, []);
 
   // Handle pane click
   const onPaneClick = useCallback(() => {
     closeInfo();
     setHighlightedIds(new Set());
+    setActiveHighlightType(null);
   }, [closeInfo]);
 
   // Apply student progress data to nodes
@@ -382,13 +422,27 @@ export default function CurriculumDiagram({
                   </div>
                 )}
                 
-                {/* Botão para destacar caminhos */}
-                <button 
-                  onClick={() => handlePathHighlighting({id: selectedNodeInfo.id})}
-                  className="mt-4 w-full px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded text-white text-xs"
-                >
-                  {highlightedIds.size > 0 ? "Ocultar Caminho" : "Mostrar Pós-requisitos"}
-                </button>
+                {/* Botões para destacar caminhos */}
+                <div className="mt-4 flex space-x-2">
+                  <button 
+                    onClick={() => handlePrerequisitesHighlighting({id: selectedNodeInfo.id})}
+                    className="flex-1 px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded text-white text-xs flex items-center justify-center"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    {activeHighlightType === 'prerequisites' ? "Ocultar" : "Pré-requisitos"}
+                  </button>
+                  <button 
+                    onClick={() => handlePathHighlighting({id: selectedNodeInfo.id})}
+                    className="flex-1 px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded text-white text-xs flex items-center justify-center"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                    {activeHighlightType === 'postrequisites' ? "Ocultar" : "Pós-requisitos"}
+                  </button>
+                </div>
               </div>
             </div>
           </Panel>

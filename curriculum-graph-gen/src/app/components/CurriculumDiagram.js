@@ -146,7 +146,9 @@ export default function CurriculumDiagram({
       description: node.description,
       workloadHours: node.workloadHours,
       status: node.data.status,
-      equivalence: node.data.equivalence
+      equivalence: node.data.equivalence,
+      hasPrerequisites: node.data.hasPrerequisites,
+      hasPostRequisites: node.data.hasPostRequisites,
     });
     
     setShowNodeInfo(true);
@@ -487,26 +489,28 @@ export default function CurriculumDiagram({
                 
                 {/* Botões para destacar caminhos */}
                 <div className="mt-4 flex space-x-2">
-                  <button 
-                    onClick={() => handlePrerequisitesHighlighting({id: selectedNodeInfo.id})}
-                    className={`flex-1 px-3 py-2 ${activeHighlightType === 'both' || activeHighlightType === 'prerequisites' ? 'bg-blue-800' : 'bg-blue-700 hover:bg-blue-800'} rounded text-white text-xs flex items-center justify-center`}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                    </svg>
-                    {activeHighlightType === 'prerequisites' ? "Ocultar" : 
-                     activeHighlightType === 'both' ? "Ativo" : "Pré-requisitos"}
-                  </button>
-                  <button 
-                    onClick={() => handlePathHighlighting({id: selectedNodeInfo.id})}
-                    className={`flex-1 px-3 py-2 ${activeHighlightType === 'both' || activeHighlightType === 'postrequisites' ? 'bg-blue-800' : 'bg-blue-700 hover:bg-blue-800'} rounded text-white text-xs flex items-center justify-center`}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                    {activeHighlightType === 'postrequisites' ? "Ocultar" : 
-                     activeHighlightType === 'both' ? "Ativo" : "Pós-requisitos"}
-                  </button>
+                  {selectedNodeInfo.hasPrerequisites && (
+                    <button 
+                      onClick={() => handlePrerequisitesHighlighting({id: selectedNodeInfo.id})}
+                      className="flex-1 px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded text-white text-xs flex items-center justify-center"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                      </svg>
+                      {activeHighlightType === 'prerequisites' ? "Ocultar" : "Pré-requisitos"}
+                    </button>
+                  )}
+                  {selectedNodeInfo.hasPostRequisites && (
+                    <button 
+                      onClick={() => handlePathHighlighting({id: selectedNodeInfo.id})}
+                      className="flex-1 px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded text-white text-xs flex items-center justify-center"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                      {activeHighlightType === 'postrequisites' ? "Ocultar" : "Pós-requisitos"}
+                    </button>
+                  )}
                 </div>
 
                 {/* Add a button to clear all highlights when both are active */}

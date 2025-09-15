@@ -118,10 +118,12 @@ export default function StudentProgressPage() {
                       <span>{progressStats.inProgress}</span>
                     </div>
                     
+                    {/* TODO: Colocar no parser a diferenca de optativas e obrigatorias
+                    
                     <div className="flex flex-col">
                       <span className="font-medium text-gray-400">Pendentes</span>
                       <span>{progressStats.pending}</span>
-                    </div>
+                    </div> */}
                   </div>
                   
                   <div className="mt-2">
@@ -190,7 +192,6 @@ export default function StudentProgressPage() {
               courseCode={studentData.courseCode}
               studentProgress={studentData}
               onTotalCoursesUpdate={setTotalCourses}
-              // legendPanel={LegendPanel} // <-- REMOVE this prop!
             />
           ) : (
             <div className="flex items-center justify-center h-[80vh] bg-gray-800 rounded-lg">

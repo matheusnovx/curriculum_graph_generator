@@ -30,7 +30,6 @@ export async function GET(request) {
   const curriculumId = searchParams.get('id') || '20071'; // Default to 20071 if not provided
   const courseCodeParam = searchParams.get('courseCode') || '208'; // Default to 208 if not provided
 
-  // Ensure courseCode is an integer, as it's likely stored as a number in Neo4j
   const courseCode = parseInt(courseCodeParam, 10);
   if (isNaN(courseCode)) {
       return NextResponse.json({ error: 'Invalid courseCode. Must be a number.' }, { status: 400 });
@@ -109,7 +108,7 @@ export async function GET(request) {
         id: `e-${sourceId}-${targetId}`,
         source: sourceId,
         target: targetId,
-        type: 'smoothstep',
+        type: 'smoothstep', // Tipo da linha de relação
       });
     });
 

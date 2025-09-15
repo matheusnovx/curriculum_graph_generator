@@ -34,8 +34,16 @@ export async function GET() {
   try {
     const result = await session.run(`
       MATCH (cur:Curriculum)
-      RETURN cur.courseCode AS courseCode, cur.courseName AS courseName, MAX(cur.id) AS id
-      ORDER BY courseCode DESC
+      WITH cur.courseCode AS courseCode, cur.courseName AS courseName, cur.id AS ids
+      RETURN
+        courseCode,
+        courseName,
+        CASE
+          WHEN courseCode IN [301, 316] 
+          THEN "20081"
+          ELSE max(ids)
+        END AS id
+      ORDER BY courseName ASC
     `);
     
     // Process data and ensure unique IDs

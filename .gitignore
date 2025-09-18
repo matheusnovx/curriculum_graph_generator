@@ -95,3 +95,5 @@ test-output/
 # Ignore uploads directory
 uploads/
 !uploads/.gitkeep
+
+curriculos_testes/

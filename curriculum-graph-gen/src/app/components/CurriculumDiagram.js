@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import ReactFlow, { Controls, Background, MiniMap, Panel } from 'reactflow';
 import 'reactflow/dist/style.css';
 import CourseNode from './CourseNode';
@@ -124,17 +124,11 @@ export default function CurriculumDiagram({
     fetchGraphData();
   }, [curriculumId, courseCode]);
 
-  // Handle node click
-  const onNodeClick = useCallback((event, node) => {
-    // Se o nó já está selecionado, alterna entre mostrar o caminho e esconder
-    if (selectedNodeId === node.id) {
-      handlePathHighlighting(node);
-    } else {
-      // Se um novo nó foi selecionado, mostra suas informações
-      handleNodeSelection(event, node);
-    }
-  }, [selectedNodeId]);
+  // Add a click timeout ref to prevent multiple rapid clicks
+  const clickTimeoutRef = useRef(null);
+  const isProcessingClick = useRef(false);
 
+  // First define these handler functions
   // Show node info
   const handleNodeSelection = useCallback((event, node) => {
     // Não limpa os highlightedIds ao selecionar um nó
@@ -217,15 +211,26 @@ export default function CurriculumDiagram({
     }
   }, [curriculumId, courseCode, activeHighlightType]);
 
-  // Add a new function to handle double-click
-  const onNodeDoubleClick = useCallback(async (event, node) => {
+  // Add debounce to double click as well
+  const onNodeDoubleClick = useCallback((event, node) => {
     // Prevent the single click from also triggering
+    event.preventDefault();
     event.stopPropagation();
+    
+    // Prevent multiple rapid clicks
+    if (isProcessingClick.current) return;
+    isProcessingClick.current = true;
     
     // If we already have both types highlighted, clear them
     if (activeHighlightType === 'both') {
       setHighlightedIds(new Set());
       setActiveHighlightType(null);
+      
+      // Reset the processing flag after a short delay
+      clearTimeout(clickTimeoutRef.current);
+      clickTimeoutRef.current = setTimeout(() => {
+        isProcessingClick.current = false;
+      }, 300);
       return;
     }
     
@@ -233,50 +238,95 @@ export default function CurriculumDiagram({
     setHighlightedIds(new Set());
     setError(null);
     
-    try {
-      // Fetch both prerequisite and post-requisite paths
-      const preReqUrl = `/api/graph/prerequisites/${node.id}?curriculumId=${curriculumId}&courseCode=${courseCode}`;
-      const postReqUrl = `/api/graph/path/${node.id}?curriculumId=${curriculumId}&courseCode=${courseCode}`;
-      
-      const [preReqResponse, postReqResponse] = await Promise.all([
-        fetch(preReqUrl),
-        fetch(postReqUrl)
-      ]);
-      
-      if (!preReqResponse.ok || !postReqResponse.ok) {
-        throw new Error("Failed to fetch course relationships");
+    // Fetch both prerequisite and post-requisite paths
+    const fetchBothPaths = async () => {
+      try {
+        const preReqUrl = `/api/graph/prerequisites/${node.id}?curriculumId=${curriculumId}&courseCode=${courseCode}`;
+        const postReqUrl = `/api/graph/path/${node.id}?curriculumId=${curriculumId}&courseCode=${courseCode}`;
+        
+        const [preReqResponse, postReqResponse] = await Promise.all([
+          fetch(preReqUrl),
+          fetch(postReqUrl)
+        ]);
+        
+        if (!preReqResponse.ok || !postReqResponse.ok) {
+          throw new Error("Failed to fetch course relationships");
+        }
+        
+        const preReqData = await preReqResponse.json();
+        const postReqData = await postReqResponse.json();
+        
+        // Combine both sets of IDs
+        const combinedIds = new Set([
+          ...preReqData.highlightedIds,
+          ...postReqData.highlightedIds
+        ]);
+        
+        setHighlightedIds(combinedIds);
+        setActiveHighlightType('both');
+        
+        // Make sure this node is selected to show its info panel
+        if (selectedNodeId !== node.id) {
+          setSelectedNodeInfo({
+            id: node.id,
+            label: node.data.labelNome,
+            description: node.description,
+            workloadHours: node.workloadHours,
+            status: node.data.status,
+            equivalence: node.data.equivalence,
+            hasPrerequisites: node.data.hasPrerequisites,
+            hasPostRequisites: node.data.hasPostRequisites
+          });
+          setShowNodeInfo(true);
+          setSelectedNodeId(node.id);
+        }
+      } catch (err) {
+        console.error("Failed to fetch course relationships:", err);
+        setError(`Failed to fetch course relationships: ${err.message}`);
+      } finally {
+        // Reset the processing flag after processing is complete
+        clearTimeout(clickTimeoutRef.current);
+        clickTimeoutRef.current = setTimeout(() => {
+          isProcessingClick.current = false;
+        }, 300);
       }
-      
-      const preReqData = await preReqResponse.json();
-      const postReqData = await postReqResponse.json();
-      
-      // Combine both sets of IDs
-      const combinedIds = new Set([
-        ...preReqData.highlightedIds,
-        ...postReqData.highlightedIds
-      ]);
-      
-      setHighlightedIds(combinedIds);
-      setActiveHighlightType('both');
-      
-      // Make sure this node is selected to show its info panel
-      if (selectedNodeId !== node.id) {
-        setSelectedNodeInfo({
-          id: node.id,
-          label: node.data.labelNome,
-          description: node.description,
-          workloadHours: node.workloadHours,
-          status: node.data.status,
-          equivalence: node.data.equivalence
-        });
-        setShowNodeInfo(true);
-        setSelectedNodeId(node.id);
-      }
-    } catch (err) {
-      console.error("Failed to fetch course relationships:", err);
-      setError(`Failed to fetch course relationships: ${err.message}`);
-    }
+    };
+    
+    // Execute the async function
+    fetchBothPaths();
+    
   }, [curriculumId, courseCode, activeHighlightType, selectedNodeId]);
+
+  // Handle node click with debounce
+  const onNodeClick = useCallback((event, node) => {
+    // Prevent multiple rapid clicks
+    if (isProcessingClick.current) return;
+    
+    isProcessingClick.current = true;
+    
+    // If the node already is selected, toggle between showing path and hiding
+    if (selectedNodeId === node.id) {
+      handlePathHighlighting(node);
+    } else {
+      // If a new node was selected, show its information
+      handleNodeSelection(event, node);
+    }
+    
+    // Reset the processing flag after a short delay
+    clearTimeout(clickTimeoutRef.current);
+    clickTimeoutRef.current = setTimeout(() => {
+      isProcessingClick.current = false;
+    }, 300); // 300ms debounce
+  }, [selectedNodeId, handlePathHighlighting, handleNodeSelection]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (clickTimeoutRef.current) {
+        clearTimeout(clickTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // Close info panel
   const closeInfo = useCallback(() => {

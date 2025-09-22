@@ -1,0 +1,20 @@
+{
+  "codigo": 711,
+  "nome": "EaD_UAB LETRAS - LICENCIATURA EM LÍNGUA ESPANHOLA",
+  "sigla_centro": "CCE",
+  "sigla_departamento": "LLE",
+  "trimestral": false,
+  "periodo_corrente": 20252,
+  "codigos_curriculos": {
+    "20072": 20072,
+    "20111": 20111
+  },
+  "sigla_campus": "UFSC/FLO",
+  "situacao": 0,
+  "situacao_descricao": "regular",
+  "num_vagas_total": 0,
+  "num_vagas_primeiro_semestre": 0,
+  "num_vagas_segundo_semestre": 0,
+  "presencial": false,
+  "turmas": []
+}

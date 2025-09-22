@@ -1,0 +1,20 @@
+{
+  "codigo": 427,
+  "nome": "LETRAS ITALIANO",
+  "sigla_centro": "CCE",
+  "sigla_departamento": "LLE",
+  "trimestral": false,
+  "periodo_corrente": 20252,
+  "codigos_curriculos": {
+    "19981": 19981,
+    "20071": 20071
+  },
+  "sigla_campus": "UFSC/FLO",
+  "situacao": 0,
+  "situacao_descricao": "regular",
+  "num_vagas_total": 0,
+  "num_vagas_primeiro_semestre": 0,
+  "num_vagas_segundo_semestre": 0,
+  "presencial": true,
+  "turmas": []
+}

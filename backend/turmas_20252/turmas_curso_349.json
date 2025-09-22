@@ -1,0 +1,19 @@
+{
+  "codigo": 349,
+  "nome": "Ciência de Dados",
+  "sigla_centro": "CED",
+  "sigla_departamento": "CIN",
+  "trimestral": false,
+  "periodo_corrente": 20252,
+  "codigos_curriculos": {
+    "20261": 20261
+  },
+  "sigla_campus": "UFSC/FLO",
+  "situacao": 0,
+  "situacao_descricao": "regular",
+  "num_vagas_total": 40,
+  "num_vagas_primeiro_semestre": 40,
+  "num_vagas_segundo_semestre": 0,
+  "presencial": true,
+  "turmas": []
+}

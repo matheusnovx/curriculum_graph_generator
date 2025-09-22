@@ -1,0 +1,20 @@
+{
+  "codigo": 224,
+  "nome": "MATEMÁTICA - Licenciatura (noturno)",
+  "sigla_centro": "CFM",
+  "sigla_departamento": "MTM",
+  "trimestral": false,
+  "periodo_corrente": 20252,
+  "codigos_curriculos": {
+    "19941": 19941,
+    "20081": 20081
+  },
+  "sigla_campus": "UFSC/FLO",
+  "situacao": 1,
+  "situacao_descricao": "em extinção",
+  "num_vagas_total": 0,
+  "num_vagas_primeiro_semestre": 0,
+  "num_vagas_segundo_semestre": 0,
+  "presencial": true,
+  "turmas": []
+}

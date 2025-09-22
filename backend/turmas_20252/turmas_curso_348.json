@@ -1,0 +1,19 @@
+{
+  "codigo": 348,
+  "nome": "HISTÓRIA - Licenciatura - noturno",
+  "sigla_centro": "CFH",
+  "sigla_departamento": "HST",
+  "trimestral": false,
+  "periodo_corrente": 20252,
+  "codigos_curriculos": {
+    "20231": 20231
+  },
+  "sigla_campus": "UFSC/FLO",
+  "situacao": 0,
+  "situacao_descricao": "regular",
+  "num_vagas_total": 0,
+  "num_vagas_primeiro_semestre": 0,
+  "num_vagas_segundo_semestre": 0,
+  "presencial": true,
+  "turmas": []
+}

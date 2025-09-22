@@ -1,0 +1,23 @@
+{
+  "codigo": 714,
+  "nome": "EaD_UAB ADMINISTRAÇÃO",
+  "sigla_centro": "CSE",
+  "sigla_departamento": "CAD",
+  "trimestral": false,
+  "periodo_corrente": 20252,
+  "codigos_curriculos": {
+    "20072": 20072,
+    "20111": 20111,
+    "20132": 20132,
+    "20142": 20142,
+    "20171": 20171
+  },
+  "sigla_campus": "UFSC/FLO",
+  "situacao": 0,
+  "situacao_descricao": "regular",
+  "num_vagas_total": 0,
+  "num_vagas_primeiro_semestre": 0,
+  "num_vagas_segundo_semestre": 0,
+  "presencial": false,
+  "turmas": []
+}

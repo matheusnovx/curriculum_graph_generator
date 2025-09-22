@@ -1,0 +1,20 @@
+{
+  "codigo": 420,
+  "nome": "DESIGN - HABILITAÇÃO EM DESIGN GRÁFICO",
+  "sigla_centro": "CCE",
+  "sigla_departamento": "EGR",
+  "trimestral": false,
+  "periodo_corrente": 20252,
+  "codigos_curriculos": {
+    "19991": 19991,
+    "20091": 20091
+  },
+  "sigla_campus": "UFSC/FLO",
+  "situacao": 1,
+  "situacao_descricao": "em extinção",
+  "num_vagas_total": 0,
+  "num_vagas_primeiro_semestre": 0,
+  "num_vagas_segundo_semestre": 0,
+  "presencial": true,
+  "turmas": []
+}

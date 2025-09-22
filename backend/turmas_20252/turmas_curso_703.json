@@ -1,0 +1,23 @@
+{
+  "codigo": 703,
+  "nome": "EaD FÍSICA - Licenciatura",
+  "sigla_centro": "CFM",
+  "sigla_departamento": "FSC",
+  "trimestral": false,
+  "periodo_corrente": 20241,
+  "codigos_curriculos": {
+    "20052": 20052,
+    "20061": 20061,
+    "20092": 20092,
+    "20111": 20111,
+    "20171": 20171
+  },
+  "sigla_campus": "UFSC/FLO",
+  "situacao": 0,
+  "situacao_descricao": "regular",
+  "num_vagas_total": 0,
+  "num_vagas_primeiro_semestre": 0,
+  "num_vagas_segundo_semestre": 0,
+  "presencial": false,
+  "turmas": []
+}

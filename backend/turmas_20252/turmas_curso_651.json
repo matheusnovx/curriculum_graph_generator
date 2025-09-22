@@ -1,0 +1,20 @@
+{
+  "codigo": 651,
+  "nome": "TECNOLOGIAS DA INFORMAÇÃO E COMUNICAÇÃO [Campus Araranguá]",
+  "sigla_centro": "CTS",
+  "sigla_departamento": "ARA",
+  "trimestral": false,
+  "periodo_corrente": 20252,
+  "codigos_curriculos": {
+    "20092": 20092,
+    "20111": 20111
+  },
+  "sigla_campus": "UFSC/ARA",
+  "situacao": 1,
+  "situacao_descricao": "em extinção",
+  "num_vagas_total": 0,
+  "num_vagas_primeiro_semestre": 0,
+  "num_vagas_segundo_semestre": 0,
+  "presencial": true,
+  "turmas": []
+}

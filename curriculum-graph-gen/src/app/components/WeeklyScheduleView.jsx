@@ -37,8 +37,8 @@ const WeeklyScheduleView = ({ classes }) => {
   classes.forEach(cls => {
     cls.timeSlots.forEach(slot => {
       // Calcular o índice do dia e do horário com base no número do slot
-      const dayIndex = Math.floor(slot / 10) - 1; // Exemplo: 10 -> 1 (SEG), 50 -> 5 (QUI)
-      const hourIndex = slot % 10;               // Exemplo: 10 -> 0, 51 -> 1
+      const dayIndex = Math.floor((slot - 1) / 16); // Cada dia tem 16 slots
+      const hourIndex = (slot - 1) % 16;           // Ajusta para o índice correto no dia
 
       if (dayIndex >= 0 && hourIndex >= 0) {
         scheduleMatrix[hourIndex][dayIndex] = cls;
@@ -80,7 +80,7 @@ const WeeklyScheduleView = ({ classes }) => {
                     {classData && (
                       <div className="flex flex-col">
                         <span className="font-bold text-white">{classData.courseId}</span>
-                        <span className="text-gray-300 text-[10px]">{classData.professorName}</span>
+                        <span className="text-gray-300 text-[10px]">{classData.classCode}</span>
                       </div>
                     )}
                   </td>

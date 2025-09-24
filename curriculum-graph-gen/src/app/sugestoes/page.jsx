@@ -7,12 +7,13 @@ import WeeklyScheduleView from '../components/WeeklyScheduleView';
 function convertSlotToReadable(slot) {
   const days = ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
   const baseHour = {
-    0: '07:30', 1: '08:20', 2: '09:10', 3: '10:00', 4: '10:50',
-    5: '13:30', 6: '14:20', 7: '15:10', 8: '16:00', 9: '16:50',
+    1: '07:30', 2: '08:20', 3: '09:10', 4: '10:10', 5: '11:50',
+    8: '13:30', 9: '14:20', 10: '15:10', 11: '16:20', 12: '17:10',
+    13: '18:30', 14: '19:20', 15: '20:20', 16: '21:20'
   };
 
-  const dayIndex = Math.floor(slot / 10) - 1; // Exemplo: 10 -> 1 (SEG), 50 -> 5 (QUI)
-  const hourIndex = slot % 10;               // Exemplo: 10 -> 0, 51 -> 1
+  const dayIndex = Math.floor((slot - 1) / 16); // Cada dia tem 16 slots
+  const hourIndex = slot % 16 || 16; // Ajusta para o índice correto no dia
 
   const day = days[dayIndex] || 'N/A';
   const hour = baseHour[hourIndex] || 'N/A';
@@ -331,7 +332,7 @@ export default function SugestoesPage() {
                           </div>
                           
                           <div className="text-sm text-gray-400 mb-2">
-                            Prof.: {cls.professorName || 'Não informado'}
+                            Turma: {cls.classCode || 'Não informado'}
                           </div>
                           
                           <div className="flex items-center justify-between">

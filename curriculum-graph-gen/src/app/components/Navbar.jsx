@@ -6,6 +6,13 @@ import { usePathname } from 'next/navigation';
 export default function Navbar() {
   const pathname = usePathname();
   
+  const navItems = [
+    { name: 'Início', path: '/' },
+    { name: 'Progresso', path: '/student-progress' },
+    { name: 'Planejador de Semestre', path: '/sugestoes' }, // Novo item
+    // ...outros itens existentes
+  ];
+
   return (
     <nav className="bg-gray-900 shadow-md mb-6">
       <div className="container mx-auto px-4 py-3">
@@ -18,26 +25,19 @@ export default function Navbar() {
           </div>
           
           <div className="flex space-x-4">
-            <Link 
-              href="/" 
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
-                pathname === '/' 
-                  ? 'bg-blue-700 text-white' 
-                  : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-              }`}
-            >
-              Home
-            </Link>
-            <Link 
-              href="/student-progress" 
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
-                pathname === '/student-progress' 
-                  ? 'bg-blue-700 text-white' 
-                  : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-              }`}
-            >
-              Progresso
-            </Link>
+            {navItems.map((item) => (
+              <Link 
+                key={item.name}
+                href={item.path} 
+                className={`px-3 py-2 rounded-md text-sm font-medium ${
+                  pathname === item.path 
+                    ? 'bg-blue-700 text-white' 
+                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

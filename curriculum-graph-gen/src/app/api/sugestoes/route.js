@@ -57,10 +57,14 @@ export async function POST(request) {
     
     // Extrair disciplinas já cursadas e em andamento
     const completedCourses = [
-      ...studentProgress.cursadas,
-      ...studentProgress.dispensadas
+      ...studentProgress.cursadas.map(course => course.codigo),
+      ...studentProgress.dispensadas.map(course => course.codigo),
+      ...studentProgress.andamento.map(course => course.codigo) // Adiciona as em andamento também
     ];
-    const inProgressCourses = studentProgress.andamento;
+    const inProgressCourses = studentProgress.andamento.map(course => course.codigo);
+
+    // console.log('Cursadas:', completedCourses);
+    // console.log('Em andamento:', inProgressCourses);
     
     try {
       // 1. Buscar disciplinas disponíveis
@@ -71,7 +75,7 @@ export async function POST(request) {
         completedCourses, 
         inProgressCourses
       );
-      console.log(`📌 Disciplinas disponíveis: ${availableCourses.length}`);
+      // console.log(`📌 Disciplinas disponíveis: ${availableCourses.map(course => course.courseName).join(', ')}`);
       
       // 2. Buscar turmas disponíveis
       const availableClasses = await getAvailableClasses(
@@ -79,7 +83,7 @@ export async function POST(request) {
         availableCourses,
         semester
       );
-      console.log(`📌 Turmas disponíveis: ${availableClasses.length}`);
+      // console.log(`📌 Turmas disponíveis: ${availableClasses.length}`);
       
       // 3. Calcular unlock scores
       const coursesWithUnlockScore = await calculateUnlockScores(
@@ -96,7 +100,7 @@ export async function POST(request) {
         avoidDays,
         preferredTimes
       );
-      console.log(`📌 Disciplinas sugeridas: ${suggestedSchedule.totalCourses}`);
+
 
       return NextResponse.json({ 
         suggestedSchedule,
@@ -187,7 +191,7 @@ async function getAvailableClasses(session, availableCourses, semester) {
 
   const result = await session.run(query, {
     courseIds,
-    semester, // Passa o semestre como parâmetro
+    semester,
   });
 
   // Mapeia os resultados retornados pela query
@@ -197,53 +201,13 @@ async function getAvailableClasses(session, availableCourses, semester) {
     classCode: record.get('classCode'),
     className: record.get('className'),
     weeklyHours: Number(record.get('weeklyHours')),
-    timeSlots: record.get('timeSlots').map(Number), // Certifique-se de que os slots são números
+    timeSlots: record.get('timeSlots').map(Number),
     phase: record.get('phase'),
     semester: record.get('semester'),
     totalSeats: Number(record.get('totalSeats')),
     occupiedSeats: Number(record.get('occupiedSeats')),
     availableSeats: Number(record.get('availableSeats')),
   }));
-}
-
-// Função para gerar dados de turmas simulados
-function generateMockClasses(availableCourses) {
-  const shifts = ['Manhã', 'Tarde', 'Noite'];
-  const dayOptions = [
-    ['SEG', 'QUA'], ['TER', 'QUI'], ['SEG', 'QUA', 'SEX'], 
-    ['TER', 'QUI'], ['QUA', 'SEX'], ['SEG', 'QUI']
-  ];
-
-  return availableCourses.flatMap(course => {
-    // Gerar 1-2 turmas para cada disciplina
-    const numClasses = Math.floor(Math.random() * 2) + 1;
-
-    return Array.from({ length: numClasses }, (_, i) => {
-      const shift = shifts[Math.floor(Math.random() * shifts.length)];
-      const days = dayOptions[Math.floor(Math.random() * dayOptions.length)];
-
-      // Determinar slots de horário baseado no turno
-      const timeSlots = [];
-      for (let i = 0; i < days.length; i++) {
-        const baseSlot = shift === 'Manhã' ? 10 : shift === 'Tarde' ? 50 : 80;
-        timeSlots.push(baseSlot + i); // Adiciona slots sequenciais
-      }
-
-      return {
-        courseId: course.courseId,
-        courseName: course.courseName,
-        classCode: `${course.courseId}-T${i + 1}`,
-        className: `Turma ${i + 1}`,
-        weeklyHours: days.length * 2, // 2 horas por dia
-        timeSlots: timeSlots,
-        phase: shift,
-        semester: '20252',
-        totalSeats: 30,
-        occupiedSeats: Math.floor(Math.random() * 30),
-        availableSeats: Math.floor(Math.random() * 10)
-      };
-    });
-  });
 }
 
 async function calculateUnlockScores(session, availableCourses, curriculumId) {

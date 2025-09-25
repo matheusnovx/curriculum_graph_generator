@@ -122,9 +122,7 @@ export default function SugestoesPage() {
   };
   
   return (
-    <main className="container mx-auto px-4 py-8 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-white">Planejador de Semestre</h1>
-      
+    <main className="container mx-auto px-4 py-8 min-h-screen">      
       {errorMessage && (
         <div className="mb-6 p-4 bg-red-800 text-white rounded-lg">
           <p>{errorMessage}</p>
@@ -319,8 +317,8 @@ export default function SugestoesPage() {
                     <h3 className="text-lg font-semibold text-white mb-3">Disciplinas Sugeridas</h3>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {suggestedSchedule.classes.map(cls => (
-                        <div key={cls.classId} className="bg-gray-700 rounded-lg p-4">
+                      {suggestedSchedule.classes.map((cls, index) => (
+                        <div key={cls.classId || `${cls.courseId}-${index}`} className="bg-gray-700 rounded-lg p-4">
                           <div className="flex justify-between items-start mb-2">
                             <div>
                               <h4 className="font-bold text-white">{cls.courseId}</h4>
@@ -330,11 +328,11 @@ export default function SugestoesPage() {
                               {cls.weeklyHours}h/semana
                             </span>
                           </div>
-                          
+
                           <div className="text-sm text-gray-400 mb-2">
                             Turma: {cls.classCode || 'Não informado'}
                           </div>
-                          
+
                           <div className="flex items-center justify-between">
                             <div className="flex gap-1">
                               {cls.timeSlots?.map(slot => (
@@ -343,7 +341,7 @@ export default function SugestoesPage() {
                                 </span>
                               ))}
                             </div>
-                            
+
                             <div className="text-xs text-white bg-green-800 px-2 py-1 rounded-full">
                               Desbloqueio: {cls.unlockScore || 0}
                             </div>

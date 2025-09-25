@@ -254,7 +254,7 @@ export default function SugestoesPage() {
                     <thead className="text-gray-400">
                       <tr>
                         <th className="text-left py-2">Disciplina</th>
-                        <th className="text-center py-2">Poder de Desbloqueio</th>
+                        <th className="text-center py-2">Desbloqueio potencial</th>
                       </tr>
                     </thead>
                     <tbody>

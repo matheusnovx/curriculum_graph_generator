@@ -75,7 +75,7 @@ export async function POST(request) {
         completedCourses, 
         inProgressCourses
       );
-      // console.log(`📌 Disciplinas disponíveis: ${availableCourses.map(course => course.courseName).join(', ')}`);
+      console.log(`📌 Disciplinas disponíveis: ${availableCourses.map(course => course.courseName).join(', ')}`);
       
       // 2. Buscar turmas disponíveis
       const availableClasses = await getAvailableClasses(
@@ -132,24 +132,27 @@ async function getAvailableCourses(session, curriculumId, courseCode, completedC
     // 1. Encontra o currículo usando as propriedades corretas: 
     MATCH (cur:Curriculum {id: $curriculumId, courseCode: $courseCode})
 
-    // 2. Encontra as disciplinas com a direção da relação CORRIGIDA: (Course) -> (Curriculum)
-    MATCH (course:Course)-[:PART_OF]->(cur)
-    WHERE NOT course.courseId IN $completedCourses
+    // 3. Encontra todas as disciplinas que fazem parte deste currículo
+    MATCH (c1:Course)-[:PART_OF]->(cur)
+    MATCH (c2:Course)-[:PART_OF]->(cur)
 
-    // 3. A partir daqui, a lógica de pré-requisitos (que já sabíamos que funcionava) permanece a mesma
-    WITH course
-    OPTIONAL MATCH (course)<-[:IS_PREREQUISITE_FOR]-(prereq:Course)
-    WITH course, collect(prereq.courseId) AS prerequisites
-    WITH course, prerequisites,
-        [x IN prerequisites WHERE NOT x IN $completedCourses] AS unmetPrerequisites
-    WHERE size(unmetPrerequisites) = 0
-    AND course.etiqueta = true
+    // 4. Encontra um caminho entre elas ONDE A PRÓPRIA RELAÇÃO pertence ao currículo
+    MATCH path = (c1)-[r {curriculumId: cur.id, courseCode: cur.courseCode}]->(c2)
+    WHERE c1.etiqueta = TRUE 
+      AND c2.etiqueta = TRUE
+      AND NOT c1.courseId IN $completedCourses
+      AND NOT c2.courseId IN $completedCourses
 
-    // 4. Retorna as disciplinas elegíveis
+    // 5. Junta c1 e c2 em uma lista única de cursos
+    WITH COLLECT(DISTINCT c1) + COLLECT(DISTINCT c2) AS allCoursesList
+    UNWIND allCoursesList AS course
+    WITH DISTINCT course  // Remove duplicatas
+
+    // 6. Retorna no formato desejado
     RETURN course.courseId AS courseId, 
-        course.name AS courseName,
-        course.workloadHours AS workloadHours,
-        course.suggestedSemester AS suggestedSemester
+          course.name AS courseName,
+          course.workloadHours AS workloadHours,
+          course.suggestedSemester AS suggestedSemester
     ORDER BY course.suggestedSemester
   `;
   

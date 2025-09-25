@@ -20,11 +20,6 @@ def parse_pdf(pdf_path):
             if text:
                 full_text += text + "\n\n"
     
-    # Save the raw text for debugging
-    debug_path = f"{pdf_path}.txt"
-    with open(debug_path, "w", encoding="utf-8") as f:
-        f.write(full_text)
-    
     # Extract curriculum ID and course code
     curriculum_info = extract_curriculum_info(full_text)
     

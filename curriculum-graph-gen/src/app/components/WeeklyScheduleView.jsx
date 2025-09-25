@@ -6,7 +6,7 @@ const WeeklyScheduleView = ({ classes }) => {
   // Horários de aula padrão
   const timeSlots = [
     '07:30 - 08:20', '08:20 - 09:10', '09:10 - 10:00', '10:00 - 10:50', '10:50 - 11:40',
-    '13:30 - 14:20', '14:20 - 15:10', '15:10 - 16:00', '16:00 - 16:50',
+    '13:30 - 14:20', '14:20 - 15:10', '15:10 - 16:00', '16:00 - 16:50', '16:50 - 17:40',
     '18:30 - 19:20', '19:20 - 20:10', '20:10 - 21:00', '21:00 - 21:50'
   ];
 
@@ -37,8 +37,8 @@ const WeeklyScheduleView = ({ classes }) => {
   classes.forEach(cls => {
     cls.timeSlots.forEach(slot => {
       // Calcular o índice do dia e do horário com base no número do slot
-      const dayIndex = Math.floor((slot - 1) / 16); // Cada dia tem 16 slots
-      const hourIndex = (slot - 1) % 16;           // Ajusta para o índice correto no dia
+      const dayIndex = Math.floor((slot - 1) / 14); // Cada dia tem 16 slots
+      const hourIndex = (slot - 1) % 14;           // Ajusta para o índice correto no dia
 
       if (dayIndex >= 0 && hourIndex >= 0) {
         scheduleMatrix[hourIndex][dayIndex] = cls;

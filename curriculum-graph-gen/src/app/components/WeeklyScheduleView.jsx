@@ -33,15 +33,41 @@ const WeeklyScheduleView = ({ classes }) => {
   // Construir matriz do horário
   const scheduleMatrix = Array(timeSlots.length).fill().map(() => Array(days.length).fill(null));
 
+  // Função para mapear os slots para os índices corretos na matriz de horários
+  function mapSlotToIndex(slot) {
+    const dayIndex = Math.floor((slot - 1) / 16); // Cada dia tem 16 slots
+    
+    // Mapeamento baseado no resto da divisão por 16
+    const slotWithinDay = (slot - 1) % 16 + 1;
+    
+    // Mapeamento específico para os índices de hora
+    let hourIndex = null;
+    
+    // Manhã (slots 1-5)
+    if (slotWithinDay >= 1 && slotWithinDay <= 5) {
+      hourIndex = slotWithinDay - 1; // 0-4
+    }
+    // Tarde (slots 8-12)
+    else if (slotWithinDay >= 8 && slotWithinDay <= 12) {
+      hourIndex = slotWithinDay - 3; // 5-9
+    }
+    // Noite (slots 13-16)
+    else if (slotWithinDay >= 13 && slotWithinDay <= 16) {
+      hourIndex = slotWithinDay - 3; // 10-13
+    }
+    
+    return { dayIndex, hourIndex };
+  }
+
   // Preencher a matriz com as aulas
   classes.forEach(cls => {
     cls.timeSlots.forEach(slot => {
-      // Calcular o índice do dia e do horário com base no número do slot
-      const dayIndex = Math.floor((slot - 1) / 14); // Cada dia tem 16 slots
-      const hourIndex = (slot - 1) % 14;           // Ajusta para o índice correto no dia
-
-      if (dayIndex >= 0 && hourIndex >= 0) {
+      const { dayIndex, hourIndex } = mapSlotToIndex(slot);
+      
+      if (dayIndex >= 0 && dayIndex < days.length && hourIndex !== null && hourIndex < timeSlots.length) {
         scheduleMatrix[hourIndex][dayIndex] = cls;
+      } else {
+        console.warn(`Slot ${slot} não mapeado corretamente: dayIndex=${dayIndex}, hourIndex=${hourIndex}`);
       }
     });
   });

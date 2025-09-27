@@ -63,8 +63,8 @@ export async function POST(request) {
     ];
     const inProgressCourses = studentProgress.andamento.map(course => course.codigo);
 
-    console.log('Cursadas:', completedCourses);
-    console.log('Em andamento:', inProgressCourses);
+    // console.log('Cursadas:', completedCourses);
+    // console.log('Em andamento:', inProgressCourses);
     
     try {
       // 1. Buscar disciplinas disponíveis
@@ -75,7 +75,7 @@ export async function POST(request) {
         completedCourses, 
         inProgressCourses
       );
-      console.log(`📌 Disciplinas disponíveis: ${availableCourses.map(course => course.courseName).join(', ')}`);
+      // console.log(`📌 Disciplinas disponíveis: ${availableCourses.map(course => course.courseName).join(', ')}`);
       
       // 2. Buscar turmas disponíveis
       const availableClasses = await getAvailableClasses(
@@ -83,7 +83,7 @@ export async function POST(request) {
         availableCourses,
         semester
       );
-      console.log(`📌 Turmas disponíveis: ${availableClasses.length}`);
+      // console.log(`📌 Turmas disponíveis: ${availableClasses.length}`);
       
       // 3. Calcular unlock scores
       const coursesWithUnlockScore = await calculateUnlockScores(
@@ -216,7 +216,7 @@ async function getAvailableClasses(session, availableCourses, semester) {
     className: record.get('className'),
     weeklyHours: Number(record.get('weeklyHours')),
     timeSlots: record.get('timeSlots').map(Number),
-    phase: record.get('phase'),
+    phase: Number(record.get('phase')),
     semester: record.get('semester'),
     totalSeats: Number(record.get('totalSeats')),
     occupiedSeats: Number(record.get('occupiedSeats')),
@@ -355,7 +355,8 @@ function optimizeSchedule(availableClasses, coursesWithUnlockScore, maxWorkload,
   return {
     classes: selectedClasses.map(cls => ({
       ...cls,
-      unlockScore: unlockScoreMap[cls.courseId]
+      unlockScore: unlockScoreMap[cls.courseId],
+      phase: cls.phase
     })),
     totalWeeklyHours: currentWorkload,
     remainingHours: Number(maxWorkload) - Number(currentWorkload),

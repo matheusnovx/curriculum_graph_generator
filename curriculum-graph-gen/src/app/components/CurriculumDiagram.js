@@ -124,21 +124,16 @@ export default function CurriculumDiagram({
     fetchGraphData();
   }, [curriculumId, courseCode]);
 
-  // Add a click timeout ref to prevent multiple rapid clicks
   const clickTimeoutRef = useRef(null);
   const isProcessingClick = useRef(false);
 
-  // First define these handler functions
-  // Show node info
   const handleNodeSelection = useCallback((event, node) => {
-    // Não limpa os highlightedIds ao selecionar um nó
-    // Removido: setHighlightedIds(new Set());
-    
     setSelectedNodeInfo({
       id: node.id,
       label: node.data.labelNome,
       description: node.description,
       workloadHours: node.workloadHours,
+      suggestedSemester: node.suggestedSemester,
       status: node.data.status,
       equivalence: node.data.equivalence,
       hasPrerequisites: node.data.hasPrerequisites,
@@ -272,6 +267,7 @@ export default function CurriculumDiagram({
             label: node.data.labelNome,
             description: node.description,
             workloadHours: node.workloadHours,
+            suggestedSemester: node.suggestedSemester,
             status: node.data.status,
             equivalence: node.data.equivalence,
             hasPrerequisites: node.data.hasPrerequisites,
@@ -456,8 +452,7 @@ export default function CurriculumDiagram({
           {showTipPanel ? (
             <div className="bg-gray-800 rounded shadow-lg overflow-hidden p-2 flex items-center min-w-[220px] transition-all duration-200">
               <span className="text-[12px] text-gray-200">
-                <span className="font-semibold">Dica:</span> Clique em uma disciplina para ver detalhes. Clique novamente para ver pós-requisitos. 
-                <strong>Clique duplo para ver tanto pré quanto pós-requisitos.</strong>
+                <span className="font-semibold">Dica:</span> Clique em uma disciplina para ver detalhes.
               </span>
               <button
                 className="ml-2 flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-gray-700 hover:bg-blue-600 transition-colors"
@@ -521,7 +516,11 @@ export default function CurriculumDiagram({
                     <span className="font-semibold">Carga Horária:</span> {selectedNodeInfo.workloadHours}h
                   </p>
                 )}
-                
+                {selectedNodeInfo.suggestedSemester && (
+                  <p className="mt-1 text-sm">
+                    <span className="font-semibold">Semestre Sugerido:</span> {selectedNodeInfo.suggestedSemester}
+                  </p>
+                )}
                 {selectedNodeInfo.status && (
                   <div className="mt-2 p-2 rounded" style={{ 
                     backgroundColor: selectedNodeInfo.status === 'completed' ? '#2d6a4f' : 

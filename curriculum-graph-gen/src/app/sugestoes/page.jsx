@@ -21,6 +21,61 @@ function convertSlotToReadable(slot) {
   return `${day} ${hour}`;
 }
 
+// Novo helper: retorna um array [{ day, text }]
+function formatSlotSequencesByDay(slots = []) {
+  if (!slots.length) return [];
+  const days = ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
+  const groups = {};
+  slots.forEach(s => {
+    const dayIndex = Math.floor((s - 1) / 16);
+    if (!groups[dayIndex]) groups[dayIndex] = [];
+    groups[dayIndex].push(s);
+  });
+
+  return Object.keys(groups)
+    .map(k => Number(k))
+    .sort((a, b) => a - b)
+    .map(dayIndex => {
+      const slotsForDay = groups[dayIndex].sort((a, b) => a - b);
+      const ranges = [];
+      let start = slotsForDay[0], prev = start;
+      for (let i = 1; i < slotsForDay.length; i++) {
+        const cur = slotsForDay[i];
+        if (cur === prev + 1) prev = cur;
+        else { ranges.push([start, prev]); start = cur; prev = cur; }
+      }
+      ranges.push([start, prev]);
+
+      const text = ranges
+        .map(([s, e]) => {
+          const startLabel = convertSlotToReadable(s); // "DAY hh:mm"
+          const endLabel = convertSlotToReadable(e);
+          const startTime = startLabel.split(' ')[1];
+          const endTime = endLabel.split(' ')[1];
+          return startTime === endTime ? `${startTime}` : `${startTime} → ${endTime}`;
+        })
+        .join(', ');
+
+      return { day: days[dayIndex] || 'N/A', text };
+    });
+}
+
+// Adiciona palette e helper para dot color
+const courseDotColors = [
+  'bg-blue-700',
+  'bg-emerald-700',
+  'bg-violet-700',
+  'bg-rose-700',
+  'bg-amber-700',
+  'bg-cyan-700',
+  'bg-indigo-700',
+  'bg-teal-700'
+];
+
+function getCourseDotClass(index = 0) {
+  return `${courseDotColors[index % courseDotColors.length]} ring-1 ring-white/20`;
+}
+
 export default function SugestoesPage() {
   const router = useRouter();
   const [studentData, setStudentData] = useState(null);
@@ -321,25 +376,41 @@ export default function SugestoesPage() {
                         <div key={cls.classId || `${cls.courseId}-${index}`} className="bg-gray-700 rounded-lg p-4">
                           <div className="flex justify-between items-start mb-2">
                             <div>
-                              <h4 className="font-bold text-white">{cls.courseId}</h4>
+                              <h4 className="font-bold text-white flex items-center">
+                                <span className={`inline-block w-3.5 h-3.5 rounded-full mr-3 ${getCourseDotClass(index)}`} />
+                                {cls.courseId}
+                              </h4>
                               <p className="text-sm text-gray-300">{cls.courseName}</p>
                             </div>
                             <span className="bg-blue-900 text-blue-300 px-2 py-1 rounded-full text-xs">
                               {cls.weeklyHours}h/semana
                             </span>
                           </div>
-
-                          <div className="text-sm text-gray-400 mb-2">
-                            Turma: {cls.classCode || 'Não informado'}
+                          
+                          <div className="flex items-center justify-between text-sm text-gray-400 mb-2">
+                            <div>Turma: {cls.classCode || 'Não informado'}</div>
+                            <span className="bg-gray-600 text-gray-100 px-2 py-1 rounded-full text-xs">
+                              Semestre sugerido: {cls.phase || 'N/A'}
+                            </span>
                           </div>
 
                           <div className="flex items-center justify-between">
                             <div className="flex gap-1">
-                              {cls.timeSlots?.map(slot => (
-                                <span key={slot} className="bg-gray-600 text-gray-300 px-2 py-1 rounded-md text-xs">
-                                  {convertSlotToReadable(slot)}
-                                </span>
-                              ))}
+                              {cls.timeSlots && cls.timeSlots.length > 0 ? (
+                                <div className="flex flex-wrap gap-3">
+                                  {formatSlotSequencesByDay(cls.timeSlots).map(({ day, text }) => (
+                                    <span
+                                      key={day}
+                                      className="bg-gray-600 text-gray-100 px-4 py-2 rounded-lg text-sm flex items-center gap-2 shadow-sm"
+                                    >
+                                      <strong className="mr-1 text-sm font-semibold">{day}</strong>
+                                      <span className="text-sm">{text}</span>
+                                    </span>
+                                  ))}
+                                </div>
+                              ) : (
+                                <span className="text-gray-500 text-xs">Sem horário</span>
+                              )}
                             </div>
 
                             <div className="text-xs text-white bg-green-800 px-2 py-1 rounded-full">

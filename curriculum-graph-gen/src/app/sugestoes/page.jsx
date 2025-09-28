@@ -85,10 +85,33 @@ export default function SugestoesPage() {
   const [availableCourses, setAvailableCourses] = useState([]);
   
   // Formulário de preferências
-  const [maxWorkload, setMaxWorkload] = useState(24); // Padrão: 24 horas
-  const [semester, setSemester] = useState('');
-  const [avoidDays, setAvoidDays] = useState([]);
-  const [preferredTimes, setPreferredTimes] = useState([]);
+  // slider values (will be populated from parsed PDF when available)
+  const [workloadMin, setWorkloadMin] = useState(8);
+  const [workloadMax, setWorkloadMax] = useState(32);
+  const [workloadStep, setWorkloadStep] = useState(1);
+  const [maxWorkload, setMaxWorkload] = useState(24); // current selected value
+   const [semester, setSemester] = useState('');
+   const [avoidDays, setAvoidDays] = useState([]);
+   const [preferredTimes, setPreferredTimes] = useState([]);
+  
+  // When parsed studentData is loaded from localStorage, use extracted min/avg/max to adjust slider
+  useEffect(() => {
+    if (!studentData) return;
+
+    const min = Number(studentData.minClasses ?? studentData.weeklyClasses ?? 8);
+    const max = Number(studentData.maxClasses ?? studentData.weeklyClasses ?? 32);
+    // prefer avg when available, otherwise fallback to rounded midpoint
+    const avg = Number(studentData.avgClasses ?? Math.round((min + max) / 2));
+
+    // ensure sensible slider bounds
+    setWorkloadMin(Math.max(1, Math.floor(min)));
+    setWorkloadMax(Math.max(8, Math.ceil(max)));
+    setWorkloadStep(1);
+
+    // use avg as default, clamped into [min, max]
+    const defaultValue = Math.min(Math.max(avg, min), max);
+    setMaxWorkload(defaultValue);
+  }, [studentData]);
   
   // Carregar dados do aluno do localStorage
   useEffect(() => {
@@ -227,9 +250,9 @@ export default function SugestoesPage() {
                   <div className="flex items-center">
                     <input
                       type="range"
-                      min="8"
-                      max="32"
-                      step="4"
+                      min={workloadMin}
+                      max={workloadMax}
+                      step={workloadStep}
                       value={maxWorkload}
                       onChange={(e) => setMaxWorkload(Number(e.target.value))}
                       className="w-full"

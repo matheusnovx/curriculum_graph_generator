@@ -19,7 +19,12 @@ def parse_pdf(pdf_path):
             text = page.extract_text()
             if text:
                 full_text += text + "\n\n"
-    
+
+    debug_path = f"{pdf_path}.txt"
+
+    with open(debug_path, "w", encoding="utf-8") as f:
+        f.write(full_text)
+
     # Extract curriculum ID and course code
     curriculum_info = extract_curriculum_info(full_text)
     
@@ -119,7 +124,60 @@ def extract_curriculum_info(text):
         curriculum_id = curriculum_match.group(1).replace('/', '')
         info["curriculumId"] = curriculum_id
         print(f"Found curriculum ID: {info['curriculumId']}")
-    
+
+    # --- New: extract weekly / min / avg / max aula counts ---
+    # Try several label variants and be permissive with accents/spaces
+    def parse_number(s):
+        if not s:
+            return None
+        s = s.strip().replace('.', '').replace(',', '.')
+        try:
+            if '.' in s:
+                return float(s)
+            return int(s)
+        except:
+            return None
+
+    # Numero Aulas (semanal)
+    weekly_match = re.search(r'Num(?:ero|é)ro\s*Aulas\s*\(semanal\)\s*[:\-\s]*([\d.,]+)', text, re.IGNORECASE)
+    if not weekly_match:
+        weekly_match = re.search(r'Numero\s*Aulas\s*\(semanal\)\s*[:\-\s]*([\d.,]+)', text, re.IGNORECASE)
+    if weekly_match:
+        info["weeklyClasses"] = parse_number(weekly_match.group(1))
+        print(f"Found weekly classes: {info['weeklyClasses']}")
+
+    # Aulas Mínimas / Minimas
+    min_match = re.search(r'Aulas\s*M[ií]nimas\s*[:\-\s]*([\d.,]+)', text, re.IGNORECASE)
+    if min_match:
+        info["minClasses"] = parse_number(min_match.group(1))
+        print(f"Found min classes: {info['minClasses']}")
+
+    # Aulas Média / Media
+    avg_match = re.search(r'Aulas\s*M[eé]dia\s*[:\-\s]*([\d.,]+)', text, re.IGNORECASE)
+    if avg_match:
+        info["avgClasses"] = parse_number(avg_match.group(1))
+        print(f"Found avg classes: {info['avgClasses']}")
+
+    # Aulas Máxima / Maxima
+    max_match = re.search(r'Aulas\s*M[aá]xima?s?\s*[:\-\s]*([\d.,]+)', text, re.IGNORECASE)
+    if max_match:
+        info["maxClasses"] = parse_number(max_match.group(1))
+        print(f"Found max classes: {info['maxClasses']}")
+
+    # Fallback: try lines like "Aulas Mínimas: X" with possible surrounding text
+    if "minClasses" not in info:
+        fallback_min = re.search(r'Aulas\s*(?:M[ií]nimas|Minimas)\s*[:\-\s]*([\d.,]+)', text, re.IGNORECASE)
+        if fallback_min:
+            info["minClasses"] = parse_number(fallback_min.group(1))
+    if "avgClasses" not in info:
+        fallback_avg = re.search(r'Aulas\s*(?:M[eé]dia|Media)\s*[:\-\s]*([\d.,]+)', text, re.IGNORECASE)
+        if fallback_avg:
+            info["avgClasses"] = parse_number(fallback_avg.group(1))
+    if "maxClasses" not in info:
+        fallback_max = re.search(r'Aulas\s*(?:M[aá]xima|Maxima)\s*[:\-\s]*([\d.,]+)', text, re.IGNORECASE)
+        if fallback_max:
+            info["maxClasses"] = parse_number(fallback_max.group(1))
+
     return info
 
 # If run directly, use the command-line arguments

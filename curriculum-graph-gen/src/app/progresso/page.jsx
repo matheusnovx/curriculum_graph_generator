@@ -28,30 +28,57 @@ export default function StudentProgressPage() {
     }
   }, []);
   
-  // Handler for when new data is received from the uploader
-  const handleDataReceived = (data) => {
-    setStudentData(data);
-  };
-
-  // Handler para receber o total de cursos do diagrama
-  const handleDiagramLoad = (total) => {
-    setTotalCourses(total);
-  };
-  
-  // Calcular estatísticas de progresso
+  // Calcular estatísticas de progresso (contagem e progresso consideram apenas obrigatórias para a barra)
   const progressStats = useMemo(() => {
     if (!studentData) return null;
-    
-    const completed = studentData.cursadas.length + studentData.dispensadas.length;
-    const inProgress = studentData.andamento.length;
-    const pending = totalCourses > 0 ? totalCourses - completed - inProgress : 0;
-    
+
+    const countByType = (arr) => {
+      const acc = { Ob: 0, Op: 0, total: 0 };
+      if (!Array.isArray(arr)) return acc;
+      for (const c of arr) {
+        if (!c || !c.tipo) continue;
+        if (c.tipo === 'Ob') acc.Ob += 1;
+        else if (c.tipo === 'Op') acc.Op += 1;
+        acc.total += 1;
+      }
+      return acc;
+    };
+
+    const cursadas = countByType(studentData.cursadas);
+    const dispensadas = countByType(studentData.dispensadas);
+    const andamento = countByType(studentData.andamento);
+
+    // Contagens gerais (úteis para exibição)
+    const completedTotal = cursadas.total + dispensadas.total;
+    const inProgressTotal = andamento.total;
+
+    // Contagens APENAS das obrigatórias (usadas para cálculo da barra de progresso)
+    const completedOb = cursadas.Ob;
+    const inProgressOb = andamento.Ob;
+
+    // total de obrigatórias (fallback para totalCourses se não fornecido)
+    const totalMandatory = typeof studentData.totalMandatory === 'number'
+      ? studentData.totalMandatory
+      : totalCourses;
+
+    const pendingOb = totalMandatory > 0 ? Math.max(0, totalMandatory - completedOb - inProgressOb) : 0;
+    const completionPercentage = totalMandatory > 0
+      ? Math.round((completedOb / totalMandatory) * 100)
+      : 0;
+
     return {
-      completed,
-      inProgress,
-      pending,
+      // exibição
+      completed: completedTotal,
+      completedOb,
+      completedOp: cursadas.Op + dispensadas.Op,
+      inProgress: inProgressTotal,
+      inProgressOb,
+      inProgressOp: andamento.Op,
+      // progresso (somente obrigatórias)
+      pending: pendingOb,
       total: totalCourses,
-      completionPercentage: totalCourses > 0 ? Math.round((completed / totalCourses) * 100) : 0
+      totalMandatory,
+      completionPercentage
     };
   }, [studentData, totalCourses]);
   
@@ -94,48 +121,71 @@ export default function StudentProgressPage() {
                   </div>
                 )}
                 
-                <div className="flex flex-col">
-                  <span className="font-medium text-gray-400">Currículo</span>
-                  <span>{studentData.curriculumId}</span>
-                </div>
+                <div className="space-y-2 text-sm">
+                {studentData.courseName && (
+                  <div className="flex flex-col">
+                    <span className="font-medium text-gray-400">Curso</span>
+                    <span className="truncate" title={studentData.courseName}>{studentData.courseName}</span>
+                  </div>
+                )}
                 
-                <div className="flex flex-col">
-                  <span className="font-medium text-gray-400">Código</span>
-                  <span>{studentData.courseCode}</span>
+                <div className="flex items-center space-x-6">
+                  <div className="flex items-center space-x-2">
+                    <span className="font-medium text-gray-400 text-sm">Currículo:</span>
+                    <span className="text-sm truncate max-w-[8rem]" title={studentData.curriculumId}>{studentData.curriculumId}</span>
+                  </div>
+
+                  <div className="flex items-center space-x-2">
+                    <span className="font-medium text-gray-400 text-sm">Código</span>
+                    <span className="text-sm">{studentData.courseCode}</span>
+                  </div>
                 </div>
+              </div>
               </div>
               
               {progressStats && (
-                <div className="mt-4 pt-4 border-t border-gray-700">
-                  <div className="grid grid-cols-3 gap-2 text-sm">
-                    <div className="flex flex-col">
-                      <span className="font-medium text-gray-400">Concluídas</span>
-                      <span>{progressStats.completed}</span>
+                <div className="mt-4 pt-4 border-t border-gray-700 text-sm space-y-3">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <span className="font-medium text-gray-300">Concluídas</span>
+                      <div className="mt-1 text-white text-lg font-semibold">{progressStats.completed}</div>
+                      <div className="text-xs text-gray-400 mt-1">
+                        ({progressStats.completedOb} Ob / {progressStats.completedOp} Op)
+                      </div>
                     </div>
-                    
-                    <div className="flex flex-col">
-                      <span className="font-medium text-gray-400">Em Andamento</span>
-                      <span>{progressStats.inProgress}</span>
-                    </div>
-                    
-                    {/* TODO: Colocar no parser a diferenca de optativas e obrigatorias
-                    
-                    <div className="flex flex-col">
-                      <span className="font-medium text-gray-400">Pendentes</span>
-                      <span>{progressStats.pending}</span>
-                    </div> */}
                   </div>
-                  
+
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <span className="font-medium text-gray-300">Em Andamento</span>
+                      <div className="mt-1 text-white text-lg font-semibold">{progressStats.inProgress}</div>
+                      <div className="text-xs text-gray-400 mt-1">
+                        ({progressStats.inProgressOb} Ob / {progressStats.inProgressOp} Op)
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <span className="font-medium text-gray-300">Pendentes</span>
+                      <div className="mt-1 text-white text-lg font-semibold">{progressStats.pending}</div>
+                      <div className="text-xs text-gray-400 mt-1">de {progressStats.totalMandatory || '—'}</div>
+                    </div>
+                    <div className="ml-4">
+                      <div className="px-2 py-1 bg-gray-700 text-xs rounded-md">Obrigatórias</div>
+                    </div>
+                  </div>
+
                   <div className="mt-2">
-                    <div className="flex justify-between text-xs">
-                      <span>Progresso:</span>
+                    <div className="flex justify-between text-xs text-gray-400 mb-1">
+                      <span>Progresso (apenas obrig.)</span>
                       <span>{progressStats.completionPercentage}%</span>
                     </div>
-                    <div className="mt-1 h-2 bg-gray-700 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-green-600" 
+                    <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="h-full bg-green-500"
                         style={{ width: `${progressStats.completionPercentage}%` }}
-                      ></div>
+                      />
                     </div>
                   </div>
                 </div>
@@ -156,30 +206,13 @@ export default function StudentProgressPage() {
           {/* Legend panel below student info */}
           <div className="mt-6">
             <div className="bg-gray-800 rounded shadow-lg overflow-hidden">
-              {/* Header with minimize button */}
-              <div
-                className="flex justify-between items-center p-2 bg-gray-700 cursor-pointer"
-                onClick={() => setShowLegendPanel(!showLegendPanel)}
-              >
+              <div className="flex items-center p-2 bg-gray-700">
                 <span className="text-xs font-semibold text-white">Status das Disciplinas</span>
-                <button className="text-gray-300 hover:text-white focus:outline-none">
-                  {showLegendPanel ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                    </svg>
-                  )}
-                </button>
               </div>
-              {/* Collapsible content */}
-              {showLegendPanel && (
-                <div className="p-3">
-                  {LegendPanel}
-                </div>
-              )}
+
+              <div className="p-3">
+                {LegendPanel}
+              </div>
             </div>
           </div>
         </div>

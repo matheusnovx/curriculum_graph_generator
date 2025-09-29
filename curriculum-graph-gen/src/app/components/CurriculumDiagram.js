@@ -440,8 +440,10 @@ export default function CurriculumDiagram({
         onPaneClick={onPaneClick}
         fitView
         proOptions={{ hideAttribution: true }}
+        nodesDraggable={false}
+        nodesConnectable={false}
       >
-        <Controls />
+        <Controls showInteractive={false} />
         <Background color="#333" gap={16} />
         
         {loading && <Panel position="top-center"><div className="p-2 bg-gray-700 rounded">Carregando...</div></Panel>}

@@ -92,7 +92,7 @@ export default function SugestoesPage() {
   const [maxWorkload, setMaxWorkload] = useState(24); // current selected value
    const [semester, setSemester] = useState('');
    const [avoidDays, setAvoidDays] = useState([]);
-   const [preferredTimes, setPreferredTimes] = useState([]);
+   const [avoidPeriods, setAvoidPeriods] = useState([]);
   
   // When parsed studentData is loaded from localStorage, use extracted min/avg/max to adjust slider
   useEffect(() => {
@@ -147,12 +147,10 @@ export default function SugestoesPage() {
     );
   };
   
-  // Toggle para horários preferidos
-  const togglePreferredTime = (time) => {
-    setPreferredTimes(prev => 
-      prev.includes(time) 
-        ? prev.filter(t => t !== time) 
-        : [...prev, time]
+  // Toggle para períodos a evitar
+  const toggleAvoidPeriod = (period) => {
+    setAvoidPeriods(prev =>
+      prev.includes(period) ? prev.filter(p => p !== period) : [...prev, period]
     );
   };
   
@@ -179,7 +177,7 @@ export default function SugestoesPage() {
         maxWorkload,
         semester,
         avoidDays,
-        preferredTimes
+        avoidPeriods
       }),
     });
       
@@ -283,23 +281,23 @@ export default function SugestoesPage() {
                   </div>
                 </div>
                 
-                {/* Horários preferidos */}
+                {/* Períodos a evitar */}
                 <div>
                   <label className="block text-sm font-medium text-gray-400 mb-1">
-                    Horários Preferidos
+                    Períodos a Evitar
                   </label>
                   <div className="flex gap-2">
-                    {['Manhã', 'Tarde', 'Noite'].map(time => (
+                    {['Manhã', 'Tarde', 'Noite'].map(period => (
                       <button
-                        key={time}
-                        onClick={() => togglePreferredTime(time)}
+                        key={period}
+                        onClick={() => toggleAvoidPeriod(period)}
                         className={`px-3 py-1 text-xs rounded-full ${
-                          preferredTimes.includes(time)
-                            ? 'bg-green-700 text-white'
+                          avoidPeriods.includes(period)
+                            ? 'bg-red-700 text-white'
                             : 'bg-gray-700 text-gray-300'
                         }`}
                       >
-                        {time}
+                        {period}
                       </button>
                     ))}
                   </div>

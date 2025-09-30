@@ -269,7 +269,7 @@ async function calculateUnlockScores(session, availableCourses, curriculumId) {
   }));
 }
 
-function optimizeSchedule(availableClasses, coursesWithUnlockScore, maxWorkload, avoidDays = [], preferredTimes = []) {
+function optimizeSchedule(availableClasses, coursesWithUnlockScore, maxWorkload, avoidDays = [], periodsToAvoid = []) {
   // Mapa para recuperar facilmente o unlock score de um curso
   const unlockScoreMap = coursesWithUnlockScore.reduce((map, course) => {
     map[course.courseId] = course.unlockScore;
@@ -302,9 +302,9 @@ function optimizeSchedule(availableClasses, coursesWithUnlockScore, maxWorkload,
         compatibilityScore -= 10;
       }
 
-      // Bonificar turmas em horários preferidos
-      if (preferredTimes.includes(cls.phase)) {
-        compatibilityScore += 5;
+      // Penalizar turmas em horários preferidos
+      if (periodsToAvoid.includes(cls.phase)) {
+        compatibilityScore -= 5;
       }
 
       // O valor da turma é uma combinação do unlock score da disciplina e compatibilidade
@@ -333,7 +333,6 @@ function optimizeSchedule(availableClasses, coursesWithUnlockScore, maxWorkload,
     return commonSlots.length > 0;
   };
 
-  // Selecionar as melhores turmas que cabem na "mochila" (horário semanal)
   for (const cls of classesWithScore) {
     // Verificar se já selecionamos uma turma desta disciplina
     if (selectedCourseIds.has(cls.courseId)) continue;

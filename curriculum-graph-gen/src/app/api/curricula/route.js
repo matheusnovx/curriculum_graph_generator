@@ -46,7 +46,6 @@ export async function GET() {
       ORDER BY courseName ASC
     `);
     
-    // Process data and ensure unique IDs
     const seenIds = new Set();
     const curricula = [];
     
@@ -55,21 +54,19 @@ export async function GET() {
       const courseName = record.get('courseName');
       let courseCode = record.get('courseCode');
       
-      // Ensure courseCode is a string
       if (courseCode === null || courseCode === undefined) {
-        courseCode = "208"; // Default course code
+        courseCode = "208";
       } else if (typeof courseCode !== 'string') {
         courseCode = String(courseCode);
       }
       
-      // Create a unique key by combining id and courseCode if necessary
       const originalId = id;
       const uniqueId = seenIds.has(id) ? `${id}-${courseCode}` : id;
       
       seenIds.add(uniqueId);
       curricula.push({
         id: uniqueId,
-        originalId: originalId, // Store the original ID
+        originalId: originalId,
         courseCode: courseCode,
         courseName: courseName,
         label: `${courseName}`

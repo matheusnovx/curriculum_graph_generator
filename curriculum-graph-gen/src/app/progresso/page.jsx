@@ -14,9 +14,7 @@ const CurriculumDiagram = dynamic(() => import('../components/CurriculumDiagram'
 export default function StudentProgressPage() {
   const [studentData, setStudentData] = useState(null);
   const [totalCourses, setTotalCourses] = useState(0);
-  const [showLegendPanel, setShowLegendPanel] = useState(true); // <-- Add this state
 
-  // Try to load saved data from localStorage on mount
   useEffect(() => {
     const savedData = localStorage.getItem('parsedPdfData');
     if (savedData) {
@@ -28,7 +26,6 @@ export default function StudentProgressPage() {
     }
   }, []);
   
-  // Calcular estatísticas de progresso (contagem e progresso consideram apenas obrigatórias para a barra)
   const progressStats = useMemo(() => {
     if (!studentData) return null;
 
@@ -48,15 +45,12 @@ export default function StudentProgressPage() {
     const dispensadas = countByType(studentData.dispensadas);
     const andamento = countByType(studentData.andamento);
 
-    // Contagens gerais (úteis para exibição)
     const completedTotal = cursadas.total + dispensadas.total;
     const inProgressTotal = andamento.total;
 
-    // Contagens APENAS das obrigatórias (usadas para cálculo da barra de progresso)
     const completedOb = cursadas.Ob;
     const inProgressOb = andamento.Ob;
 
-    // total de obrigatórias (fallback para totalCourses se não fornecido)
     const totalMandatory = typeof studentData.totalMandatory === 'number'
       ? studentData.totalMandatory
       : totalCourses;
@@ -67,14 +61,13 @@ export default function StudentProgressPage() {
       : 0;
 
     return {
-      // exibição
       completed: completedTotal,
       completedOb,
       completedOp: cursadas.Op + dispensadas.Op,
       inProgress: inProgressTotal,
       inProgressOb,
       inProgressOp: andamento.Op,
-      // progresso (somente obrigatórias)
+
       pending: pendingOb,
       total: totalCourses,
       totalMandatory,
@@ -82,7 +75,6 @@ export default function StudentProgressPage() {
     };
   }, [studentData, totalCourses]);
   
-  // Componente da legenda que será passado para o painel lateral
   const LegendPanel = useMemo(() => {
     return (
       <div className="p-4 bg-gray-800 text-white text-xs rounded">

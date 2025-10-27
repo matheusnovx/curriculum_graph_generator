@@ -22,7 +22,7 @@ def parse_pdf(pdf_path):
     # Extrai metadados do currículo
     curriculum_info = extract_curriculum_info(full_text)
 
-    # Regex: captura cada bloco de disciplina do código até Ob/Op
+    # Captura cada bloco de disciplina do código até Ob/Op
     course_pattern = re.compile(r"""
         (?P<block>                                   # Bloco completo da disciplina
             (?P<codigo>[A-Z]{2,}[A-Z]?\d{4})         # Código (ex: ARQ5621, FSARQ5631)
@@ -71,7 +71,6 @@ def parse_pdf(pdf_path):
             elif re.search(r'\d{4}/\d\s+\d+\.\d', block):
                 results["cursadas"].append({"codigo": codigo, "tipo": tipo})
 
-    # Salva JSON
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
@@ -125,7 +124,6 @@ def extract_curriculum_info(text):
     return info
 
 
-# Execução direta
 if __name__ == "__main__":
     try:
         if len(sys.argv) < 2:

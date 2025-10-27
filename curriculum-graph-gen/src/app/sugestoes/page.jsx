@@ -12,8 +12,8 @@ function convertSlotToReadable(slot) {
     13: '18:30', 14: '19:20', 15: '20:20', 16: '21:20'
   };
 
-  const dayIndex = Math.floor((slot - 1) / 16); // Cada dia tem 16 slots
-  const hourIndex = slot % 16 || 16; // Ajusta para o índice correto no dia
+  const dayIndex = Math.floor((slot - 1) / 16);
+  const hourIndex = slot % 16 || 16;
 
   const day = days[dayIndex] || 'N/A';
   const hour = baseHour[hourIndex] || 'N/A';
@@ -21,7 +21,6 @@ function convertSlotToReadable(slot) {
   return `${day} ${hour}`;
 }
 
-// Novo helper: retorna um array [{ day, text }]
 function formatSlotSequencesByDay(slots = []) {
   if (!slots.length) return [];
   const days = ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
@@ -48,7 +47,7 @@ function formatSlotSequencesByDay(slots = []) {
 
       const text = ranges
         .map(([s, e]) => {
-          const startLabel = convertSlotToReadable(s); // "DAY hh:mm"
+          const startLabel = convertSlotToReadable(s);
           const endLabel = convertSlotToReadable(e);
           const startTime = startLabel.split(' ')[1];
           const endTime = endLabel.split(' ')[1];
@@ -60,7 +59,6 @@ function formatSlotSequencesByDay(slots = []) {
     });
 }
 
-// Adiciona palette e helper para dot color
 const courseDotColors = [
   'bg-blue-700',
   'bg-emerald-700',
@@ -85,30 +83,25 @@ export default function SugestoesPage() {
   const [availableCourses, setAvailableCourses] = useState([]);
   
   // Formulário de preferências
-  // slider values (will be populated from parsed PDF when available)
   const [workloadMin, setWorkloadMin] = useState(8);
   const [workloadMax, setWorkloadMax] = useState(32);
   const [workloadStep, setWorkloadStep] = useState(1);
-  const [maxWorkload, setMaxWorkload] = useState(24); // current selected value
+  const [maxWorkload, setMaxWorkload] = useState(24);
    const [semester, setSemester] = useState('');
    const [avoidDays, setAvoidDays] = useState([]);
    const [avoidPeriods, setAvoidPeriods] = useState([]);
   
-  // When parsed studentData is loaded from localStorage, use extracted min/avg/max to adjust slider
   useEffect(() => {
     if (!studentData) return;
 
     const min = Number(studentData.minClasses ?? studentData.weeklyClasses ?? 8);
     const max = Number(studentData.maxClasses ?? studentData.weeklyClasses ?? 32);
-    // prefer avg when available, otherwise fallback to rounded midpoint
     const avg = Number(studentData.avgClasses ?? Math.round((min + max) / 2));
 
-    // ensure sensible slider bounds
     setWorkloadMin(Math.max(1, Math.floor(min)));
     setWorkloadMax(Math.max(8, Math.ceil(max)));
     setWorkloadStep(1);
 
-    // use avg as default, clamped into [min, max]
     const defaultValue = Math.min(Math.max(avg, min), max);
     setMaxWorkload(defaultValue);
   }, [studentData]);

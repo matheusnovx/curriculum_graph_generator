@@ -3,23 +3,17 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
-// Dynamically import the CurriculumDiagram component to prevent SSR issues with React Flow
 const CurriculumDiagram = dynamic(() => import('./CurriculumDiagram'), {
   ssr: false,
   loading: () => <div className="flex items-center justify-center h-[80vh] bg-gray-900 rounded-lg"><p className="text-white">Loading Diagram...</p></div>,
 });
 
 export default function DiagramPage() {
-  // State to hold the list of all curricula
   const [curricula, setCurricula] = useState([]);
-  // State for the currently selected curriculum object
   const [selectedCurriculum, setSelectedCurriculum] = useState(null);
-  // State to manage loading of the curricula list
   const [isLoading, setIsLoading] = useState(true);
-  // State for handling potential errors during fetch
   const [error, setError] = useState(null);
 
-  // Effect to fetch the list of curricula when the component mounts
   useEffect(() => {
     async function fetchCurricula() {
       try {
@@ -31,10 +25,8 @@ export default function DiagramPage() {
         
         if (data.curricula && data.curricula.length > 0) {
             setCurricula(data.curricula);
-            // Set the first curriculum as the default selection
             setSelectedCurriculum(data.curricula[0]);
         } else {
-            // Handle case where no curricula are returned
             setError("No curricula found.");
         }
 
@@ -46,12 +38,10 @@ export default function DiagramPage() {
       }
     }
     fetchCurricula();
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
 
-  // Handler for when the user selects a different curriculum from the dropdown
   const handleCurriculumChange = (event) => {
     const selectedId = event.target.value;
-    // Find the full curriculum object from the state
     const curriculum = curricula.find(c => c.id === selectedId);
     setSelectedCurriculum(curriculum);
   };
@@ -86,10 +76,9 @@ export default function DiagramPage() {
         {/* Conditionally render the diagram only when a curriculum is selected */}
         {selectedCurriculum ? (
           <CurriculumDiagram
-            // Pass a key to force re-mounting when selection changes, ensuring a clean state
             key={selectedCurriculum.id}
-            curriculumId={selectedCurriculum.originalId || selectedCurriculum.id} // Use original ID for data fetching
-            uniqueId={selectedCurriculum.id} // Pass the unique ID if needed
+            curriculumId={selectedCurriculum.originalId || selectedCurriculum.id}
+            uniqueId={selectedCurriculum.id}
             courseCode={selectedCurriculum.courseCode}
           />
         ) : (

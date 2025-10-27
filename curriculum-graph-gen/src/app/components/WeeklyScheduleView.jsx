@@ -3,7 +3,6 @@
 import React from 'react';
 
 const WeeklyScheduleView = ({ classes }) => {
-  // Horários de aula simplificados (apenas horário inicial)
   const timeSlots = [
     '07:30', '08:20', '09:10', '10:10', '11:00',
     '13:30', '14:20', '15:10', '16:20', '17:10',
@@ -12,7 +11,6 @@ const WeeklyScheduleView = ({ classes }) => {
 
   const days = ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
 
-  // Cores mais suaves e visualmente agradáveis para as disciplinas
   const colors = [
     'bg-blue-700/90 hover:bg-blue-600 border-l-4 border-blue-400',
     'bg-emerald-700/90 hover:bg-emerald-600 border-l-4 border-emerald-400',
@@ -24,36 +22,30 @@ const WeeklyScheduleView = ({ classes }) => {
     'bg-teal-700/90 hover:bg-teal-600 border-l-4 border-teal-400'
   ];
 
-  // Atribuir uma cor para cada disciplina
   const courseColors = {};
   classes.forEach((cls, index) => {
     courseColors[cls.courseId] = colors[index % colors.length];
   });
 
-  // Construir matriz do horário
   const scheduleMatrix = Array(timeSlots.length).fill().map(() => Array(days.length).fill(null));
 
-  // Função para mapear os slots para os índices corretos na matriz de horários
   function mapSlotToIndex(slot) {
     const dayIndex = Math.floor((slot - 1) / 16); // Cada dia tem 16 slots
-    
-    // Mapeamento baseado no resto da divisão por 16
     const slotWithinDay = (slot - 1) % 16 + 1;
     
-    // Mapeamento específico para os índices de hora
     let hourIndex = null;
     
-    // Manhã (slots 1-5)
+    // Manhã
     if (slotWithinDay >= 1 && slotWithinDay <= 5) {
-      hourIndex = slotWithinDay - 1; // 0-4
+      hourIndex = slotWithinDay - 1; 
     }
-    // Tarde (slots 8-12)
+    // Tarde
     else if (slotWithinDay >= 8 && slotWithinDay <= 12) {
-      hourIndex = slotWithinDay - 3; // 5-9
+      hourIndex = slotWithinDay - 3;
     }
-    // Noite (slots 13-16)
+    // Noite
     else if (slotWithinDay >= 13 && slotWithinDay <= 16) {
-      hourIndex = slotWithinDay - 3; // 10-13
+      hourIndex = slotWithinDay - 3;
     }
     
     return { dayIndex, hourIndex };

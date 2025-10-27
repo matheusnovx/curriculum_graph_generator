@@ -9,8 +9,7 @@ export default function Navbar() {
   const navItems = [
     { name: 'Início', path: '/' },
     { name: 'Progresso', path: '/progresso' },
-    { name: 'Planejador de Semestre', path: '/sugestoes' }, // Novo item
-    // ...outros itens existentes
+    { name: 'Planejador de Semestre', path: '/sugestoes' },
   ];
 
   return (

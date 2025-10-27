@@ -1,0 +1,11 @@
+# Requirements inferred from Python scripts in the repository
+# - backend/atualizar_turmas.py -> neo4j
+# - curriculum-graph-gen/src/app/lib/parsers/pdf_parser.py -> pdfplumber
+# - graph-gen/turmas/download_turmas.py -> requests
+# pdfplumber pulls in pdfminer.six and Pillow; listed explicitly to be explicit
+
+neo4j
+pdfplumber
+requests
+pdfminer.six
+Pillow

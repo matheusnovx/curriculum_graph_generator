@@ -1,134 +1,120 @@
 # Gerador de Grafo de Currículo
 
-Este projeto combina um gerador de grafos de currículo em Python com uma interface web desenvolvida em Next.js. Ele processa dados em JSON para criar grafos direcionados que representam dependências entre disciplinas e fases, e exibe esses grafos em uma interface web.
+Este repositório contém a interface web (Next.js) e scripts auxiliares em Python e utilitários relacionados à geração e ao processamento de dados de turmas/currículos.
 
----
+## Estrutura relevante
 
-## Funcionalidades
+- Frontend (Next.js): `curriculum-graph-gen/`
+  - Página principal: `curriculum-graph-gen/src/app/page.tsx`
+  - Parsers auxiliares em Python (usados pelo app): `curriculum-graph-gen/src/app/lib/parsers/pdf_parser.py`
 
-### Backend (Python)
-- Gera grafos de currículo com layouts personalizados.
-- Suporta cabeçalhos, colunas e conexões entre disciplinas.
-- Exporta grafos no formato `.dot`, que podem ser convertidos para `.svg` ou outros formatos usando o Graphviz.
+- Scripts Python úteis:
+  - `backend/atualizar_turmas.py` — importa arquivos JSON de turmas para um banco Neo4j.
+  - `graph-gen/turmas/download_turmas.py` — script para baixar JSONs de turmas do endpoint SISACAD (UFSC).
 
-### Frontend (Next.js)
-- Interface web para visualizar os grafos gerados.
-- Suporte a fontes otimizadas e design responsivo.
-- Exibe o gráfico em formato SVG diretamente na página.
+- Backend/Processador Kotlin (opcional): `backend/curriculum-graph-processor/` (projeto Gradle/Kotlin)
 
----
+## Requisitos (essenciais)
 
-## Requisitos
+- Node.js 16+ (para frontend)
+- Python 3.9+ (para executar scripts Python)
+- Neo4j (se for usar `backend/atualizar_turmas.py`)
+- Java 11+ / Gradle (somente se você for executar o processador Kotlin opcional)
 
-### Backend
-- Python 3.9 ou superior
-- Graphviz instalado no sistema
+Observação: há um arquivo `requirements.txt` gerado para os scripts Python na raiz do repositório (veja abaixo). Use um ambiente virtual Python para instalar as dependências.
 
-### Frontend
-- Node.js 16 ou superior
-- Gerenciador de pacotes (npm, yarn, pnpm ou bun)
+## Instalação e execução — Frontend (Next.js)
 
----
+1. Entre no diretório do frontend:
 
-## Instalação
+```bash
+cd curriculum-graph-gen
+```
 
-### Backend (Python)
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seuusuario/curriculum_graph_generator.git
-   cd curriculum_graph_generator
-   ```
+2. Instale dependências:
 
-2. Instale as dependências do Python:
-   ```bash
-   pip install -r graph-gen/requirements.txt
-   ```
+```bash
+npm install
+# ou
+yarn
+# ou
+pnpm install
+```
 
-3. Instale o pacote do Graphviz:
-   - **macOS**:
-     ```bash
-     brew install graphviz
-     ```
-   - **Ubuntu/Debian**:
-     ```bash
-     sudo apt-get install graphviz
-     ```
-   - **Windows**:
-     Baixe e instale a partir do [site oficial do Graphviz](https://graphviz.gitlab.io/download/).
+3. Rode o servidor de desenvolvimento:
 
----
+```bash
+npm run dev
+# ou
+yarn dev
+# ou
+pnpm dev
+```
 
-### Frontend (Next.js)
-1. Navegue até o diretório do frontend:
-   ```bash
-   cd curriculum-graph-gen
-   ```
+4. Abra no navegador:
 
-2. Instale as dependências do projeto:
-   ```bash
-   npm install
-   ```
+```
+http://localhost:3000
+```
 
-3. Inicie o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
+## Scripts Python — instalar dependências
 
-4. Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar a interface.
+Recomendo criar e ativar um ambiente virtual antes de instalar as dependências:
 
----
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
-## Uso
+Em seguida instale as dependências do arquivo `requirements.txt` (arquivo adicionado na raiz do repositório):
 
-### Backend
-1. Coloque o arquivo JSON do currículo no diretório apropriado:
-   ```
-   curriculos/ciencias_da_computação/curriculo_208_20242.json
-   ```
+```bash
+pip install -r requirements.txt
+```
 
-2. Execute o script para gerar o arquivo `.dot`:
-   ```bash
-   python graph-gen/graph_gen.py
-   ```
+### Principais scripts Python e como usá-los
 
-3. Converta o arquivo `.dot` para `.svg`:
-   ```bash
-   dot -Tsvg -o graph.svg figure1.dot
-   ```
+- `backend/atualizar_turmas.py` — importa arquivos JSON de turmas (pasta `backend/turmas_20252`) para um banco Neo4j.
 
-### Frontend
-1. Certifique-se de que o arquivo `graph.svg` gerado pelo backend está na pasta pública do frontend:
-   ```
-   curriculum-graph-gen/public/graph.svg
-   ```
+  - Configure as credenciais e URI do Neo4j no topo do arquivo (ou substitua por variáveis de ambiente/localmente). Exemplo de execução:
 
-2. Acesse a interface web para visualizar o gráfico.
+  ```bash
+  python backend/atualizar_turmas.py
+  ```
 
----
+  - Observações: o script espera que exista um nó `Course` com `courseId` correspondente às turmas antes de criar as relações `OFFERS`. Se ocorrerem erros de Cypher, verifique se os nós `Course` estão presentes no seu banco.
 
-## Estrutura de Arquivos
+- `curriculum-graph-gen/src/app/lib/parsers/pdf_parser.py` — parser de PDFs de histórico/currículo. Exemplo de execução:
 
-### Backend
-- **graph-gen/graph_gen.py**: Script principal para gerar os grafos.
-- **graph-gen/requirements.txt**: Dependências do Python.
-- **curriculos/**: Diretório contendo os arquivos JSON do currículo.
+```bash
+python curriculum-graph-gen/src/app/lib/parsers/pdf_parser.py /caminho/para/arquivo.pdf
+```
 
-### Frontend
-- **curriculum-graph-gen/src/app/page.tsx**: Página principal que exibe o gráfico.
-- **curriculum-graph-gen/src/app/globals.css**: Estilos globais do projeto.
-- **curriculum-graph-gen/next.config.ts**: Configuração do Next.js.
-- **curriculum-graph-gen/public/**: Diretório para arquivos públicos, como o `graph.svg`.
+- `graph-gen/turmas/download_turmas.py` — realiza requisições ao endpoint SISACAD para baixar arquivos JSON de turmas. Exemplo:
 
----
+```bash
+python graph-gen/turmas/download_turmas.py
+```
 
-## Exemplo de Saída
+## Executando o backend Kotlin (opcional)
 
-### Backend
-O grafo gerado terá a seguinte aparência:
+Se você quiser executar o processador Kotlin (quando aplicável):
 
-![Exemplo de Grafo](curriculum-graph-gen/public/graph.svg)
+1. Entre no diretório:
 
-### Frontend
-A interface web exibirá o gráfico gerado diretamente no navegador.
+```bash
+cd backend/curriculum-graph-processor
+```
 
----
+2. Execute usando o Gradle wrapper:
+
+```bash
+./gradlew run
+```
+
+ou para buildar um JAR:
+
+```bash
+./gradlew build
+java -jar build/libs/*.jar
+```

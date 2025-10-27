@@ -56,7 +56,6 @@ export default function PdfUploader({ onDataReceived }) {
       // Store the results in localStorage for persistence
       localStorage.setItem('parsedPdfData', JSON.stringify(result.data));
       
-      // Notify parent component
       if (onDataReceived) {
         onDataReceived(result.data);
       }

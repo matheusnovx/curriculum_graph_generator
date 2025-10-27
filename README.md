@@ -1,63 +1,53 @@
-# Gerador de Grafo de Currículo
+# Gerador e Visualizador de Grafo de Currículo
 
-Este repositório contém a interface web (Next.js) e scripts auxiliares em Python e utilitários relacionados à geração e ao processamento de dados de turmas/currículos.
+Este repositório contém um conjunto de ferramentas para processar, armazenar e visualizar grafos de currículos acadêmicos. O projeto é dividido em três componentes principais:
 
-## Estrutura relevante
+1.  **Backend (Kotlin):** Um processador de dados (`backend/curriculum-graph-processor`) que lê arquivos JSON de currículo, analisa as dependências e os carrega em um banco de dados de grafo Neo4j.
+2.  **Banco de Dados (Neo4j):** Atua como a principal fonte de verdade para as disciplinas e seus relacionamentos. É essencial para o funcionamento do backend Kotlin e do frontend Next.js.
+3.  **Frontend (Next.js):** Uma interface web (`curriculum-graph-gen`) que se conecta ao banco Neo4j para buscar os dados do grafo e renderizá-los interativamente usando Reactflow.
+4.  **Backend (Python):** Um gerador de grafos alternativo (`graph-gen`) que utiliza Python e Graphviz para criar visualizações estáticas (arquivos `.svg`) a partir dos arquivos JSON.
 
-- Frontend (Next.js): `curriculum-graph-gen/`
-  - Página principal: `curriculum-graph-gen/src/app/page.tsx`
-  - Parsers auxiliares em Python (usados pelo app): `curriculum-graph-gen/src/app/lib/parsers/pdf_parser.py`
+## Requisitos do Sistema
 
-- Scripts Python úteis:
-  - `backend/atualizar_turmas.py` — importa arquivos JSON de turmas para um banco Neo4j.
-  - `graph-gen/turmas/download_turmas.py` — script para baixar JSONs de turmas do endpoint SISACAD (UFSC).
+Antes de começar, garanta que você tenha os seguintes softwares instalados:
 
-- Backend/Processador Kotlin (opcional): `backend/curriculum-graph-processor/` (projeto Gradle/Kotlin)
+* Git
+* Docker (Recomendado para o Neo4j)
+* JDK 17 ou superior (para o backend Kotlin)
+* Node.js 16 ou superior (para o frontend Next.js)
+* Python 3.9 ou superior (para o gerador Python)
+* Graphviz (dependência do gerador Python)
 
-## Requisitos (essenciais)
+---
 
-- Node.js 16+ (para frontend)
-- Python 3.9+ (para executar scripts Python)
-- Neo4j (se for usar `backend/atualizar_turmas.py`)
-- Java 11+ / Gradle (somente se você for executar o processador Kotlin opcional)
+## 1. Configuração Obrigatória: Banco de Dados Neo4j
 
-Observação: há um arquivo `requirements.txt` gerado para os scripts Python na raiz do repositório (veja abaixo). Use um ambiente virtual Python para instalar as dependências.
+O fluxo principal do projeto (backend Kotlin e frontend Next.js) depende de uma instância ativa do Neo4j.
 
-## Instalação e execução — Frontend (Next.js)
+O backend em Kotlin e o frontend em Next.js são configurados para se conectar a um banco Neo4j local com credenciais específicas. A forma mais simples de configurar isso é usando o Docker.
 
-1. Entre no diretório do frontend:
-
-```bash
-cd curriculum-graph-gen
-```
-
-2. Instale dependências:
+Execute o comando a seguir no seu terminal para iniciar um contêiner Neo4j com as credenciais corretas:
 
 ```bash
-npm install
-# ou
-yarn
-# ou
-pnpm install
+docker run \
+    --name neo4j-tcc \
+    -p 7687:7687 \
+    -p 7474:7474 \
+    -e NEO4J_AUTH="neo4j/Matheus2001" \
+    neo4j:latest
 ```
 
-3. Rode o servidor de desenvolvimento:
+**Você deve manter este contêiner em execução** enquanto utiliza o backend Kotlin e o frontend.
 
+## 2. Instalação e execução — Frontend (Next.js)
 ```bash
-npm run dev
-# ou
-yarn dev
-# ou
-pnpm dev
+git clone [https://github.com/seuusuario/curriculum_graph_generator.git](https://github.com/seuusuario/curriculum_graph_generator.git)
+cd curriculum_graph_generator
 ```
 
-4. Abra no navegador:
+Siga os passos abaixo para rodar os componentes principais (Kotlin e Next.js).
 
-```
-http://localhost:3000
-```
-
-## Scripts Python — instalar dependências
+### Scripts Python — instalar dependências
 
 Recomendo criar e ativar um ambiente virtual antes de instalar as dependências:
 
@@ -72,49 +62,42 @@ Em seguida instale as dependências do arquivo `requirements.txt` (arquivo adici
 pip install -r requirements.txt
 ```
 
-### Principais scripts Python e como usá-los
+### A. Backend: Processador Kotlin (Carregar dados no Neo4j)
 
-- `backend/atualizar_turmas.py` — importa arquivos JSON de turmas (pasta `backend/turmas_20252`) para um banco Neo4j.
+Este componente irá ler os arquivos JSON de currículo localizados em backend/curriculum-graph-processor/src/main/resources/ e popular seu banco Neo4j.
 
-  - Configure as credenciais e URI do Neo4j no topo do arquivo (ou substitua por variáveis de ambiente/localmente). Exemplo de execução:
-
-  ```bash
-  python backend/atualizar_turmas.py
-  ```
-
-  - Observações: o script espera que exista um nó `Course` com `courseId` correspondente às turmas antes de criar as relações `OFFERS`. Se ocorrerem erros de Cypher, verifique se os nós `Course` estão presentes no seu banco.
-
-- `curriculum-graph-gen/src/app/lib/parsers/pdf_parser.py` — parser de PDFs de histórico/currículo. Exemplo de execução:
-
-```bash
-python curriculum-graph-gen/src/app/lib/parsers/pdf_parser.py /caminho/para/arquivo.pdf
-```
-
-- `graph-gen/turmas/download_turmas.py` — realiza requisições ao endpoint SISACAD para baixar arquivos JSON de turmas. Exemplo:
-
-```bash
-python graph-gen/turmas/download_turmas.py
-```
-
-## Executando o backend Kotlin (opcional)
-
-Se você quiser executar o processador Kotlin (quando aplicável):
-
-1. Entre no diretório:
+Navegue até o diretório do backend Kotlin:
 
 ```bash
 cd backend/curriculum-graph-processor
 ```
 
-2. Execute usando o Gradle wrapper:
+Execute o aplicativo usando o Gradle Wrapper. Isso irá compilar o código e executar a lógica de processamento principal:
 
 ```bash
 ./gradlew run
-```
 
-ou para buildar um JAR:
+```
+Ao final da execução, seu banco Neo4j estará populado com os nós (Disciplinas) e relacionamentos (Pré-requisitos).
+
+### B. Frontend: Visualizador Next.js
+
+Este componente se conecta ao banco Neo4j (populado pelo passo anterior) para exibir o grafo.
+
+Em um novo terminal, navegue até o diretório do frontend:
 
 ```bash
-./gradlew build
-java -jar build/libs/*.jar
+cd curriculum-graph-gen
 ```
+Instale as dependências do Node.js:
+
+```bash
+npm install
+```
+Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+
+```
+Abra http://localhost:3000 no seu navegador para visualizar e interagir com o grafo do currículo.

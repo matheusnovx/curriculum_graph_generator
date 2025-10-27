@@ -8,13 +8,11 @@ import java.io.File
 fun main() {
     println("Iniciando o processador de currículos...")
 
-    // Inicializa as dependências
     val parser = GraphParser()
     val driver = Neo4jDriverFactory.driver
     val repository = CurriculumRepository(driver)
 
-    // Caminho para a pasta de recursos onde os JSONs estão
-    val resourcesPath = "/Users/novais/curriculum_graph_generator/backend/curriculum-graph-processor/src/main/resources"
+    val resourcesPath = "backend/curriculum-graph-processor/src/main/resources"
     val debugFilePath: String? = null // Ex: "/caminho/para/seu/arquivo.json"
     val resourcesDirOrFile = debugFilePath?.let { File(it) } ?: File(resourcesPath)
 

@@ -5,7 +5,6 @@ Este repositório contém um conjunto de ferramentas para processar, armazenar e
 1.  **Backend (Kotlin):** Um processador de dados (`backend/curriculum-graph-processor`) que lê arquivos JSON de currículo, analisa as dependências e os carrega em um banco de dados de grafo Neo4j.
 2.  **Banco de Dados (Neo4j):** Atua como a principal fonte de verdade para as disciplinas e seus relacionamentos. É essencial para o funcionamento do backend Kotlin e do frontend Next.js.
 3.  **Frontend (Next.js):** Uma interface web (`curriculum-graph-gen`) que se conecta ao banco Neo4j para buscar os dados do grafo e renderizá-los interativamente usando Reactflow.
-4.  **Backend (Python):** Um gerador de grafos alternativo (`graph-gen`) que utiliza Python e Graphviz para criar visualizações estáticas (arquivos `.svg`) a partir dos arquivos JSON.
 
 ## Requisitos do Sistema
 

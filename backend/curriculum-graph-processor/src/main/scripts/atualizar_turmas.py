@@ -3,16 +3,8 @@ import json
 from neo4j import GraphDatabase
 from neo4j.exceptions import Neo4jError
 
-# -- CONFIGURAÇÕES (Adaptadas para Docker) --
-
-# 1. Lê a URI do ambiente (definida no docker-compose.yml)
-# O padrão é 'bolt://neo4j:7687', que é o endereço do serviço neo4j
 URI = os.getenv("NEO4J_URI", "bolt://neo4j:7687")
 
-# 2. O usuário/senha foram removidos, pois o docker-compose usa NEO4J_AUTH=none
-
-# 3. Caminho absoluto para a pasta de dados DENTRO do contêiner
-# (O 'backend' local é mapeado para '/app' no contêiner)
 PASTA_DADOS = "/app/turmas_20252"
 
 CYPHER_QUERY = """
@@ -82,7 +74,6 @@ class Neo4jImporter:
 
 
 def main():
-    # 2. Passa apenas a URI, sem usuário ou senha
     importer = Neo4jImporter(URI)
     if importer.driver is None:
         return

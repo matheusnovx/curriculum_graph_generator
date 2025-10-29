@@ -23,33 +23,7 @@ git clone [https://github.com/matheusnovx/curriculum_graph_generator.git](https:
 cd curriculum_graph_generator
 ```
 
-### Passo 2: Adicionar os Dados de Turmas
-
-O script de população (`db-populator`) espera encontrar os arquivos JSON de turmas em uma pasta específica.
-
-1.  Dentro da pasta `backend/`, crie um novo diretório chamado `turmas_20252`:
-
-    ```bash
-    mkdir -p backend/turmas_20252
-    ```
-
-2.  **Copie todos os seus arquivos `.json` de turmas** para dentro desta nova pasta.
-
-A estrutura final deve ser:
-
-```
-curriculum_graph_generator/
-├── backend/
-│   ├── turmas_20252/
-│   │   ├── arquivo1.json
-│   │   ├── arquivo2.json
-│   │   └── ...
-│   ├── src/
-│   └── ...
-└── ...
-```
-
-## 3. Como Rodar o Projeto
+## 2. Como Rodar o Projeto
 
 O projeto agora é executado em duas etapas: primeiro, subimos os serviços principais; segundo, rodamos o script para popular o banco de dados.
 
@@ -67,20 +41,37 @@ docker-compose up -d --build
 
 ### Passo 2: Popular o Banco de Dados
 
-Após os serviços estarem rodando (pode levar um minuto para o Neo4j ficar "healthy"), execute o seguinte comando:
-
 ```bash
-docker-compose run --rm db-populator
+docker-compose up -d --build
 ```
 
-* Este comando executa o serviço `db-populator`, que foi definido com o perfil `populate`.
-* Ele irá esperar o Neo4j estar 100% pronto (graças ao `healthcheck`).
-* Em seguida, ele executará o script `Main.kt` (que por sua vez chama o `atualizar_turmas.py`) para ler todos os JSONs da pasta `turmas_20252` e inseri-los no Neo4j.
-* O flag `--rm` remove o contêiner do populador após a conclusão, pois ele é uma tarefa de execução única (one-shot).
+Depois que tudo estiver rodando, você pode usar os seguintes comandos (em um segundo terminal) para popular o banco:
+
+### 1. Para rodar o `Main.kt` (Processador de Currículos via Gradle):
+
+Como você mencionou, este comando define o diretório de trabalho correto (`-w`) antes de executar o Gradle.
+
+```bash
+docker-compose exec -w /app/curriculum-graph-processor backend ./gradlew run
+```
+
+### 2. Para rodar o `atualizar_turmas.py` (Script Python direto):
+
+Este comando executa o interpretador `python3` e passa o caminho absoluto do script dentro do contêiner `backend`.
+
+```bash
+docker-compose exec backend python3 /app/curriculum-graph-processor/src/main/resources/scripts/atualizar_turmas.py
+```
+
+Por segurança rode novamente:
+
+```bash
+docker-compose up -d --build
+```
 
 **Você só precisa executar o Passo 2 uma vez.** Os dados serão salvos permanentemente no volume `neo4j_data`.
 
-## 4. Acessando a Aplicação
+## 3. Acessando a Aplicação
 
 Após os passos acima, a aplicação estará disponível nos seguintes endereços:
 
@@ -88,7 +79,7 @@ Após os passos acima, a aplicação estará disponível nos seguintes endereço
 * 💾 **Banco de Dados (Neo4j Browser)**: `http://localhost:7474`
     * *Nota: A autenticação foi desabilitada (`NEO4J_AUTH=none`). Você pode se conectar sem usuário ou senha.*
 
-## 5. Comandos Úteis
+## 4. Comandos Úteis
 
 ### Parar a Aplicação
 

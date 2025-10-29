@@ -50,24 +50,6 @@ services:
       timeout: 10s
       retries: 10
 
-  db-populator:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    volumes:
-      - ./backend:/app
-      - gradle_cache:/root/.gradle/caches
-    environment:
-      - NEO4J_URI=bolt://neo4j:7687
-    depends_on:
-      neo4j:
-        condition: service_healthy
-    working_dir: /app/curriculum-graph-processor
-    command: ["./gradlew", "run"]
-
-    profiles:
-      - populate
-
 volumes:
   neo4j_data:
   gradle_cache:

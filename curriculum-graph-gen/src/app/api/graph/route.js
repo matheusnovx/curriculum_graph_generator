@@ -25,7 +25,6 @@ async function getDriver() {
 
 // --- API GET Handler ---
 export async function GET(request) {
-  // 1. Extract query parameters from the request URL
   const { searchParams } = new URL(request.url);
   const curriculumId = searchParams.get('id') || '20071'; // Default to 20071 if not provided
   const courseCodeParam = searchParams.get('courseCode') || '208'; // Default to 208 if not provided
@@ -44,7 +43,6 @@ export async function GET(request) {
 
   const session = driver.session();
   try {
-    // 2. Use the parameters in the Cypher query to make it dynamic
     const result = await session.run(`
       // Find the curriculum based on the provided parameters
       MATCH (cur:Curriculum {id: $curriculumId, courseCode: $courseCode})
@@ -109,7 +107,7 @@ export async function GET(request) {
         id: `e-${sourceId}-${targetId}`,
         source: sourceId,
         target: targetId,
-        type: 'smoothstep', // Tipo da linha de relação
+        type: 'smoothstep',
       });
     });
 

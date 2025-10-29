@@ -1,102 +1,121 @@
-# Gerador e Visualizador de Grafo de Currículo
+# Geração de Grafos Curriculares
 
-Este repositório contém um conjunto de ferramentas para processar, armazenar e visualizar grafos de currículos acadêmicos. O projeto é dividido em três componentes principais:
+* **Frontend**: Next.js (React)
+* **Backend (Processamento)**: Ktor (Kotlin) com scripts Python
+* **Banco de Dados**: Neo4j
 
-1.  **Backend (Kotlin):** Um processador de dados (`backend/curriculum-graph-processor`) que lê arquivos JSON de currículo, analisa as dependências e os carrega em um banco de dados de grafo Neo4j.
-2.  **Banco de Dados (Neo4j):** Atua como a principal fonte de verdade para as disciplinas e seus relacionamentos. É essencial para o funcionamento do backend Kotlin e do frontend Next.js.
-3.  **Frontend (Next.js):** Uma interface web (`curriculum-graph-gen`) que se conecta ao banco Neo4j para buscar os dados do grafo e renderizá-los interativamente usando Reactflow.
-
-## Requisitos do Sistema
+## 1. Pré-requisitos
 
 Antes de começar, garanta que você tenha os seguintes softwares instalados:
 
-* Git
-* Docker (Recomendado para o Neo4j)
-* JDK 17 ou superior (para o backend Kotlin)
-* Node.js 16 ou superior (para o frontend Next.js)
-* Python 3.9 ou superior (para o gerador Python)
-* Graphviz (dependência do gerador Python)
+* **Git**: Para clonar o repositório.
+* **Docker e Docker Compose**: Essencial para rodar o ambiente.
+    * *Recomendação (macOS):* [Docker Desktop](https://www.docker.com/products/docker-desktop/) ou [Colima](https://github.com/abiosoft/colima). (É recomendado alocar pelo menos 8GB de RAM para o Docker).
 
----
+## 2. Configuração Inicial (Passo a passo)
 
-## 1. Configuração Obrigatória: Banco de Dados Neo4j
+Este projeto depende de arquivos de dados JSON para popular o banco. Esses arquivos **não estão** no repositório e devem ser adicionados manualmente.
 
-O fluxo principal do projeto (backend Kotlin e frontend Next.js) depende de uma instância ativa do Neo4j.
-
-O backend em Kotlin e o frontend em Next.js são configurados para se conectar a um banco Neo4j local com credenciais específicas. A forma mais simples de configurar isso é usando o Docker.
-
-Execute o comando a seguir no seu terminal para iniciar um contêiner Neo4j com as credenciais corretas:
+### Passo 1: Clonar o Repositório
 
 ```bash
-docker run \
-    --name neo4j-tcc \
-    -p 7687:7687 \
-    -p 7474:7474 \
-    -e NEO4J_AUTH="neo4j/Matheus2001" \
-    neo4j:latest
-```
-
-**Você deve manter este contêiner em execução** enquanto utiliza o backend Kotlin e o frontend.
-
-## 2. Instalação e execução — Frontend (Next.js)
-```bash
-git clone [https://github.com/seuusuario/curriculum_graph_generator.git](https://github.com/seuusuario/curriculum_graph_generator.git)
+git clone [https://github.com/matheusnovx/curriculum_graph_generator.git](https://github.com/matheusnovx/curriculum_graph_generator.git)
 cd curriculum_graph_generator
 ```
 
-Siga os passos abaixo para rodar os componentes principais (Kotlin e Next.js).
+### Passo 2: Adicionar os Dados de Turmas
 
-### Scripts Python — instalar dependências
+O script de população (`db-populator`) espera encontrar os arquivos JSON de turmas em uma pasta específica.
 
-Recomendo criar e ativar um ambiente virtual antes de instalar as dependências:
+1.  Dentro da pasta `backend/`, crie um novo diretório chamado `turmas_20252`:
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
+    ```bash
+    mkdir -p backend/turmas_20252
+    ```
 
-Em seguida instale as dependências do arquivo `requirements.txt` (arquivo adicionado na raiz do repositório):
+2.  **Copie todos os seus arquivos `.json` de turmas** para dentro desta nova pasta.
 
-```bash
-pip install -r requirements.txt
-```
-
-### A. Backend: Processador Kotlin (Carregar dados no Neo4j)
-
-Este componente irá ler os arquivos JSON de currículo localizados em backend/curriculum-graph-processor/src/main/resources/ e popular seu banco Neo4j.
-
-Navegue até o diretório do backend Kotlin:
-
-```bash
-cd backend/curriculum-graph-processor
-```
-
-Execute o aplicativo usando o Gradle Wrapper. Isso irá compilar o código e executar a lógica de processamento principal:
-
-```bash
-./gradlew run
+A estrutura final deve ser:
 
 ```
-Ao final da execução, seu banco Neo4j estará populado com os nós (Disciplinas) e relacionamentos (Pré-requisitos).
+curriculum_graph_generator/
+├── backend/
+│   ├── turmas_20252/
+│   │   ├── arquivo1.json
+│   │   ├── arquivo2.json
+│   │   └── ...
+│   ├── src/
+│   └── ...
+└── ...
+```
 
-### B. Frontend: Visualizador Next.js
+## 3. Como Rodar o Projeto
 
-Este componente se conecta ao banco Neo4j (populado pelo passo anterior) para exibir o grafo.
+O projeto agora é executado em duas etapas: primeiro, subimos os serviços principais; segundo, rodamos o script para popular o banco de dados.
 
-Em um novo terminal, navegue até o diretório do frontend:
+### Passo 1: Iniciar os Serviços Principais
+
+Execute o comando abaixo na raiz do projeto. Isso irá construir as imagens e iniciar os serviços `frontend`, `backend`, e `neo4j`.
 
 ```bash
-cd curriculum-graph-gen
+docker-compose up -d --build
 ```
-Instale as dependências do Node.js:
+
+* O `docker-compose.yml` está configurado com `profiles`, então este comando **NÃO** irá rodar o populador do banco.
+* O serviço `backend` irá iniciar, mas ficará em modo de espera (com `tail -f`).
+* O banco de dados `neo4j` estará **vazio** neste momento.
+
+### Passo 2: Popular o Banco de Dados
+
+Após os serviços estarem rodando (pode levar um minuto para o Neo4j ficar "healthy"), execute o seguinte comando:
 
 ```bash
-npm install
+docker-compose run --rm db-populator
 ```
-Inicie o servidor de desenvolvimento:
+
+* Este comando executa o serviço `db-populator`, que foi definido com o perfil `populate`.
+* Ele irá esperar o Neo4j estar 100% pronto (graças ao `healthcheck`).
+* Em seguida, ele executará o script `Main.kt` (que por sua vez chama o `atualizar_turmas.py`) para ler todos os JSONs da pasta `turmas_20252` e inseri-los no Neo4j.
+* O flag `--rm` remove o contêiner do populador após a conclusão, pois ele é uma tarefa de execução única (one-shot).
+
+**Você só precisa executar o Passo 2 uma vez.** Os dados serão salvos permanentemente no volume `neo4j_data`.
+
+## 4. Acessando a Aplicação
+
+Após os passos acima, a aplicação estará disponível nos seguintes endereços:
+
+* 🌐 **Aplicação Frontend**: `http://localhost:3000`
+* 💾 **Banco de Dados (Neo4j Browser)**: `http://localhost:7474`
+    * *Nota: A autenticação foi desabilitada (`NEO4J_AUTH=none`). Você pode se conectar sem usuário ou senha.*
+
+## 5. Comandos Úteis
+
+### Parar a Aplicação
+
+Para parar todos os contêineres:
 
 ```bash
-npm run dev
-
+docker-compose down
 ```
-Abra http://localhost:3000 no seu navegador para visualizar e interagir com o grafo do currículo.
+
+### Resetar o Banco de Dados
+
+Se você quiser apagar completamente o banco de dados e começar do zero (exigirá rodar o `db-populator` novamente):
+
+```bash
+docker-compose down -v
+```
+
+### Ver os Logs
+
+Para ver os logs de todos os serviços em tempo real:
+
+```bash
+docker-compose logs -f
+```
+
+Para ver os logs de um serviço específico (ex: `frontend`):
+
+```bash
+docker-compose logs -f frontend
+```

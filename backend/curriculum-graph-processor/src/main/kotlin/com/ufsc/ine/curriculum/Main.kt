@@ -12,7 +12,7 @@ fun main() {
     val driver = Neo4jDriverFactory.driver
     val repository = CurriculumRepository(driver)
 
-    val resourcesPath = "backend/curriculum-graph-processor/src/main/resources"
+    val resourcesPath = "src/main/resources"
     val debugFilePath: String? = null // Ex: "/caminho/para/seu/arquivo.json"
     val resourcesDirOrFile = debugFilePath?.let { File(it) } ?: File(resourcesPath)
 

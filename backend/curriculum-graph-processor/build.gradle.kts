@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.2.0"
+    id("application") // <-- ADICIONADO: Informa ao Gradle que este é um app executável
 }
 
 group = "com.ufsc.ine.curriculum"
@@ -18,6 +19,13 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+// <-- ADICIONADO: Define qual classe o 'run' deve executar
+application {
+    // Assumindo que seu arquivo principal é o 'Main.kt'
+    mainClass.set("com.ufsc.ine.curriculum.MainKt")
+}
+
 kotlin {
     jvmToolchain(17)
 }

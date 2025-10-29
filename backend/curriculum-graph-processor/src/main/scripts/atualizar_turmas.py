@@ -3,11 +3,17 @@ import json
 from neo4j import GraphDatabase
 from neo4j.exceptions import Neo4jError
 
-# -- CONFIGURAÇÕES --
-URI = "neo4j://localhost:7687"
-USER = "neo4j"
-PASSWORD = "Matheus2001"
-PASTA_DADOS = "backend/turmas_20252"
+# -- CONFIGURAÇÕES (Adaptadas para Docker) --
+
+# 1. Lê a URI do ambiente (definida no docker-compose.yml)
+# O padrão é 'bolt://neo4j:7687', que é o endereço do serviço neo4j
+URI = os.getenv("NEO4J_URI", "bolt://neo4j:7687")
+
+# 2. O usuário/senha foram removidos, pois o docker-compose usa NEO4J_AUTH=none
+
+# 3. Caminho absoluto para a pasta de dados DENTRO do contêiner
+# (O 'backend' local é mapeado para '/app' no contêiner)
+PASTA_DADOS = "/app/turmas_20252"
 
 CYPHER_QUERY = """
 MATCH (c:Course {courseId: $props.codigo_disciplina})
@@ -22,9 +28,10 @@ MERGE (c)-[:OFFERS]->(t)
 """
 
 class Neo4jImporter:
-    def __init__(self, uri, user, password):
+    def __init__(self, uri):
         try:
-            self.driver = GraphDatabase.driver(uri, auth=(user, password))
+            # 2. Conecta usando auth=None
+            self.driver = GraphDatabase.driver(uri, auth=None)
             self.driver.verify_connectivity()
             print("Conexão com o Neo4j estabelecida com sucesso!")
         except Exception as e:
@@ -75,7 +82,8 @@ class Neo4jImporter:
 
 
 def main():
-    importer = Neo4jImporter(URI, USER, PASSWORD)
+    # 2. Passa apenas a URI, sem usuário ou senha
+    importer = Neo4jImporter(URI)
     if importer.driver is None:
         return
 

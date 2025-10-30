@@ -41,10 +41,6 @@ docker-compose up -d --build
 
 ### Passo 2: Popular o Banco de Dados
 
-```bash
-docker-compose up -d --build
-```
-
 Depois que tudo estiver rodando, você pode usar os seguintes comandos (em um segundo terminal) para popular o banco:
 
 ### 1. Para rodar o `Main.kt` (Processador de Currículos via Gradle):
@@ -60,7 +56,7 @@ docker-compose exec -w /app/curriculum-graph-processor backend ./gradlew run
 Este comando executa o interpretador `python3` e passa o caminho absoluto do script dentro do contêiner `backend`.
 
 ```bash
-docker-compose exec backend python3 /app/curriculum-graph-processor/src/main/resources/scripts/atualizar_turmas.py
+docker-compose exec backend python3 /app/curriculum-graph-processor/src/main/scripts/atualizar_turmas.py
 ```
 
 Por segurança rode novamente:

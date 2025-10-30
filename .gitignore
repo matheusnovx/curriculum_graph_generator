@@ -80,7 +80,6 @@ build/
 
 # Outros arquivos temporários
 *.class
-*.jar
 *.war
 *.ear
 

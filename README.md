@@ -14,8 +14,6 @@ Antes de começar, garanta que você tenha os seguintes softwares instalados:
 
 ## 2. Configuração Inicial (Passo a passo)
 
-Este projeto depende de arquivos de dados JSON para popular o banco. Esses arquivos **não estão** no repositório e devem ser adicionados manualmente.
-
 ### Passo 1: Clonar o Repositório
 
 ```bash
@@ -44,8 +42,6 @@ docker-compose up -d --build
 Depois que tudo estiver rodando, você pode usar os seguintes comandos (em um segundo terminal) para popular o banco:
 
 ### 1. Para rodar o `Main.kt` (Processador de Currículos via Gradle):
-
-Como você mencionou, este comando define o diretório de trabalho correto (`-w`) antes de executar o Gradle.
 
 ```bash
 docker-compose exec -w /app/curriculum-graph-processor backend ./gradlew run
@@ -87,11 +83,11 @@ docker-compose down
 
 ### Resetar o Banco de Dados
 
-Se você quiser apagar completamente o banco de dados e começar do zero (exigirá rodar o `db-populator` novamente):
-
 ```bash
 docker-compose down -v
 ```
+
+Execute o **Passo 2** novamente para repopular o banco.
 
 ### Ver os Logs
 

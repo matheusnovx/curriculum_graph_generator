@@ -4,7 +4,6 @@ import React from 'react';
 import { Handle, Position } from 'reactflow';
 
 function CourseNode({ data, isConnectable }) {
-  // Base style
   const baseStyle = {
     borderRadius: '4px',
     padding: '10px',
@@ -17,8 +16,8 @@ function CourseNode({ data, isConnectable }) {
 
   const codeBoxStyle = {
     position: 'absolute',
-    top: '-18px',      // Moves the box up, outside the parent's boundary
-    left: '4px',      // Positions it from the left
+    top: '-18px',
+    left: '4px',
     backgroundColor: '#555',
     borderRadius: '8px',
     padding: '4px 12px',
@@ -28,23 +27,20 @@ function CourseNode({ data, isConnectable }) {
 
   const equivalenceBoxStyle = {
     position: 'absolute',
-    top: '-14px',      // Moves the box up, outside the parent's boundary
-    right: '-10px',      // Positions it from the right
+    top: '-14px',
+    right: '-10px',
     backgroundColor: '#555',
     borderRadius: '8px',
     padding: '4px 12px',
     fontSize: '0.7em',
   };
 
-  // Determine which style to use based on node properties
   let style = { ...baseStyle };
   
-  // Apply custom style first (for course status)
   if (data.style) {
     style = { ...style, ...data.style };
   }
   
-  // Highlighting takes precedence
   if (data.isHighlighted) {
     style = {
       ...style,
@@ -53,7 +49,6 @@ function CourseNode({ data, isConnectable }) {
     };
   }
   
-  // Selection takes precedence over highlighting
   if (data.isSelected) {
     style = {
       ...style,

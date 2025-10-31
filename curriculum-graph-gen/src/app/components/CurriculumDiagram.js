@@ -44,7 +44,6 @@ export default function CurriculumDiagram({
   legendPanel,
   tipPanel
 }) {
-  // Add state for panel visibility
   const [showLegendPanel, setShowLegendPanel] = useState(true);
   const [showTipPanel, setShowTipPanel] = useState(true);
   
@@ -57,26 +56,21 @@ export default function CurriculumDiagram({
   const [selectedNodeInfo, setSelectedNodeInfo] = useState(null);
   const [showNodeInfo, setShowNodeInfo] = useState(false);
 
-  // Add a new state to track which type of highlighting is active
-  const [activeHighlightType, setActiveHighlightType] = useState(null); // 'prerequisites' or 'postrequisites' or null
+  const [activeHighlightType, setActiveHighlightType] = useState(null);
 
-  // Create a map of course statuses from student progress data
   const courseStatusMap = React.useMemo(() => {
     if (!studentProgress) return {};
     
     const statusMap = {};
     
-    // Map for completed courses
     studentProgress.cursadas.forEach(course => {
       statusMap[course.codigo] = { status: 'completed' };
     });
     
-    // Map for in-progress courses
     studentProgress.andamento.forEach(course => {
       statusMap[course.codigo] = { status: 'in_progress' };
     });
     
-    // Map for courses completed by equivalence
     studentProgress.dispensadas.forEach(course => {
       statusMap[course.codigo] = { 
         status: 'completed',
@@ -87,7 +81,6 @@ export default function CurriculumDiagram({
     return statusMap;
   }, [studentProgress]);
 
-  // Load graph data
   useEffect(() => {
     if (!curriculumId || !courseCode) return;
 
@@ -104,7 +97,6 @@ export default function CurriculumDiagram({
         
         const data = await response.json();
         
-        // Aplicar layout automático
         const layoutedNodes = organizeGraphLayout(data.nodes || [], data.edges || []);
         setNodes(layoutedNodes);
         
@@ -144,16 +136,13 @@ export default function CurriculumDiagram({
     setSelectedNodeId(node.id);
   }, []);
 
-  // Highlight paths
   const handlePathHighlighting = useCallback(async (node) => {
-    // If this highlighting type is already active, clear it
     if (activeHighlightType === 'postrequisites') {
       setHighlightedIds(new Set());
       setActiveHighlightType(null);
       return;
     }
     
-    // Clear any existing highlights from other types
     setHighlightedIds(new Set());
     
     setError(null);
@@ -175,16 +164,13 @@ export default function CurriculumDiagram({
     }
   }, [curriculumId, courseCode, activeHighlightType]);
 
-  // Método para destacar pré-requisitos
   const handlePrerequisitesHighlighting = useCallback(async (node) => {
-    // If this highlighting type is already active, clear it
     if (activeHighlightType === 'prerequisites') {
       setHighlightedIds(new Set());
       setActiveHighlightType(null);
       return;
     }
     
-    // Clear any existing highlights from other types
     setHighlightedIds(new Set());
     
     setError(null);
@@ -206,22 +192,18 @@ export default function CurriculumDiagram({
     }
   }, [curriculumId, courseCode, activeHighlightType]);
 
-  // Add debounce to double click as well
   const onNodeDoubleClick = useCallback((event, node) => {
     // Prevent the single click from also triggering
     event.preventDefault();
     event.stopPropagation();
     
-    // Prevent multiple rapid clicks
     if (isProcessingClick.current) return;
     isProcessingClick.current = true;
     
-    // If we already have both types highlighted, clear them
     if (activeHighlightType === 'both') {
       setHighlightedIds(new Set());
       setActiveHighlightType(null);
       
-      // Reset the processing flag after a short delay
       clearTimeout(clickTimeoutRef.current);
       clickTimeoutRef.current = setTimeout(() => {
         isProcessingClick.current = false;
@@ -229,11 +211,9 @@ export default function CurriculumDiagram({
       return;
     }
     
-    // Clear any existing highlights
     setHighlightedIds(new Set());
     setError(null);
     
-    // Fetch both prerequisite and post-requisite paths
     const fetchBothPaths = async () => {
       try {
         const preReqUrl = `/api/graph/prerequisites/${node.id}?curriculumId=${curriculumId}&courseCode=${courseCode}`;
@@ -251,7 +231,6 @@ export default function CurriculumDiagram({
         const preReqData = await preReqResponse.json();
         const postReqData = await postReqResponse.json();
         
-        // Combine both sets of IDs
         const combinedIds = new Set([
           ...preReqData.highlightedIds,
           ...postReqData.highlightedIds
@@ -260,7 +239,6 @@ export default function CurriculumDiagram({
         setHighlightedIds(combinedIds);
         setActiveHighlightType('both');
         
-        // Make sure this node is selected to show its info panel
         if (selectedNodeId !== node.id) {
           setSelectedNodeInfo({
             id: node.id,
@@ -280,7 +258,6 @@ export default function CurriculumDiagram({
         console.error("Failed to fetch course relationships:", err);
         setError(`Failed to fetch course relationships: ${err.message}`);
       } finally {
-        // Reset the processing flag after processing is complete
         clearTimeout(clickTimeoutRef.current);
         clickTimeoutRef.current = setTimeout(() => {
           isProcessingClick.current = false;
@@ -288,34 +265,27 @@ export default function CurriculumDiagram({
       }
     };
     
-    // Execute the async function
     fetchBothPaths();
     
   }, [curriculumId, courseCode, activeHighlightType, selectedNodeId]);
 
-  // Handle node click with debounce
   const onNodeClick = useCallback((event, node) => {
-    // Prevent multiple rapid clicks
     if (isProcessingClick.current) return;
     
     isProcessingClick.current = true;
     
-    // If the node already is selected, toggle between showing path and hiding
     if (selectedNodeId === node.id) {
       handlePathHighlighting(node);
     } else {
-      // If a new node was selected, show its information
       handleNodeSelection(event, node);
     }
     
-    // Reset the processing flag after a short delay
     clearTimeout(clickTimeoutRef.current);
     clickTimeoutRef.current = setTimeout(() => {
       isProcessingClick.current = false;
     }, 300); // 300ms debounce
   }, [selectedNodeId, handlePathHighlighting, handleNodeSelection]);
 
-  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (clickTimeoutRef.current) {
@@ -324,7 +294,6 @@ export default function CurriculumDiagram({
     };
   }, []);
 
-  // Close info panel
   const closeInfo = useCallback(() => {
     setShowNodeInfo(false);
     setSelectedNodeId(null);
@@ -588,6 +557,5 @@ export default function CurriculumDiagram({
   );
 }
 
-// Exportar também o objeto de progresso
 export { CurriculumDiagram };
 
